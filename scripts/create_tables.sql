@@ -2,7 +2,6 @@
 /*rjhale                            */ 
 /*20200924                          */
 
-create schema forms; 
 create schema tn911; 
 
 create table tn911.address_points ( 
