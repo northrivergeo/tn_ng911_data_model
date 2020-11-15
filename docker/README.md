@@ -18,5 +18,5 @@ Example:
 Run Docker: 
 
 
-	docker run --name=postgis -d -e POSTGRES_USER=er -e POSTGRES_PASS=password -e POSTGRES_DBNAME=tndemo -e ALLOW_IP_RANGE=0.0.0.0/0 -p 5432:5432 -v pg_data:/var/lib/postgresql/ kartoza/postgis:13.0
+	docker run --name=postgis -d -e POSTGRES_USER=user -e POSTGRES_PASS=password -e POSTGRES_DBNAME=tndemo -e ALLOW_IP_RANGE=0.0.0.0/0 -p 5432:5432 -v pg_data:/var/lib/postgresql/ kartoza/postgis:13.0
 
