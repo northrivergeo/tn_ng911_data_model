@@ -449,3 +449,16 @@ insert into forms.unit_type_tbl (description, unit_type) values ('UPPER', 'UPPR'
 insert into forms.unit_type_tbl (description, unit_type) values ('GARAGE', 'GAR'); 
 insert into forms.unit_type_tbl (description, unit_type) values ('OTHER', 'OTH'); 
 
+/* Create Source  Table */
+create table forms.source_tbl ( 
+	id serial primary key, 
+	source integer,
+	description(24)
+        ); 
+
+insert into forms.source_tbl (source, description) values (1, 'Parcel Centroid'); 
+insert into forms.source_tbl (source, description) values (2, 'Driveway Entrance'); 
+insert into forms.source_tbl (source, description) values (3, 'Structure Centroid'); 
+insert into forms.source_tbl (source, description) values (4, 'Main entrace'); 
+insert into forms.source_tbl (source, description) values (5, 'Frontage Centroid'); 
+insert into forms.source_tbl (source, description) values (0, 'Undefined'); 
