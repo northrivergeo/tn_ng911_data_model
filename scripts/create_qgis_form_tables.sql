@@ -462,3 +462,11 @@ insert into forms.source_tbl (source, description) values (3, 'Structure Centroi
 insert into forms.source_tbl (source, description) values (4, 'Main entrace'); 
 insert into forms.source_tbl (source, description) values (5, 'Frontage Centroid'); 
 insert into forms.source_tbl (source, description) values (0, 'Undefined'); 
+
+/* Create Lufecycle Status Table */
+
+create table forms.lifecyclestatus_tbl ( 
+	id serial primary key, 
+	status integer,
+	description(24)
+        ); 
