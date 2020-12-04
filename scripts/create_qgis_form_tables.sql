@@ -566,4 +566,33 @@ insert into forms.cfcc_tbl (cfcc, description) values ('A72', 'A72-Stairway, ste
 insert into forms.cfcc_tbl (cfcc, description) values ('A73', 'A73-Alley, road for service vehicles, usually unnamed, located at the rear of buildings and property');
 insert into forms.cfcc_tbl (cfcc, description) values ('A74', 'A74-Driveway or service road, usually privately owned and unnamed, used as access to residences, etc., or as access to logging areas, etc.');
 
+/* Lanes */ 
 
+create table forms.lanes_tbl ( 
+	id serial primary key, 
+	lanes integer
+        ); 
+
+insert into forms.lanes_tbl (lanes) values (1); 
+insert into forms.lanes_tbl (lanes) values (2); 
+insert into forms.lanes_tbl (lanes) values (3); 
+insert into forms.lanes_tbl (lanes) values (4); 
+insert into forms.lanes_tbl (lanes) values (5); 
+insert into forms.lanes_tbl (lanes) values (6); 
+insert into forms.lanes_tbl (lanes) values (7); 
+insert into forms.lanes_tbl (lanes) values (8); 
+insert into forms.lanes_tbl (lanes) values (9); 
+insert into forms.lanes_tbl (lanes) values (10); 
+insert into forms.lanes_tbl (lanes) values (11); 
+insert into forms.lanes_tbl (lanes) values (12); 
+insert into forms.lanes_tbl (lanes) values (13); 
+
+
+create table forms.oneway_tbl ( 
+	id serial primary key, 
+	oneway char(3),
+	description char(50)
+        ); 
+
+insert into forms.oneway (oneway, description) values ('TF', 'One Way is To-From Node Direction'); 
+insert into forms.oneway (oneway, description) values ('TF', 'One Way is From-To Node Direction'); 
