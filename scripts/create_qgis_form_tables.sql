@@ -200,7 +200,7 @@ insert into forms.structype_tbl (structype, strucfk, description) values (9000, 
 insert into forms.structype_tbl (structype, strucfk, description) values (9001, 9000, 'Vacant'); 
 insert into forms.structype_tbl (structype, strucfk, description) values (9002, 9000, 'Unknown'); 
 
-/*qgis street type*/ 
+/* C1 Street Suffix Abbreviations */
 
 create table forms.type_tbl ( 
 	id serial primary key,
@@ -453,7 +453,7 @@ insert into forms.unit_type_tbl (description, unit_type) values ('OTHER', 'OTH')
 create table forms.source_tbl ( 
 	id serial primary key, 
 	source integer,
-	description(24)
+	description char(24)
         ); 
 
 insert into forms.source_tbl (source, description) values (1, 'Parcel Centroid'); 
@@ -463,10 +463,107 @@ insert into forms.source_tbl (source, description) values (4, 'Main entrace');
 insert into forms.source_tbl (source, description) values (5, 'Frontage Centroid'); 
 insert into forms.source_tbl (source, description) values (0, 'Undefined'); 
 
-/* Create Lufecycle Status Table */
+/* Create Lifecycle Status Table */
 
 create table forms.lifecyclestatus_tbl ( 
 	id serial primary key, 
 	status integer,
-	description(24)
+	description char(24)
         ); 
+
+insert into forms.lifecyclestatus_tbl (status, description) values (730, 'ACTIVE'); 
+insert into forms.lifecyclestatus_tbl (status, description) values (734, 'PROPOSED'); 
+insert into forms.lifecyclestatus_tbl (status, description) values (736, 'POTENTIAL'); 
+insert into forms.lifecyclestatus_tbl (status, description) values (799, 'RETIRED'); 
+
+/* Create a addr_type */
+
+create table forms.addrtype_tbl ( 
+	id serial primary key, 
+	type char(2),
+	description char(24)
+        ); 
+
+insert into forms.addrtype_tbl (type, description) values ('P', 'Potential'); 
+insert into forms.addrtype_tbl (type, description) values ('A', 'Actual'); 
+
+/* Nametype */ 
+
+create table forms.nametype_tbl ( 
+	id serial primary key, 
+	type integer,
+	description char(50)
+        ); 
+
+insert into forms.nametype_tbl (type, description) values (1, 'Signed Name'); 
+insert into forms.nametype_tbl (type, description) values (2, 'Long Haul Name - State Wide'); 
+insert into forms.nametype_tbl (type, description) values (3, 'Long Haul Name - County Wide'); 
+insert into forms.nametype_tbl (type, description) values (4, 'Long Haul Name - City Wide'); 
+insert into forms.nametype_tbl (type, description) values (5, 'Postal Name'); 
+insert into forms.nametype_tbl (type, description) values (6, 'MSAG Name'); 
+insert into forms.nametype_tbl (type, description) values (7, 'Inventory Name'); 
+
+/* CFCC Table */
+
+create table forms.cfcc_tbl ( 
+	id serial primary key, 
+	cfcc char(3),
+	description char(150)
+        ); 
+
+insert into forms.cfcc_tbl (cfcc, description) values ('A10', 'Road, major and minor categories unknown');
+insert into forms.cfcc_tbl (cfcc, description) values ('A11', 'Primary road with limited access or interstate highway, unseparated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A12', 'Primary road with limited access or interstate highway, unseparated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A13', 'Primary road with limited access or interstate highway, unseparated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A14', 'Primary road with limited access or interstate highway, unseparated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A15', 'Primary road with limited access or interstate highway, separated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A16', 'Primary road with limited access or interstate highway, separated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A17', 'Primary road with limited access or interstate highway, separated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A18', 'Primary road with limited access or interstate highway, separated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A19', 'Primary road with limited access or interstate highway, bridge');
+insert into forms.cfcc_tbl (cfcc, description) values ('A21', 'Primary road without limited access, U.S. and State highways, unseparated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A22', 'Primary road without limited access, U.S. and State highways, unseparated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A23', 'Primary road without limited access, U.S. and State highways, unseparated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A24', 'Primary road without limited access, U.S. and State highways, unseparated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A25', 'Primary road without limited access, U.S. and State highways, separated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A26', 'Primary road without limited access, U.S. and State highways, separated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A27', 'Primary road without limited access, U.S. and State highways, separated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A28', 'Primary road without limited access, U.S. and State highways, separated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A29', 'Primary road without limited access, US highways, bridge');
+insert into forms.cfcc_tbl (cfcc, description) values ('A31', 'Secondary and connecting road, State and county highways, unseparated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A32', 'Secondary and connecting road, State and county highways, unseparated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A33', 'Secondary and connecting road, State and county highways, unseparated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A34', 'Secondary and connecting road, State and county highways, unseparated, with rail lin in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A35', 'Secondary and connecting road, State and county highways, separated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A36', 'Secondary and connecting road, State and county highways, separated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A37', 'Secondary and connecting road, State and county highways, separated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A38', 'Secondary and connecting road, State and county highway, separated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A39', 'Secondary and connecting road, state and county highways, bridge');
+insert into forms.cfcc_tbl (cfcc, description) values ('A41', 'Local, neighborhood, and rural road, city street, unseparated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A42', 'Local, neighborhood, and rural road, city street, unseparated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A43', 'Local, neighborhood, and rural road, city street, unseparated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A44', 'Local, neighborhood, and rural road, city street, unseparated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A45', 'Local, neighborhood, and rural road, city street, separated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A46', 'Local, neighborhood, and rural road, city street, separated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A47', 'Local, neighborhood, and rural road, city street, separated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A48', 'Local, neighborhood, and rural road, city street, separated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A49', 'Local, neighborhood, and rural road, city street, bridge');
+insert into forms.cfcc_tbl (cfcc, description) values ('A50', 'Vehicular trail, road passable only by four-wheel drive (4WD) vehicle, major category');
+insert into forms.cfcc_tbl (cfcc, description) values ('A51', 'Vehicular trail, road passable only by 4WD vehicle, unseparated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A52', 'Vehicular trail, road passable only by 4WD vehicle, unseparated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A53', 'Vehicular trail, road passable only by 4WD vehicle, unseparated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A60', 'Special road feature, major category used when the minor category could not be determined');
+insert into forms.cfcc_tbl (cfcc, description) values ('A61', 'Cul-de-sac, the closed end of a road that forms a loop or turn around');
+insert into forms.cfcc_tbl (cfcc, description) values ('A62', 'Traffic circle, the portion of a road or intersection of roads that form a roundabout');
+insert into forms.cfcc_tbl (cfcc, description) values ('A63', 'Access ramp, the portion of a road that forms a cloverleaf or limited access interchange');
+insert into forms.cfcc_tbl (cfcc, description) values ('A64', 'Service drive, road that provides access to businesses, facilities, and rest areas along limited-access highway');
+insert into forms.cfcc_tbl (cfcc, description) values ('A65', 'Ferry crossing, the representation of a route over water that connects roads on opposite shores');
+insert into forms.cfcc_tbl (cfcc, description) values ('A66', 'Gated barrier to travel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A67', 'Toll booth barrier to travel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A70', 'Other thoroughfare, major category used when the minor category could not be determined');
+insert into forms.cfcc_tbl (cfcc, description) values ('A71', 'Walkway, nearly level road for pedestrians, usually unnamed');
+insert into forms.cfcc_tbl (cfcc, description) values ('A72', 'Stairway, stepped road for pedestrians, usually unnamed');
+insert into forms.cfcc_tbl (cfcc, description) values ('A73', 'Alley, road for service vehicles, usually unnamed, located at the rear of buildings and property');
+insert into forms.cfcc_tbl (cfcc, description) values ('A74', 'Driveway or service road, usually privately owned and unnamed, used as access to residences, etc., or as access to logging areas, etc.');
+
+
