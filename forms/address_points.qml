@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.16.0-Hannover" styleCategories="Forms">
+<qgis version="3.17.0-Master" styleCategories="Forms">
   <fieldConfiguration>
     <field name="id">
       <editWidget type="TextEdit">
@@ -69,12 +69,33 @@
             <Option value="&quot;description&quot;" type="QString" name="Description"/>
             <Option value="&quot;strucfk&quot; = current_value('strucdomain')" type="QString" name="FilterExpression"/>
             <Option value="structype" type="QString" name="Key"/>
-            <Option value="structype_tbl_d89c48f2_59f0_4127_ba77_1474f320d3d1" type="QString" name="Layer"/>
+            <Option value="structype_tbl_b8deba75_99d5_41cb_be35_483ce3559302" type="QString" name="Layer"/>
             <Option value="structype_tbl" type="QString" name="LayerName"/>
             <Option value="postgres" type="QString" name="LayerProviderName"/>
             <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;structype_tbl&quot;" type="QString" name="LayerSource"/>
             <Option value="1" type="int" name="NofColumns"/>
             <Option value="true" type="bool" name="OrderByValue"/>
+            <Option value="false" type="bool" name="UseCompleter"/>
+            <Option value="description" type="QString" name="Value"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="strucdomain">
+      <editWidget type="ValueRelation">
+        <config>
+          <Option type="Map">
+            <Option value="false" type="bool" name="AllowMulti"/>
+            <Option value="false" type="bool" name="AllowNull"/>
+            <Option value="&quot;description&quot;" type="QString" name="Description"/>
+            <Option value="" type="QString" name="FilterExpression"/>
+            <Option value="strucdomain" type="QString" name="Key"/>
+            <Option value="strucdomain_tbl_c3a8261c_ec35_43d8_a209_ce859f935e65" type="QString" name="Layer"/>
+            <Option value="strucdomain_tbl" type="QString" name="LayerName"/>
+            <Option value="postgres" type="QString" name="LayerProviderName"/>
+            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;strucdomain_tbl&quot;" type="QString" name="LayerSource"/>
+            <Option value="1" type="int" name="NofColumns"/>
+            <Option value="false" type="bool" name="OrderByValue"/>
             <Option value="false" type="bool" name="UseCompleter"/>
             <Option value="description" type="QString" name="Value"/>
           </Option>
@@ -182,7 +203,7 @@
             <Option value="&quot;description&quot;" type="QString" name="Description"/>
             <Option value="" type="QString" name="FilterExpression"/>
             <Option value="predir" type="QString" name="Key"/>
-            <Option value="predir_tbl_e75a42c1_a8b8_4ec4_acae_5abbccb95829" type="QString" name="Layer"/>
+            <Option value="predir_tbl_9b783f8e_6d90_4479_8dc8_d3241e249a57" type="QString" name="Layer"/>
             <Option value="predir_tbl" type="QString" name="LayerName"/>
             <Option value="postgres" type="QString" name="LayerProviderName"/>
             <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;predir_tbl&quot;" type="QString" name="LayerSource"/>
@@ -203,7 +224,7 @@
             <Option value="&quot;description&quot;" type="QString" name="Description"/>
             <Option value="" type="QString" name="FilterExpression"/>
             <Option value="predir" type="QString" name="Key"/>
-            <Option value="predir_tbl_e75a42c1_a8b8_4ec4_acae_5abbccb95829" type="QString" name="Layer"/>
+            <Option value="predir_tbl_9b783f8e_6d90_4479_8dc8_d3241e249a57" type="QString" name="Layer"/>
             <Option value="predir_tbl" type="QString" name="LayerName"/>
             <Option value="postgres" type="QString" name="LayerProviderName"/>
             <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;predir_tbl&quot;" type="QString" name="LayerSource"/>
@@ -218,7 +239,10 @@
     <field name="name">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option value="false" type="bool" name="IsMultiline"/>
+            <Option value="false" type="bool" name="UseHtml"/>
+          </Option>
         </config>
       </editWidget>
     </field>
@@ -231,7 +255,7 @@
             <Option value="&quot;description&quot;" type="QString" name="Description"/>
             <Option value="" type="QString" name="FilterExpression"/>
             <Option value="type" type="QString" name="Key"/>
-            <Option value="type_tbl_4b396258_4785_4912_bef7_e447d536ba93" type="QString" name="Layer"/>
+            <Option value="type_tbl_28802f1b_8122_49d6_99d9_1b0f8bc4b89a" type="QString" name="Layer"/>
             <Option value="type_tbl" type="QString" name="LayerName"/>
             <Option value="postgres" type="QString" name="LayerProviderName"/>
             <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;type_tbl&quot;" type="QString" name="LayerSource"/>
@@ -252,7 +276,7 @@
             <Option value="&quot;description&quot;" type="QString" name="Description"/>
             <Option value="" type="QString" name="FilterExpression"/>
             <Option value="predir" type="QString" name="Key"/>
-            <Option value="predir_tbl_e75a42c1_a8b8_4ec4_acae_5abbccb95829" type="QString" name="Layer"/>
+            <Option value="predir_tbl_9b783f8e_6d90_4479_8dc8_d3241e249a57" type="QString" name="Layer"/>
             <Option value="predir_tbl" type="QString" name="LayerName"/>
             <Option value="postgres" type="QString" name="LayerProviderName"/>
             <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;predir_tbl&quot;" type="QString" name="LayerSource"/>
@@ -265,7 +289,7 @@
       </editWidget>
     </field>
     <field name="postmod">
-      <editWidget type="TextEdit">
+      <editWidget type="Hidden">
         <config>
           <Option/>
         </config>
@@ -408,9 +432,23 @@
       </editWidget>
     </field>
     <field name="source">
-      <editWidget type="Range">
+      <editWidget type="ValueRelation">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option value="false" type="bool" name="AllowMulti"/>
+            <Option value="false" type="bool" name="AllowNull"/>
+            <Option value="" type="QString" name="Description"/>
+            <Option value="" type="QString" name="FilterExpression"/>
+            <Option value="source" type="QString" name="Key"/>
+            <Option value="source_tbl_88ce3ab4_5dc8_4a18_b93f_420a9067ae85" type="QString" name="Layer"/>
+            <Option value="source_tbl" type="QString" name="LayerName"/>
+            <Option value="postgres" type="QString" name="LayerProviderName"/>
+            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;source_tbl&quot;" type="QString" name="LayerSource"/>
+            <Option value="1" type="int" name="NofColumns"/>
+            <Option value="false" type="bool" name="OrderByValue"/>
+            <Option value="false" type="bool" name="UseCompleter"/>
+            <Option value="description" type="QString" name="Value"/>
+          </Option>
         </config>
       </editWidget>
     </field>
@@ -464,9 +502,23 @@
       </editWidget>
     </field>
     <field name="status">
-      <editWidget type="Range">
+      <editWidget type="ValueRelation">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option value="false" type="bool" name="AllowMulti"/>
+            <Option value="false" type="bool" name="AllowNull"/>
+            <Option value="" type="QString" name="Description"/>
+            <Option value="" type="QString" name="FilterExpression"/>
+            <Option value="status" type="QString" name="Key"/>
+            <Option value="lifecyclestatus_tbl_c9372342_3c78_45fe_96a7_462e37587c06" type="QString" name="Layer"/>
+            <Option value="lifecyclestatus_tbl" type="QString" name="LayerName"/>
+            <Option value="postgres" type="QString" name="LayerProviderName"/>
+            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;lifecyclestatus_tbl&quot;" type="QString" name="LayerSource"/>
+            <Option value="1" type="int" name="NofColumns"/>
+            <Option value="false" type="bool" name="OrderByValue"/>
+            <Option value="false" type="bool" name="UseCompleter"/>
+            <Option value="description" type="QString" name="Value"/>
+          </Option>
         </config>
       </editWidget>
     </field>
@@ -476,27 +528,6 @@
           <Option type="Map">
             <Option value="false" type="bool" name="IsMultiline"/>
             <Option value="false" type="bool" name="UseHtml"/>
-          </Option>
-        </config>
-      </editWidget>
-    </field>
-    <field name="strucdomain">
-      <editWidget type="ValueRelation">
-        <config>
-          <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="&quot;description&quot;" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="strucdomain" type="QString" name="Key"/>
-            <Option value="strucdomain_tbl_fb87493f_f136_4acf_80f2_ee09f9b453d4" type="QString" name="Layer"/>
-            <Option value="strucdomain_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;strucdomain_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="false" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
           </Option>
         </config>
       </editWidget>
@@ -526,115 +557,115 @@ def my_form_open(dialog, layer, feature):
   <featformsuppress>0</featformsuppress>
   <editorlayout>generatedlayout</editorlayout>
   <attributeEditorForm>
-    <attributeEditorField index="16" showLabel="1" name="predir"/>
-    <attributeEditorField index="50" showLabel="1" name="strucdomain"/>
-    <attributeEditorField index="6" showLabel="1" name="structype"/>
+    <attributeEditorField index="17" name="predir" showLabel="1"/>
+    <attributeEditorField index="7" name="strucdomain" showLabel="1"/>
+    <attributeEditorField index="6" name="structype" showLabel="1"/>
   </attributeEditorForm>
   <editable>
-    <field editable="1" name="a_segid"/>
-    <field editable="1" name="addr_esn"/>
-    <field editable="1" name="addrauth"/>
-    <field editable="1" name="address"/>
-    <field editable="1" name="attdate"/>
-    <field editable="1" name="attmod"/>
-    <field editable="1" name="attsrce"/>
-    <field editable="1" name="building"/>
-    <field editable="1" name="city"/>
-    <field editable="1" name="county"/>
-    <field editable="1" name="delnotes"/>
-    <field editable="1" name="editor"/>
-    <field editable="1" name="esn"/>
-    <field editable="1" name="floor"/>
-    <field editable="1" name="geodate"/>
-    <field editable="1" name="geomod"/>
-    <field editable="1" name="geosrce"/>
-    <field editable="1" name="gislink"/>
-    <field editable="1" name="gpsdate"/>
-    <field editable="1" name="id"/>
-    <field editable="1" name="label"/>
-    <field editable="1" name="lat"/>
-    <field editable="1" name="long"/>
-    <field editable="1" name="name"/>
-    <field editable="1" name="oirid"/>
-    <field editable="1" name="postmod"/>
-    <field editable="1" name="predir"/>
-    <field editable="1" name="pretype"/>
-    <field editable="1" name="r_segid"/>
-    <field editable="1" name="seg_side"/>
-    <field editable="1" name="source"/>
-    <field editable="1" name="state"/>
-    <field editable="1" name="status"/>
-    <field editable="1" name="stnum"/>
-    <field editable="1" name="stnum_h"/>
-    <field editable="1" name="stnum_l"/>
-    <field editable="1" name="stnumsuf"/>
-    <field editable="1" name="strucdesc"/>
-    <field editable="1" name="strucdomain"/>
-    <field editable="1" name="structype"/>
-    <field editable="1" name="subname"/>
-    <field editable="1" name="sufdir"/>
-    <field editable="1" name="type"/>
-    <field editable="1" name="unit_num"/>
-    <field editable="1" name="unit_type"/>
-    <field editable="1" name="vanity"/>
-    <field editable="1" name="x_sp"/>
-    <field editable="1" name="y_sp"/>
-    <field editable="1" name="z_val"/>
-    <field editable="1" name="zip"/>
-    <field editable="1" name="zip4"/>
+    <field name="a_segid" editable="1"/>
+    <field name="addr_esn" editable="1"/>
+    <field name="addrauth" editable="1"/>
+    <field name="address" editable="1"/>
+    <field name="attdate" editable="1"/>
+    <field name="attmod" editable="1"/>
+    <field name="attsrce" editable="1"/>
+    <field name="building" editable="1"/>
+    <field name="city" editable="1"/>
+    <field name="county" editable="1"/>
+    <field name="delnotes" editable="1"/>
+    <field name="editor" editable="1"/>
+    <field name="esn" editable="1"/>
+    <field name="floor" editable="1"/>
+    <field name="geodate" editable="1"/>
+    <field name="geomod" editable="1"/>
+    <field name="geosrce" editable="1"/>
+    <field name="gislink" editable="1"/>
+    <field name="gpsdate" editable="1"/>
+    <field name="id" editable="1"/>
+    <field name="label" editable="1"/>
+    <field name="lat" editable="1"/>
+    <field name="long" editable="1"/>
+    <field name="name" editable="1"/>
+    <field name="oirid" editable="1"/>
+    <field name="postmod" editable="1"/>
+    <field name="predir" editable="1"/>
+    <field name="pretype" editable="1"/>
+    <field name="r_segid" editable="1"/>
+    <field name="seg_side" editable="1"/>
+    <field name="source" editable="1"/>
+    <field name="state" editable="1"/>
+    <field name="status" editable="1"/>
+    <field name="stnum" editable="1"/>
+    <field name="stnum_h" editable="1"/>
+    <field name="stnum_l" editable="1"/>
+    <field name="stnumsuf" editable="1"/>
+    <field name="strucdesc" editable="1"/>
+    <field name="strucdomain" editable="1"/>
+    <field name="structype" editable="1"/>
+    <field name="subname" editable="1"/>
+    <field name="sufdir" editable="1"/>
+    <field name="type" editable="1"/>
+    <field name="unit_num" editable="1"/>
+    <field name="unit_type" editable="1"/>
+    <field name="vanity" editable="1"/>
+    <field name="x_sp" editable="1"/>
+    <field name="y_sp" editable="1"/>
+    <field name="z_val" editable="1"/>
+    <field name="zip" editable="1"/>
+    <field name="zip4" editable="1"/>
   </editable>
   <labelOnTop>
-    <field labelOnTop="0" name="a_segid"/>
-    <field labelOnTop="0" name="addr_esn"/>
-    <field labelOnTop="0" name="addrauth"/>
-    <field labelOnTop="0" name="address"/>
-    <field labelOnTop="0" name="attdate"/>
-    <field labelOnTop="0" name="attmod"/>
-    <field labelOnTop="0" name="attsrce"/>
-    <field labelOnTop="0" name="building"/>
-    <field labelOnTop="0" name="city"/>
-    <field labelOnTop="0" name="county"/>
-    <field labelOnTop="0" name="delnotes"/>
-    <field labelOnTop="0" name="editor"/>
-    <field labelOnTop="0" name="esn"/>
-    <field labelOnTop="0" name="floor"/>
-    <field labelOnTop="0" name="geodate"/>
-    <field labelOnTop="0" name="geomod"/>
-    <field labelOnTop="0" name="geosrce"/>
-    <field labelOnTop="0" name="gislink"/>
-    <field labelOnTop="0" name="gpsdate"/>
-    <field labelOnTop="0" name="id"/>
-    <field labelOnTop="0" name="label"/>
-    <field labelOnTop="0" name="lat"/>
-    <field labelOnTop="0" name="long"/>
-    <field labelOnTop="0" name="name"/>
-    <field labelOnTop="0" name="oirid"/>
-    <field labelOnTop="0" name="postmod"/>
-    <field labelOnTop="0" name="predir"/>
-    <field labelOnTop="0" name="pretype"/>
-    <field labelOnTop="0" name="r_segid"/>
-    <field labelOnTop="0" name="seg_side"/>
-    <field labelOnTop="0" name="source"/>
-    <field labelOnTop="0" name="state"/>
-    <field labelOnTop="0" name="status"/>
-    <field labelOnTop="0" name="stnum"/>
-    <field labelOnTop="0" name="stnum_h"/>
-    <field labelOnTop="0" name="stnum_l"/>
-    <field labelOnTop="0" name="stnumsuf"/>
-    <field labelOnTop="0" name="strucdesc"/>
-    <field labelOnTop="0" name="strucdomain"/>
-    <field labelOnTop="0" name="structype"/>
-    <field labelOnTop="0" name="subname"/>
-    <field labelOnTop="0" name="sufdir"/>
-    <field labelOnTop="0" name="type"/>
-    <field labelOnTop="0" name="unit_num"/>
-    <field labelOnTop="0" name="unit_type"/>
-    <field labelOnTop="0" name="vanity"/>
-    <field labelOnTop="0" name="x_sp"/>
-    <field labelOnTop="0" name="y_sp"/>
-    <field labelOnTop="0" name="z_val"/>
-    <field labelOnTop="0" name="zip"/>
-    <field labelOnTop="0" name="zip4"/>
+    <field name="a_segid" labelOnTop="0"/>
+    <field name="addr_esn" labelOnTop="0"/>
+    <field name="addrauth" labelOnTop="0"/>
+    <field name="address" labelOnTop="0"/>
+    <field name="attdate" labelOnTop="0"/>
+    <field name="attmod" labelOnTop="0"/>
+    <field name="attsrce" labelOnTop="0"/>
+    <field name="building" labelOnTop="0"/>
+    <field name="city" labelOnTop="0"/>
+    <field name="county" labelOnTop="0"/>
+    <field name="delnotes" labelOnTop="0"/>
+    <field name="editor" labelOnTop="0"/>
+    <field name="esn" labelOnTop="0"/>
+    <field name="floor" labelOnTop="0"/>
+    <field name="geodate" labelOnTop="0"/>
+    <field name="geomod" labelOnTop="0"/>
+    <field name="geosrce" labelOnTop="0"/>
+    <field name="gislink" labelOnTop="0"/>
+    <field name="gpsdate" labelOnTop="0"/>
+    <field name="id" labelOnTop="0"/>
+    <field name="label" labelOnTop="0"/>
+    <field name="lat" labelOnTop="0"/>
+    <field name="long" labelOnTop="0"/>
+    <field name="name" labelOnTop="0"/>
+    <field name="oirid" labelOnTop="0"/>
+    <field name="postmod" labelOnTop="0"/>
+    <field name="predir" labelOnTop="0"/>
+    <field name="pretype" labelOnTop="0"/>
+    <field name="r_segid" labelOnTop="0"/>
+    <field name="seg_side" labelOnTop="0"/>
+    <field name="source" labelOnTop="0"/>
+    <field name="state" labelOnTop="0"/>
+    <field name="status" labelOnTop="0"/>
+    <field name="stnum" labelOnTop="0"/>
+    <field name="stnum_h" labelOnTop="0"/>
+    <field name="stnum_l" labelOnTop="0"/>
+    <field name="stnumsuf" labelOnTop="0"/>
+    <field name="strucdesc" labelOnTop="0"/>
+    <field name="strucdomain" labelOnTop="0"/>
+    <field name="structype" labelOnTop="0"/>
+    <field name="subname" labelOnTop="0"/>
+    <field name="sufdir" labelOnTop="0"/>
+    <field name="type" labelOnTop="0"/>
+    <field name="unit_num" labelOnTop="0"/>
+    <field name="unit_type" labelOnTop="0"/>
+    <field name="vanity" labelOnTop="0"/>
+    <field name="x_sp" labelOnTop="0"/>
+    <field name="y_sp" labelOnTop="0"/>
+    <field name="z_val" labelOnTop="0"/>
+    <field name="zip" labelOnTop="0"/>
+    <field name="zip4" labelOnTop="0"/>
   </labelOnTop>
   <dataDefinedFieldProperties/>
   <widgets/>
