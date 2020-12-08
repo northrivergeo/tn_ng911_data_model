@@ -594,5 +594,5 @@ create table forms.oneway_tbl (
 	description char(50)
         ); 
 
-insert into forms.oneway (oneway, description) values ('TF', 'One Way is To-From Node Direction'); 
-insert into forms.oneway (oneway, description) values ('TF', 'One Way is From-To Node Direction'); 
+insert into forms.oneway_tbl (oneway, description) values ('TF', 'One Way is To-From Node Direction'); 
+insert into forms.oneway_tbl (oneway, description) values ('TF', 'One Way is From-To Node Direction'); 
