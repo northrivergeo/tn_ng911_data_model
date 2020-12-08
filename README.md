@@ -12,7 +12,11 @@ This work follows the TN Standard - so if you're not in Tn I would suggest the N
 
 * Run the create_qgis_form_tables.sql to get the tables that will feed the QGIS Forms 
 
+* Run the scripts/load_test_data.sql and this will provide some test data for you to load. You must have QGIS installed (to get GDAL) and you must change the username and the password you set up for docker above.  
+
 * Run the create_functions.sql script to build the triggers that will be used. 
+
+* Report issues 
 
 * More Coming...........
 
