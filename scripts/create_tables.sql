@@ -39,7 +39,7 @@ create table tn911.address_points (
 	city char(30), 
 	county char(30), 
 	state char(2), 
-	long char(15), 
+	lon char(15), 
 	lat char(15), 
 	x_sp double precision, 
 	y_sp double precision, 
@@ -94,7 +94,7 @@ comment on column tn911.address_points.esn is 'The Emergency Service Number is a
 comment on column tn911.address_points.city is 'This is not the administrative or postal city designation. This field should contain the MSAG Community Name, assigned by the 9-1-1 authority, which the address point is contained within.'; 
 comment on column tn911.address_points.county is 'The administrative county area that contains the address point.'; 
 comment on column tn911.address_points.state is 'The 2-letter abbreviation for the federal state area that contains the address point.'; 
-comment on column tn911.address_points.long is 'The 2-letter abbreviation for the federal state area that contains the address point.'; 
+comment on column tn911.address_points.lon is 'The 2-letter abbreviation for the federal state area that contains the address point.'; 
 comment on column tn911.address_points.lat is 'The latitude of the address point in Geographic coordinates. Formatting can vary.'; 
 comment on column tn911.address_points.x_sp is 'Longitude-equivalent information catalogued in State Plane coordinates that meet the specifications under the Coordinate System and Projection subsection of this document.'; 
 comment on column tn911.address_points.y_sp is 'Latitude-equivalent information catalogued in State Plane coordinates that meet the specifications under the Coordinate System and Projection subsection of this document.'; 

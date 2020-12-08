@@ -185,7 +185,7 @@ CREATE TRIGGER update_centerlines_geodate before insert or update
 CREATE OR REPLACE FUNCTION centerlines_segid()
 RETURNS TRIGGER AS ' 
 BEGIN 
-   NEW.segid := new.id;
+   NEW.segid := ''HENRY_''||new.id;
    RETURN NEW;
 END; 
 ' language 'plpgsql'; 
@@ -198,15 +198,14 @@ CREATE TRIGGER update_centerlines_segid before insert or update
 CREATE OR REPLACE FUNCTION centerlines_street_func()
 RETURNS TRIGGER AS '
 BEGIN
-  NEW.street := concat_ws('' '', new.predir,  new.pretype,  new.name, new.type, new.sufdir,  new.postmod);
-  NEW.label := initcap(new.street); 
+  NEW.label := initcap(concat_ws('' '', new.predir, new.pretype, new.name, new.type, new.sufdir, new.postmod));
 RETURN NEW;
 END;
 ' language 'plpgsql';
 
 CREATE TRIGGER update_centerlines_street BEFORE insert or update
     ON tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE
-    centerlines_street_func()
+    centerlines_street_func();
     
 
 /*update esn*/ 

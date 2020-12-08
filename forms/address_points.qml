@@ -60,27 +60,6 @@
         </config>
       </editWidget>
     </field>
-    <field name="structype">
-      <editWidget type="ValueRelation">
-        <config>
-          <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="&quot;description&quot;" type="QString" name="Description"/>
-            <Option value="&quot;strucfk&quot; = current_value('strucdomain')" type="QString" name="FilterExpression"/>
-            <Option value="structype" type="QString" name="Key"/>
-            <Option value="structype_tbl_b8deba75_99d5_41cb_be35_483ce3559302" type="QString" name="Layer"/>
-            <Option value="structype_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;structype_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="true" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
-          </Option>
-        </config>
-      </editWidget>
-    </field>
     <field name="strucdomain">
       <editWidget type="ValueRelation">
         <config>
@@ -90,12 +69,33 @@
             <Option value="&quot;description&quot;" type="QString" name="Description"/>
             <Option value="" type="QString" name="FilterExpression"/>
             <Option value="strucdomain" type="QString" name="Key"/>
-            <Option value="strucdomain_tbl_c3a8261c_ec35_43d8_a209_ce859f935e65" type="QString" name="Layer"/>
+            <Option value="strucdomain_tbl_6773d6a8_634d_4155_9643_e8cbb6208bd4" type="QString" name="Layer"/>
             <Option value="strucdomain_tbl" type="QString" name="LayerName"/>
             <Option value="postgres" type="QString" name="LayerProviderName"/>
             <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;strucdomain_tbl&quot;" type="QString" name="LayerSource"/>
             <Option value="1" type="int" name="NofColumns"/>
             <Option value="false" type="bool" name="OrderByValue"/>
+            <Option value="false" type="bool" name="UseCompleter"/>
+            <Option value="description" type="QString" name="Value"/>
+          </Option>
+        </config>
+      </editWidget>
+    </field>
+    <field name="structype">
+      <editWidget type="ValueRelation">
+        <config>
+          <Option type="Map">
+            <Option value="false" type="bool" name="AllowMulti"/>
+            <Option value="false" type="bool" name="AllowNull"/>
+            <Option value="&quot;description&quot;" type="QString" name="Description"/>
+            <Option value="&quot;strucfk&quot; = current_value('strucdomain')" type="QString" name="FilterExpression"/>
+            <Option value="structype" type="QString" name="Key"/>
+            <Option value="structype_tbl_7c1ea359_4363_4848_9689_2c3eec45ba57" type="QString" name="Layer"/>
+            <Option value="structype_tbl" type="QString" name="LayerName"/>
+            <Option value="postgres" type="QString" name="LayerProviderName"/>
+            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;structype_tbl&quot;" type="QString" name="LayerSource"/>
+            <Option value="1" type="int" name="NofColumns"/>
+            <Option value="true" type="bool" name="OrderByValue"/>
             <Option value="false" type="bool" name="UseCompleter"/>
             <Option value="description" type="QString" name="Value"/>
           </Option>
@@ -440,7 +440,7 @@
             <Option value="" type="QString" name="Description"/>
             <Option value="" type="QString" name="FilterExpression"/>
             <Option value="source" type="QString" name="Key"/>
-            <Option value="source_tbl_88ce3ab4_5dc8_4a18_b93f_420a9067ae85" type="QString" name="Layer"/>
+            <Option value="source_tbl_ea64f029_b8df_4946_b9eb_3ff155ee0896" type="QString" name="Layer"/>
             <Option value="source_tbl" type="QString" name="LayerName"/>
             <Option value="postgres" type="QString" name="LayerProviderName"/>
             <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;source_tbl&quot;" type="QString" name="LayerSource"/>
@@ -510,7 +510,7 @@
             <Option value="" type="QString" name="Description"/>
             <Option value="" type="QString" name="FilterExpression"/>
             <Option value="status" type="QString" name="Key"/>
-            <Option value="lifecyclestatus_tbl_c9372342_3c78_45fe_96a7_462e37587c06" type="QString" name="Layer"/>
+            <Option value="lifecyclestatus_tbl_5dceb1ee_229f_4bab_b198_c3aaf09acaec" type="QString" name="Layer"/>
             <Option value="lifecyclestatus_tbl" type="QString" name="LayerName"/>
             <Option value="postgres" type="QString" name="LayerProviderName"/>
             <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;lifecyclestatus_tbl&quot;" type="QString" name="LayerSource"/>
@@ -557,9 +557,9 @@ def my_form_open(dialog, layer, feature):
   <featformsuppress>0</featformsuppress>
   <editorlayout>generatedlayout</editorlayout>
   <attributeEditorForm>
-    <attributeEditorField index="17" name="predir" showLabel="1"/>
-    <attributeEditorField index="7" name="strucdomain" showLabel="1"/>
-    <attributeEditorField index="6" name="structype" showLabel="1"/>
+    <attributeEditorField showLabel="1" index="17" name="predir"/>
+    <attributeEditorField showLabel="1" index="6" name="strucdomain"/>
+    <attributeEditorField showLabel="1" index="7" name="structype"/>
   </attributeEditorForm>
   <editable>
     <field name="a_segid" editable="1"/>

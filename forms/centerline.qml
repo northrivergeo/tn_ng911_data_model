@@ -54,19 +54,19 @@
       <editWidget type="ValueRelation">
         <config>
           <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="type" type="QString" name="Key"/>
-            <Option value="addrtype_tbl_76e8e9db_82e0_42e6_affa_55b384c684ab" type="QString" name="Layer"/>
-            <Option value="addrtype_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;addrtype_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="false" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
+            <Option name="AllowMulti" type="bool" value="false"/>
+            <Option name="AllowNull" type="bool" value="true"/>
+            <Option name="Description" type="QString" value=""/>
+            <Option name="FilterExpression" type="QString" value=""/>
+            <Option name="Key" type="QString" value="type"/>
+            <Option name="Layer" type="QString" value="addrtype_tbl_93918d72_366d_4706_acf7_291f3e6bb724"/>
+            <Option name="LayerName" type="QString" value="addrtype_tbl"/>
+            <Option name="LayerProviderName" type="QString" value="postgres"/>
+            <Option name="LayerSource" type="QString" value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;addrtype_tbl&quot;"/>
+            <Option name="NofColumns" type="int" value="1"/>
+            <Option name="OrderByValue" type="bool" value="false"/>
+            <Option name="UseCompleter" type="bool" value="false"/>
+            <Option name="Value" type="QString" value="description"/>
           </Option>
         </config>
       </editWidget>
@@ -75,19 +75,19 @@
       <editWidget type="ValueRelation">
         <config>
           <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="predir" type="QString" name="Key"/>
-            <Option value="predir_tbl_9b783f8e_6d90_4479_8dc8_d3241e249a57" type="QString" name="Layer"/>
-            <Option value="predir_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;predir_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="false" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
+            <Option name="AllowMulti" type="bool" value="false"/>
+            <Option name="AllowNull" type="bool" value="true"/>
+            <Option name="Description" type="QString" value=""/>
+            <Option name="FilterExpression" type="QString" value=""/>
+            <Option name="Key" type="QString" value="predir"/>
+            <Option name="Layer" type="QString" value="predir_tbl_f0e04fef_e0d9_4705_8058_4fc860c66c9a"/>
+            <Option name="LayerName" type="QString" value="predir_tbl"/>
+            <Option name="LayerProviderName" type="QString" value="postgres"/>
+            <Option name="LayerSource" type="QString" value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;predir_tbl&quot;"/>
+            <Option name="NofColumns" type="int" value="1"/>
+            <Option name="OrderByValue" type="bool" value="false"/>
+            <Option name="UseCompleter" type="bool" value="false"/>
+            <Option name="Value" type="QString" value="description"/>
           </Option>
         </config>
       </editWidget>
@@ -96,19 +96,19 @@
       <editWidget type="ValueRelation">
         <config>
           <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="type" type="QString" name="Key"/>
-            <Option value="type_tbl_28802f1b_8122_49d6_99d9_1b0f8bc4b89a" type="QString" name="Layer"/>
-            <Option value="type_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;type_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="false" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
+            <Option name="AllowMulti" type="bool" value="false"/>
+            <Option name="AllowNull" type="bool" value="true"/>
+            <Option name="Description" type="QString" value=""/>
+            <Option name="FilterExpression" type="QString" value=""/>
+            <Option name="Key" type="QString" value="type"/>
+            <Option name="Layer" type="QString" value="type_tbl_8666d1d7_ea38_4efa_b610_262a216d2d6c"/>
+            <Option name="LayerName" type="QString" value="type_tbl"/>
+            <Option name="LayerProviderName" type="QString" value="postgres"/>
+            <Option name="LayerSource" type="QString" value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;type_tbl&quot;"/>
+            <Option name="NofColumns" type="int" value="1"/>
+            <Option name="OrderByValue" type="bool" value="false"/>
+            <Option name="UseCompleter" type="bool" value="false"/>
+            <Option name="Value" type="QString" value="description"/>
           </Option>
         </config>
       </editWidget>
@@ -116,7 +116,10 @@
     <field name="name">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
         </config>
       </editWidget>
     </field>
@@ -124,19 +127,19 @@
       <editWidget type="ValueRelation">
         <config>
           <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="type" type="QString" name="Key"/>
-            <Option value="type_tbl_28802f1b_8122_49d6_99d9_1b0f8bc4b89a" type="QString" name="Layer"/>
-            <Option value="type_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;type_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="true" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
+            <Option name="AllowMulti" type="bool" value="false"/>
+            <Option name="AllowNull" type="bool" value="true"/>
+            <Option name="Description" type="QString" value=""/>
+            <Option name="FilterExpression" type="QString" value=""/>
+            <Option name="Key" type="QString" value="type"/>
+            <Option name="Layer" type="QString" value="type_tbl_8666d1d7_ea38_4efa_b610_262a216d2d6c"/>
+            <Option name="LayerName" type="QString" value="type_tbl"/>
+            <Option name="LayerProviderName" type="QString" value="postgres"/>
+            <Option name="LayerSource" type="QString" value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;type_tbl&quot;"/>
+            <Option name="NofColumns" type="int" value="1"/>
+            <Option name="OrderByValue" type="bool" value="true"/>
+            <Option name="UseCompleter" type="bool" value="false"/>
+            <Option name="Value" type="QString" value="description"/>
           </Option>
         </config>
       </editWidget>
@@ -145,25 +148,25 @@
       <editWidget type="ValueRelation">
         <config>
           <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="predir" type="QString" name="Key"/>
-            <Option value="predir_tbl_9b783f8e_6d90_4479_8dc8_d3241e249a57" type="QString" name="Layer"/>
-            <Option value="predir_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;predir_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="false" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
+            <Option name="AllowMulti" type="bool" value="false"/>
+            <Option name="AllowNull" type="bool" value="true"/>
+            <Option name="Description" type="QString" value=""/>
+            <Option name="FilterExpression" type="QString" value=""/>
+            <Option name="Key" type="QString" value="predir"/>
+            <Option name="Layer" type="QString" value="predir_tbl_f0e04fef_e0d9_4705_8058_4fc860c66c9a"/>
+            <Option name="LayerName" type="QString" value="predir_tbl"/>
+            <Option name="LayerProviderName" type="QString" value="postgres"/>
+            <Option name="LayerSource" type="QString" value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;predir_tbl&quot;"/>
+            <Option name="NofColumns" type="int" value="1"/>
+            <Option name="OrderByValue" type="bool" value="false"/>
+            <Option name="UseCompleter" type="bool" value="false"/>
+            <Option name="Value" type="QString" value="description"/>
           </Option>
         </config>
       </editWidget>
     </field>
     <field name="postmod">
-      <editWidget type="TextEdit">
+      <editWidget type="Hidden">
         <config>
           <Option/>
         </config>
@@ -172,21 +175,30 @@
     <field name="label">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
         </config>
       </editWidget>
     </field>
     <field name="vanity">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
         </config>
       </editWidget>
     </field>
     <field name="subname">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
         </config>
       </editWidget>
     </field>
@@ -194,19 +206,19 @@
       <editWidget type="ValueRelation">
         <config>
           <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="type" type="QString" name="Key"/>
-            <Option value="nametype_tbl_ed7dd095_ca91_4d79_b174_c8848bc7696c" type="QString" name="Layer"/>
-            <Option value="nametype_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;nametype_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="false" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
+            <Option name="AllowMulti" type="bool" value="false"/>
+            <Option name="AllowNull" type="bool" value="true"/>
+            <Option name="Description" type="QString" value=""/>
+            <Option name="FilterExpression" type="QString" value=""/>
+            <Option name="Key" type="QString" value="type"/>
+            <Option name="Layer" type="QString" value="nametype_tbl_6d0cc4a5_1534_45eb_92ea_1526699404d7"/>
+            <Option name="LayerName" type="QString" value="nametype_tbl"/>
+            <Option name="LayerProviderName" type="QString" value="postgres"/>
+            <Option name="LayerSource" type="QString" value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;nametype_tbl&quot;"/>
+            <Option name="NofColumns" type="int" value="1"/>
+            <Option name="OrderByValue" type="bool" value="false"/>
+            <Option name="UseCompleter" type="bool" value="false"/>
+            <Option name="Value" type="QString" value="description"/>
           </Option>
         </config>
       </editWidget>
@@ -215,19 +227,19 @@
       <editWidget type="ValueRelation">
         <config>
           <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="cfcc" type="QString" name="Key"/>
-            <Option value="cfcc_tbl_53fca6c8_eafb_4fcb_92e5_be8475d2bd21" type="QString" name="Layer"/>
-            <Option value="cfcc_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;cfcc_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="false" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
+            <Option name="AllowMulti" type="bool" value="false"/>
+            <Option name="AllowNull" type="bool" value="true"/>
+            <Option name="Description" type="QString" value=""/>
+            <Option name="FilterExpression" type="QString" value=""/>
+            <Option name="Key" type="QString" value="cfcc"/>
+            <Option name="Layer" type="QString" value="cfcc_tbl_1f21324e_4036_49ac_83b9_31deb9cef96d"/>
+            <Option name="LayerName" type="QString" value="cfcc_tbl"/>
+            <Option name="LayerProviderName" type="QString" value="postgres"/>
+            <Option name="LayerSource" type="QString" value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;cfcc_tbl&quot;"/>
+            <Option name="NofColumns" type="int" value="1"/>
+            <Option name="OrderByValue" type="bool" value="false"/>
+            <Option name="UseCompleter" type="bool" value="false"/>
+            <Option name="Value" type="QString" value="description"/>
           </Option>
         </config>
       </editWidget>
@@ -310,9 +322,23 @@
       </editWidget>
     </field>
     <field name="oneway">
-      <editWidget type="TextEdit">
+      <editWidget type="ValueRelation">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option name="AllowMulti" type="bool" value="false"/>
+            <Option name="AllowNull" type="bool" value="true"/>
+            <Option name="Description" type="QString" value=""/>
+            <Option name="FilterExpression" type="QString" value=""/>
+            <Option name="Key" type="QString" value="oneway"/>
+            <Option name="Layer" type="QString" value="oneway_tbl_1a031a43_6da0_4277_8b01_27cfffa112f5"/>
+            <Option name="LayerName" type="QString" value="oneway_tbl"/>
+            <Option name="LayerProviderName" type="QString" value="postgres"/>
+            <Option name="LayerSource" type="QString" value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;oneway_tbl&quot;"/>
+            <Option name="NofColumns" type="int" value="1"/>
+            <Option name="OrderByValue" type="bool" value="false"/>
+            <Option name="UseCompleter" type="bool" value="false"/>
+            <Option name="Value" type="QString" value="description"/>
+          </Option>
         </config>
       </editWidget>
     </field>
@@ -368,35 +394,56 @@
     <field name="geosrce">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
         </config>
       </editWidget>
     </field>
     <field name="geodate">
       <editWidget type="DateTime">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option name="allow_null" type="bool" value="true"/>
+            <Option name="calendar_popup" type="bool" value="true"/>
+            <Option name="display_format" type="QString" value="yyyy-MM-dd"/>
+            <Option name="field_format" type="QString" value="yyyy-MM-dd"/>
+            <Option name="field_iso_format" type="bool" value="false"/>
+          </Option>
         </config>
       </editWidget>
     </field>
     <field name="attmod">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
         </config>
       </editWidget>
     </field>
     <field name="attsrc">
       <editWidget type="TextEdit">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option name="IsMultiline" type="bool" value="false"/>
+            <Option name="UseHtml" type="bool" value="false"/>
+          </Option>
         </config>
       </editWidget>
     </field>
     <field name="attdate">
       <editWidget type="DateTime">
         <config>
-          <Option/>
+          <Option type="Map">
+            <Option name="allow_null" type="bool" value="true"/>
+            <Option name="calendar_popup" type="bool" value="true"/>
+            <Option name="display_format" type="QString" value="yyyy-MM-dd"/>
+            <Option name="field_format" type="QString" value="yyyy-MM-dd"/>
+            <Option name="field_iso_format" type="bool" value="false"/>
+          </Option>
         </config>
       </editWidget>
     </field>
@@ -404,19 +451,19 @@
       <editWidget type="ValueRelation">
         <config>
           <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="status" type="QString" name="Key"/>
-            <Option value="lifecyclestatus_tbl_c9372342_3c78_45fe_96a7_462e37587c06" type="QString" name="Layer"/>
-            <Option value="lifecyclestatus_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;lifecyclestatus_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="false" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
+            <Option name="AllowMulti" type="bool" value="false"/>
+            <Option name="AllowNull" type="bool" value="true"/>
+            <Option name="Description" type="QString" value=""/>
+            <Option name="FilterExpression" type="QString" value=""/>
+            <Option name="Key" type="QString" value="status"/>
+            <Option name="Layer" type="QString" value="lifecyclestatus_tbl_5dceb1ee_229f_4bab_b198_c3aaf09acaec"/>
+            <Option name="LayerName" type="QString" value="lifecyclestatus_tbl"/>
+            <Option name="LayerProviderName" type="QString" value="postgres"/>
+            <Option name="LayerSource" type="QString" value="dbname='tndemo' host=localhost port=5432 user='rjhale' sslmode=disable key='id' checkPrimaryKeyUnicity='0' table=&quot;forms&quot;.&quot;lifecyclestatus_tbl&quot;"/>
+            <Option name="NofColumns" type="int" value="1"/>
+            <Option name="OrderByValue" type="bool" value="false"/>
+            <Option name="UseCompleter" type="bool" value="false"/>
+            <Option name="Value" type="QString" value="description"/>
           </Option>
         </config>
       </editWidget>
