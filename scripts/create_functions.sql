@@ -198,7 +198,7 @@ CREATE TRIGGER update_centerlines_segid before insert or update
 CREATE OR REPLACE FUNCTION centerlines_street_func()
 RETURNS TRIGGER AS '
 BEGIN
-  NEW.label := concat_ws('''', new.predir, new.pretype, new.name, new.type, new.sufdir);
+  NEW.label := concat_ws('' '', new.predir, new.pretype, new.name, new.type, new.sufdir);
 RETURN NEW;
 END;
 ' language 'plpgsql';
