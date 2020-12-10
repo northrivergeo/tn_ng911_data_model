@@ -7,8 +7,8 @@ create schema forms;
 
 create table forms.predir_tbl (
         id serial primary key,
-        predir char(24),
-        description char(2)
+        predir varchar(24),
+        description varchar(2)
         );
 
 insert into forms.predir_tbl (predir, description) values ('N', 'N');
@@ -25,8 +25,8 @@ insert into forms.predir_tbl (predir, description) values ('SW', 'SW');
 
 create table forms.segside_tbl (
         id serial primary key,
-        seg_side char(1),
-	description char(12)
+        seg_side varchar(1),
+	description varchar(12)
         );
 
 insert into forms.segside_tbl (seg_side, description) values ('L', 'LEFT');
@@ -37,7 +37,7 @@ insert into forms.segside_tbl (seg_side, description) values ('R', 'RIGHT');
 create table forms.strucdomain_tbl ( 
 	id serial primary key,
 	strucdomain smallint, 
-	description char(50)
+	description varchar(50)
 ); 
 
 insert into forms.strucdomain_tbl (strucdomain, description) values (100, '100-Familial'); 
@@ -61,7 +61,7 @@ create table forms.structype_tbl (
 	id serial primary key,
 	structype smallint, 
 	strucfk smallint, 
-        description char(50)
+        description varchar(50)
         ); 
 
 insert into forms.structype_tbl (structype, strucfk, description) values (1, 100, '1-House'); 
@@ -204,8 +204,8 @@ insert into forms.structype_tbl (structype, strucfk, description) values (9002, 
 
 create table forms.type_tbl ( 
 	id serial primary key,
-        description char(24),
-	type char(5) 
+        description varchar(24),
+	type varchar(5) 
         ); 
 
 insert into forms.type_tbl (description, type) values ('ALLEY', 'ALY'); 
@@ -419,8 +419,8 @@ insert into forms.type_tbl (description, type) values ('WELLS', 'WLS');
 
 create table forms.unit_type_tbl ( 
 	id serial primary key,
-        description char(24),
-	unit_type char(4) 
+        description varchar(24),
+	unit_type varchar(4) 
         ); 
 
 insert into forms.unit_type_tbl (description, unit_type) values ('APARTMENT', 'APT'); 
@@ -453,7 +453,7 @@ insert into forms.unit_type_tbl (description, unit_type) values ('OTHER', 'OTH')
 create table forms.source_tbl ( 
 	id serial primary key, 
 	source integer,
-	description char(24)
+	description varchar(24)
         ); 
 
 insert into forms.source_tbl (source, description) values (1, '1-Parcel Centroid'); 
@@ -468,7 +468,7 @@ insert into forms.source_tbl (source, description) values (0, '6-Undefined');
 create table forms.lifecyclestatus_tbl ( 
 	id serial primary key, 
 	status integer,
-	description char(24)
+	description varchar(24)
         ); 
 
 insert into forms.lifecyclestatus_tbl (status, description) values (730, '730-ACTIVE'); 
@@ -481,7 +481,7 @@ insert into forms.lifecyclestatus_tbl (status, description) values (799, '799-RE
 create table forms.addrtype_tbl ( 
 	id serial primary key, 
 	type char(2),
-	description char(24)
+	description varchar(24)
         ); 
 
 insert into forms.addrtype_tbl (type, description) values ('P', 'Potential'); 
@@ -492,7 +492,7 @@ insert into forms.addrtype_tbl (type, description) values ('A', 'Actual');
 create table forms.nametype_tbl ( 
 	id serial primary key, 
 	type integer,
-	description char(50)
+	description varchar(50)
         ); 
 
 insert into forms.nametype_tbl (type, description) values (1, '1-Signed Name'); 
@@ -508,7 +508,7 @@ insert into forms.nametype_tbl (type, description) values (7, '7-Inventory Name'
 create table forms.cfcc_tbl ( 
 	id serial primary key, 
 	cfcc char(3),
-	description char(150)
+	description varchar(150)
         ); 
 
 insert into forms.cfcc_tbl (cfcc, description) values ('A10', 'A10-Road, major and minor categories unknown');
@@ -590,8 +590,8 @@ insert into forms.lanes_tbl (lanes) values (13);
 
 create table forms.oneway_tbl ( 
 	id serial primary key, 
-	oneway char(3),
-	description char(50)
+	oneway varchar(3),
+	description varchar(50)
         ); 
 
 insert into forms.oneway_tbl (oneway, description) values ('TF', 'One Way is To-From Node Direction'); 
