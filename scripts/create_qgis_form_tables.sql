@@ -200,7 +200,7 @@ insert into forms.structype_tbl (structype, strucfk, description) values (9000, 
 insert into forms.structype_tbl (structype, strucfk, description) values (9001, 9000, '9001-Vacant'); 
 insert into forms.structype_tbl (structype, strucfk, description) values (9002, 9000, '9002-Unknown'); 
 
-/* C1 Street Suffix Abbreviations */
+/* C1 Street Suffix Abbreviations. Also to be used for Pre-type and PostMod */
 
 create table forms.type_tbl ( 
 	id serial primary key,
@@ -596,3 +596,14 @@ create table forms.oneway_tbl (
 
 insert into forms.oneway_tbl (oneway, description) values ('TF', 'One Way is To-From Node Direction'); 
 insert into forms.oneway_tbl (oneway, description) values ('TF', 'One Way is From-To Node Direction'); 
+
+
+create table forms.access_tbl ( 
+	id serial primary key, 
+	type varchar(24),
+	description varchar(50)
+        ); 
+
+insert into forms.access_tbl (type, description) values ('access', 'Access Point'); 
+insert into forms.access_tbl (type, description) values ('routing', 'Routing Point'); 
+insert into forms.access_tbl (type, description) values ('access and routing', 'Structure is accessed and routed from this point'); 

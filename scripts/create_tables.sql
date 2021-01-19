@@ -7,7 +7,7 @@ create schema tn911;
 create table tn911.address_points ( 
 	id serial primary key, 
 	geom geometry (point, 2274), 
-	oirid char(20), 
+	oirid varchar(20), 
 	r_segid varchar(25), 
 	a_segid varchar(25), 
 	seg_side varchar(1), 
@@ -246,3 +246,17 @@ comment on column tn911.esn.le is 'Designation for the law enforcement response 
 comment on column tn911.esn.fd is 'Designation for the responding fire department associated with this ESN.  This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
 comment on column tn911.esn.ems is 'Designation for the emergency medical response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
 
+
+create table tn911.access ( 
+	id serial primary key, 
+	geom geometry (point, 2274), 
+	oirid varchar(20), 
+	type varchar(24), 
+	seg_side varchar(1), 
+	comment varchar(250)
+    ); 
+
+comment on column tn911.access.oirid is 'Currently, this value is an alphanumeric patterned after the format: ‘%ECD name%_%numeric sequence%’ The ECD name is a one-word moniker for the District and MUST be in uppercase. For each individual record, this value MUST be unique among all address point records and persist for the lifetime of that record. The numeric sequence should increment by one (1) with each successive edit, but there is no requirement for consecutive numbering as long as the values are unique and persistent for each record. At this time, these unique identifiers cannot be reused once an address point record is deleted.';
+comment on column tn911.access.seg_side is 'Identifies the side of the related centerline segment that the site address point is addressed from. The centerline segment has direction based on its From and To nodes, not its address range assignment (though both should align).';
+comment on column tn911.access.type is 'Place whether the address is for access, routing, or both. This will set the a_segid and r_segid on the address_points layer.'; 
+comment on column tn911.access.comment is 'Comment on the stte of access for the address point.'; 
