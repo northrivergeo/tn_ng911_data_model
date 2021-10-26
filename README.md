@@ -6,7 +6,7 @@ This work follows the TN Standard - so if you're not in Tn I would suggest the N
 
 ## To Get this working 
 
-* If you want to run this in docker please build the docker image - I've listed the steps under the docker directory. You can run this in a regular install of PostgreSQL/PostGIS 
+* If you want to run this in docker look at the docker readme - I've listed the steps under the docker directory. You can run this in a regular install of PostgreSQL/PostGIS 
 
 * Run the create_tables.sql script under script to get the three tables 
 
