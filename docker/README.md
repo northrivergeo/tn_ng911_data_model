@@ -8,7 +8,7 @@ Example:
 	docker pull kartoza/postgis:13.0  
 
 
-I typcially store the database files locally after making a directory called pg_data
+I typcially store the database files locally after making a directory called pg_data. This will be different for your system. 
 Example: 
 
 
