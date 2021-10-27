@@ -46,5 +46,3 @@ inner join
    st_intersects(a.geom, e.geom)
 where
    a.esn != e.esn);
-
-

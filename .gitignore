@@ -1,2 +1,2 @@
 # stop the test live load from being uploaded 
-scripts/load_rjhale_data.sh
+scripts/load_live.sh 
