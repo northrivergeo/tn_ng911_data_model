@@ -1,2 +1,3 @@
 # stop the test live load from being uploaded 
 scripts/load_live.sh 
+ng911.qgz
