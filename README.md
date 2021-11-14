@@ -16,6 +16,8 @@ This work follows the TN Standard - so if you're not in Tn I would suggest the N
 
 * Run the create_functions.sql script to build the triggers that will be used. 
 
+* If you have downloaded a DEM and want to load it refer to the DEM directory. You'll also need to run the create_dem_functions separately.   
+
 * Run cleanup.sql script under scripts to get the three tables 
 
 * Report issues 
