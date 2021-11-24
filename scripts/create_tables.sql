@@ -46,16 +46,16 @@ create table tn911.address_points (
 	x_sp double precision, 
 	y_sp double precision, 
 	z_val integer, 
-	gpsdate date, 
+	gpsdate timestamp, 
 	addrauth varchar(50), 
 	source smallint, 
 	editor varchar(10), 
 	geomod varchar(75), 
 	geosrce varchar(45), 
-	geodate date, 
+	geodate timestamp, 
 	attmod varchar(75), 
 	attsrce varchar(45), 
-	attdate date, 
+	attdate timestamp, 
 	status smallint, 
 	delnotes varchar(75)
     ); 
@@ -158,10 +158,10 @@ create table tn911.centerlines (
 	editor varchar(10), 
 	geomod varchar(75), 
 	geosrce varchar(45), 
-	geodate date, 
+	geodate timestamp, 
 	attmod varchar(75), 
 	attsrc varchar(45), 
-	attdate date,
+	attdate timestamp,
 	status smallint); 
 
 /* Spatial Index */
@@ -226,7 +226,7 @@ create table tn911.esn (
 	vesn varchar(3), 
 	srte varchar(25), 
 	psapid varchar(4), 
-	geodate date, 
+	geodate timestamp, 
 	le varchar(75), 
 	fd varchar(75), 
 	ems varchar(75));  

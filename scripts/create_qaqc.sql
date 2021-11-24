@@ -12,8 +12,6 @@ from
 where
   st_equals(a.geom, b.geom) and a.id > b.id);
 
-create view qaqc.duplicate_address_name as
-
 /* Duplicate Point Names */
 
 create view qaqc.duplicate_address_name as (
