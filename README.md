@@ -1,0 +1,30 @@
+# TN NG911 Database 
+
+The State of TN has a NG911 implementation that came before the NENA standard. While this work typcailly inhabits an ESRI environment I've moved one county to a PostGIS/QGIS Solution. In the spirit of open - here is what I've done. 
+
+This work follows the TN Standard - so if you're not in Tn I would suggest the NENA standard. 
+
+## To Get this working 
+
+* If you want to run this in docker look at the docker readme - I've listed the steps under the docker directory. You can run this in a regular install of PostgreSQL/PostGIS 
+
+* Run the create_tables.sql script under scripts to get the three tables 
+
+* Run the create_qgis_form_tables.sql to get the tables that will feed the QGIS Forms 
+
+* Run the scripts/load_test_data.sql and this will provide some test data for you to load. You must have QGIS installed (to get GDAL) and you must change the username and the password you set up for docker above.  
+
+* Run the create_functions.sql script to build the triggers that will be used. 
+
+* If you have downloaded a DEM and want to load it refer to the DEM directory. You'll also need to run the create_dem_functions separately.   
+
+* Run cleanup.sql script under scripts to get the three tables 
+
+* Report issues 
+
+* More Coming...........
+
+
+
+
+If you need support contact me either up here or at rjhale@northrivergeographic.com
