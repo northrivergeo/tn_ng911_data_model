@@ -27,4 +27,7 @@ WHERE
 ST_Intersects(rast, a.geom) and oirid = 'HENRY_6635'; 
 
 
-update tn911.address_points set z_val = round(st_value(rast, a.geom)/3.28081) from dem.henry_2017,tn911.address_points as a WHERE ST_Intersects(rast, a.geom)=true;
+update tn911.address_points 
+set z_val = round(st_value(rast, a.geom)/3.28081) 
+from dem.henry_2017,tn911.address_points as a 
+WHERE ST_Intersects(rast, a.geom)=true;
