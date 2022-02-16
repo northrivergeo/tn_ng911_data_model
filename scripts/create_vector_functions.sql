@@ -193,12 +193,12 @@ CREATE TRIGGER update_centerlines_geodate before insert or update
 CREATE OR REPLACE FUNCTION centerlines_segid()
 RETURNS TRIGGER AS ' 
 BEGIN 
-   NEW.segid := ''HENRY_''||new.id;
+   NEW.segid := new.id;
    RETURN NEW;
 END; 
 ' language 'plpgsql'; 
 
-CREATE TRIGGER update_centerlines_segid before insert or update 
+CREATE TRIGGER update_centerlines_segid before insert  
    on tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE 
    centerlines_segid();  
 
