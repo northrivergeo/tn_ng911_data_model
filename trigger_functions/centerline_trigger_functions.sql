@@ -7,7 +7,7 @@ BEGIN
    RETURN NEW; 
 END; 
 $$
-LANGUAGE 'PLPGSQL'; 
+LANGUAGE PLPGSQL; 
 
 CREATE TRIGGER update_centerlines before update 
    on tn911.centerlines FOR EACH ROW 
@@ -59,7 +59,7 @@ BEGIN
    RETURN NEW;
 END; 
 $$
-LANGUAGE 'PLPGSQL'; 
+LANGUAGE PLPGSQL; 
 
 CREATE TRIGGER update_centerlines_geodate before insert or update 
    on tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE 
@@ -74,7 +74,7 @@ BEGIN
    RETURN NEW;
 END; 
 $$
-LANGUAGE 'PLPGSQL'; 
+LANGUAGE PLPGSQL; 
 
 CREATE TRIGGER update_centerlines_segid before insert or update 
    on tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE 
@@ -88,7 +88,7 @@ BEGIN
 RETURN NEW;
 END;
 $$
-LANGUAGE 'PLPGSQL';
+LANGUAGE PLPGSQL;
 
 CREATE TRIGGER update_centerlines_street BEFORE insert or update
     ON tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE
