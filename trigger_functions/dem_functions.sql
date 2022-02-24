@@ -7,7 +7,7 @@ BEGIN
   RETURN NEW; 
 END; 
 $$
-LANGUAGE 'PLPGSQL'; 
+LANGUAGE PLPGSQL; 
 
 CREATE TRIGGER update_address_elev BEFORE insert or update
     ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE

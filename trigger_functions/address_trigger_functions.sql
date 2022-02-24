@@ -7,7 +7,7 @@ BEGIN
    RETURN NEW; 
 END; 
 $$
-LANGUAGE 'PLPGSQL'; 
+LANGUAGE PLPGSQL; 
 
 CREATE TRIGGER update_address_attdate before update 
    on tn911.address_points FOR EACH ROW 
@@ -46,7 +46,7 @@ CREATE TRIGGER update_address_attdate before update
     RETURN NEW;
  END;
  $$
-LANGUAGE 'PLPGSQL';
+LANGUAGE PLPGSQL;
  
  CREATE TRIGGER address_esn 
  BEFORE insert or update
@@ -62,7 +62,7 @@ BEGIN
    RETURN NEW; 
 END; 
 $$
-LANGUAGE 'PLPGSQL'; 
+LANGUAGE PLPGSQL; 
 
 CREATE TRIGGER update_address_geodate before update 
    on tn911.address_points FOR EACH ROW 
@@ -80,7 +80,7 @@ BEGIN
    NEW.label := initcap(new.address); 
    RETURN NEW;
 END;
-LANGUAGE 'PLPGSQL';
+LANGUAGE PLPGSQL;
 
 CREATE TRIGGER update_address_label BEFORE insert or update
     ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
@@ -98,7 +98,7 @@ BEGIN
    RETURN NEW;
 END;
 $$
-LANGUAGE 'PLPGSQL';
+LANGUAGE PLPGSQL;
 
 CREATE TRIGGER update_address_location BEFORE insert or update
     ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
@@ -116,7 +116,7 @@ BEGIN
    RETURN NEW;
 END;
 $$
-LANGUAGE 'PLPGSQL';
+LANGUAGE PLPGSQL;
 
 CREATE TRIGGER update_address_oirid BEFORE insert
     ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
