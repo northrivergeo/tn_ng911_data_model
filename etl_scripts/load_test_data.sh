@@ -1,4 +1,4 @@
-#If you need to load some test data quickly
+#If you need to load some test data quickly into a docker instance
 #just run this 
 #change your username and password and make sure your path is correct
 
