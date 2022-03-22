@@ -13,6 +13,7 @@ CREATE TRIGGER update_centerlines before update
    on tn911.centerlines FOR EACH ROW 
    WHEN (old.l_f_add is distinct from new.l_f_add OR
 	 old.l_t_add is distinct from new.l_t_add OR
+	 old.segid is distinct from new.segid OR
 	 old.r_f_add is distinct from new.r_f_add OR 
 	 old.r_t_add is distinct from new.r_t_add OR 
 	 old.addr_type is distinct from new.addr_type OR 
@@ -53,7 +54,7 @@ CREATE TRIGGER update_centerlines before update
 CREATE OR REPLACE FUNCTION centerlines_geodate()
 RETURNS TRIGGER AS $$ 
 BEGIN 
-   NEW.oirid := ``HENRY_``||new.id;
+   NEW.oirid := 'HENRY_'||new.id;
    NEW.editor = current_user; 
    NEW.geodate = current_timestamp; 
    RETURN NEW;
