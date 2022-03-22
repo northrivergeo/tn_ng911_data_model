@@ -111,7 +111,7 @@ CREATE TRIGGER update_address_location BEFORE insert or update
 CREATE OR REPLACE FUNCTION oirid_address_func()
 RETURNS TRIGGER AS $$ 
 BEGIN
-   NEW.oirid := ``HENRY_``||new.id;
+   NEW.oirid := 'HENRY_'||new.id;
    NEW.editor = current_user; 
    NEW.gpsdate = current_timestamp;
    RETURN NEW;
