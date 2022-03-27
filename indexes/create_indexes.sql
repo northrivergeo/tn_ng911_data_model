@@ -10,3 +10,11 @@ using gist (geom);
 create index tn911_esn_geom_idx 
 on tn911.esn_boundary 
 using gist (geom); 
+
+create index tn911_esn_geom_idx 
+on census.counties 
+using gist (geom); 
+
+create index tn911_esn_geom_idx 
+on census.zctas
+using gist (geom); 
