@@ -4,6 +4,10 @@
 
 create schema dem; 
 create schema tn911; 
+create schema census;
+SET search_path TO dem,public;
+SET search_path TO tn911,public;
+SET search_path TO census,public;
 
 create table tn911.address_points ( 
 	id serial primary key, 
