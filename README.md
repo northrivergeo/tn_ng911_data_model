@@ -5,4 +5,4 @@ The State of TN has a NG911 implementation that came before the NENA standard. W
 This work follows the TN Standard - so if you're not in Tn I would suggest the NENA standard. 
 
 ## To Get this working 
-Go see the [Wiki] (https://github.com/rjhale1971/tn_ng911_data_model/wiki).
+Go see the [Wiki](https://github.com/rjhale1971/tn_ng911_data_model/wiki).
