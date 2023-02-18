@@ -4,12 +4,11 @@
 
 create schema dem; 
 create schema tn911; 
-create schema census;
 SET search_path TO dem,public;
 SET search_path TO tn911,public;
-SET search_path TO census,public;
 
-create table tn911.address_points ( 
+DROP TABLE IF EXISTS tn911.address_points; 
+CREATE TABLE tn911.address_points ( 
 	id serial primary key, 
 	geom geometry (point, 2274), 
 	oirid varchar(20), 
@@ -28,7 +27,7 @@ create table tn911.address_points (
 	floor varchar(10), 
 	unit_type varchar(10), 
 	unit_num varchar(10), 
-	predir varchar(2), 
+	predir varchar(2) references forms.predir_tbl(predir), 
 	pretype varchar(5), 
 	name varchar(40), 
 	type varchar(5), 
@@ -65,7 +64,7 @@ create table tn911.address_points (
     ); 
 
 /* Spatial Index */
-create index address_idx on tn911.address_points using gist(geom);                  
+create index address_idx ON tn911.address_points using gist(geom);                  
 
 /* Comments */
 comment on column tn911.address_points.oirid is 'Currently, this value is an alphanumeric patterned after the format: ‘%ECD name%_%numeric sequence%’ The ECD name is a one-word moniker for the District and MUST be in uppercase. For each individual record, this value MUST be unique among all address point records and persist for the lifetime of that record. The numeric sequence should increment by one (1) with each successive edit, but there is no requirement for consecutive numbering as long as the values are unique and persistent for each record. At this time, these unique identifiers cannot be reused once an address point record is deleted.';
@@ -120,8 +119,8 @@ comment on column tn911.address_points.delnotes is 'A notation field explaining 
 
 /**********************************************************************************/
 
-
-create table tn911.centerlines ( 
+DROP TABLE IF EXISTS tn911.centerlines; 
+CREATE TABLE tn911.centerlines ( 
 	id serial primary key, 
         geom geometry (linestring, 2274),	
 	oirid varchar(20), 
@@ -169,7 +168,7 @@ create table tn911.centerlines (
 	status smallint); 
 
 /* Spatial Index */
-create index centerlines_idx on tn911.centerlines using gist(geom);                  
+CREATE INDEX centerlines_idx ON tn911.centerlines using gist(geom);                  
 
 /* Comments */
 comment on column tn911.centerlines.oirid is 'Currently, this value is an alphanumeric patterned after the format: ‘%ECD name%_%numeric sequence%’ The ECD name is a one-word moniker for the District and MUST be in uppercase. For each individual record, this value MUST be unique among all road centerline records and persist for the lifetime of that record. The numeric sequence should increment by one (1) with each successive edit, but there is no requirement for consecutive numbering as long as the values are unique and persistent for each record. At this time, these unique identifiers cannot be reused once a road centerline record is deleted.';
@@ -220,8 +219,8 @@ comment on column tn911.centerlines.status is 'Defines the current lifecycle sta
 
 /**********************************************************************************/
 
-
-create table tn911.esn_boundary ( 
+DROP TABLE IF EXISTS tn911.esn_boundary 
+CREATE TABLE tn911.esn_boundary ( 
         id serial primary key,
         geom geometry (polygon, 2274),
         oirid varchar(20),
@@ -236,7 +235,7 @@ create table tn911.esn_boundary (
 	ems varchar(75));  
 
 /* Spatial Index */
-create index esn_idx on tn911.esn_boundary using gist(geom);                  
+CREATE INDEX esn_idx ON tn911.esn_boundary USING gist(geom);                  
 
 /* Comments */
 
@@ -252,16 +251,3 @@ comment on column tn911.esn_boundary.fd is 'Designation for the responding fire 
 comment on column tn911.esn_boundary.ems is 'Designation for the emergency medical response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
 
 
-/*create table tn911.access ( 
-	id serial primary key, 
-	geom geometry (point, 2274), 
-	oirid varchar(20), 
-	type varchar(24), 
-	seg_side varchar(1), 
-	comment varchar(250)
-    ); 
-
-comment on column tn911.access.oirid is 'Currently, this value is an alphanumeric patterned after the format: ‘%ECD name%_%numeric sequence%’ The ECD name is a one-word moniker for the District and MUST be in uppercase. For each individual record, this value MUST be unique among all address point records and persist for the lifetime of that record. The numeric sequence should increment by one (1) with each successive edit, but there is no requirement for consecutive numbering as long as the values are unique and persistent for each record. At this time, these unique identifiers cannot be reused once an address point record is deleted.';
-comment on column tn911.access.seg_side is 'Identifies the side of the related centerline segment that the site address point is addressed from. The centerline segment has direction based on its From and To nodes, not its address range assignment (though both should align).';
-comment on column tn911.access.type is 'Place whether the address is for access, routing, or both. This will set the a_segid and r_segid on the address_points layer.'; 
-comment on column tn911.access.comment is 'Comment on the stte of access for the address point.';*/ 

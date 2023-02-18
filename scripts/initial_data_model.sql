@@ -1,253 +1,607 @@
-/*creating the tables with for TN911*/ 
-/*rjhale                            */ 
-/*20200924                          */
+/* qgis schema */ 
 
-create schema dem; 
-create schema tn911; 
-SET search_path TO dem,public;
-SET search_path TO tn911,public;
+create schema forms; 
 
-DROP TABLE IF EXISTS tn911.address_points; 
-CREATE TABLE tn911.address_points ( 
-	id serial primary key, 
-	geom geometry (point, 2274), 
-	oirid varchar(20), 
-	r_segid varchar(25), 
-	a_segid varchar(25), 
-	seg_side varchar(1), 
-	gislink varchar(15), 
-	strucdomain varchar(30), 
-	structype smallint, 
-	strucdesc varchar(30), 
-	stnum_h varchar(10), 
-	stnum_l varchar(10), 
-	stnum varchar(10), 
-	stnumsuf varchar(10), 
-	building varchar(35), 
-	floor varchar(10), 
-	unit_type varchar(10), 
-	unit_num varchar(10), 
-	predir varchar(2), 
-	pretype varchar(5), 
-	name varchar(40), 
-	type varchar(5), 
-	sufdir varchar(2), 
-	postmod varchar(20), 
-	address varchar(100), 
-	addr_esn varchar(100), 
-	label varchar(100), 
-	subname varchar(50), 
-	vanity varchar(50), 
-	zip varchar(5), 
-	zip4 varchar(4), 
-	esn varchar(4), 
-	city varchar(30), 
-	county varchar(30), 
-	state varchar(2), 
-	lon varchar(15), 
-	lat varchar(15), 
-	x_sp double precision, 
-	y_sp double precision, 
-	z_val integer, 
-	gpsdate timestamp, 
-	addrauth varchar(50), 
-	source smallint, 
-	editor varchar(10), 
-	geomod varchar(75), 
-	geosrce varchar(45), 
-	geodate timestamp, 
-	attmod varchar(75), 
-	attsrce varchar(45), 
-	attdate timestamp, 
-	status smallint, 
-	delnotes varchar(75)
-    ); 
 
-/* Spatial Index */
-create index address_idx ON tn911.address_points using gist(geom);                  
+/* qgis form for predir and reference*/ 
 
-/* Comments */
-comment on column tn911.address_points.oirid is 'Currently, this value is an alphanumeric patterned after the format: ‘%ECD name%_%numeric sequence%’ The ECD name is a one-word moniker for the District and MUST be in uppercase. For each individual record, this value MUST be unique among all address point records and persist for the lifetime of that record. The numeric sequence should increment by one (1) with each successive edit, but there is no requirement for consecutive numbering as long as the values are unique and persistent for each record. At this time, these unique identifiers cannot be reused once an address point record is deleted.';
-comment on column tn911.address_points.r_segid is 'Identifier linking the address point to the road centerline segment that it is routed from. The value should mirror the [SEGID] value on the related centerline segment. This can be different from the segment it is addressed from. If there is more than one routable segment, the primary segment should be referenced here. If the [A_SEGID] is also a routable segment, it should be referenced as the primary (see 1.1.3, 2.1.2, and Figure 1).';
-comment on column tn911.address_points.a_segid is 'Identifier linking the address point to the road centerline segment that it is addressed from. The value should mirror the [SEGID] value on the referenced centerline segment. The same address can be routed-to from a different centerline segment (see 1.1.2 , 2.1.2, and Figure 1).';
-comment on column tn911.address_points.seg_side is 'Identifies the side of the related centerline segment that the site address point is addressed from. The centerline segment has direction based on its From and To nodes, not its address range assignment (though both should align).';
-comment on column tn911.address_points.gislink is 'Links the site address point to the parcel it is within. The relationship affords access to information about owner/occupancy, acreage, subdivision names, and other CAAS attributes.'; 
-comment on column tn911.address_points.structype is 'Domain of values that describe the type of structure represented by the site address point. Only one value can be chosen. If multiple values apply, choose the one that best describes the type of site address point this represents.';
-comment on column tn911.address_points.strucdesc is 'Value describing the characteristics of the structure represented by the site address point.';
-comment on column tn911.address_points.stnum_h is 'Contains the largest value (MAX) of an address range for a single structure.'; 
-comment on column tn911.address_points.stnum_l is 'Contains the lowest value (MIN) of an address range for a single structure.'; 
-comment on column tn911.address_points.stnum is 'Alpha-numeric field containing the structure number or value for the site address civic location assigned by the local addressing authority. Usually an integer which defines the individual address number for the structure. As this is the primary structure value, alphabetic characters should only appear in this field if they are part of the house number, not a secondary address (like an apartment, suite or unit). Duplex structures with no primary address can be populated in this field (i.e., ‘101A’ and ‘101B’).';
-comment on column tn911.address_points.stnumsuf is 'A non-integer value that accompanies the street number. Always use the virgule (/) when noting a half address.';
-comment on column tn911.address_points.building is '[VANITY] may describe a complex of buildings, but this field identifies the specific building associated with this site address point. As this is already identified as the building by the field name, do not add or abbreviate “BUILDING” for the field value, (e.g., if it is ‘BLDG A’ simply enter ‘A’).';
-comment on column tn911.address_points.floor is 'The floor of the building specific to this site address point. If there is only one floor, leave this field blank. As this is already identified as the floor by the field name, do not add or abbreviate “FLOOR” for the field value, (e.g., if it is ‘FLR 2’ simply enter ‘2’). Use the USPS secondary unit designator abbreviations found in Appendix C2 of the Publication 28 standard where applicable.';
-comment on column tn911.address_points.unit_type is 'USPS Publication 28 Appendix C2 applicable values, see also Appendix B of this document.';
-comment on column tn911.address_points.unit_num is 'The secondary unit number or identifier that specifies the individual unit.'; 
-comment on column tn911.address_points.predir is 'An abbreviated directional indicator for the road.'; 
-comment on column tn911.address_points.pretype is 'A type modifier for the road placed in front of the road name. The field length is currently 5 for existing special cases, but all attempts should be made to follow the domain for this field.';
-comment on column tn911.address_points.name is 'The name of the thoroughfare or throughway only (without the street type or directionals).';
-comment on column tn911.address_points.type is 'A type modifier for the road placed after the street name. The field length is currently 5 for existing special cases, but new assignments should follow the domain for this field.';
-comment on column tn911.address_points.sufdir is 'An abbreviated directional indicator for the road.'; 
-comment on column tn911.address_points.postmod is 'Always follows and modifies the street name.';  
-comment on column tn911.address_points.address is 'The concatenation of all parsed street number and street name elements consisting of STNUM, PREDIR, PRETYPE, NAME, TYPE, SUFDIR, POSTMOD. If the secondary address information must be used in this field, it should be appended to the end so that logical queries can still find the primary address.'; 
-comment on column tn911.address_points.addr_esn is 'The concatenation of the ADDRESS field with the ESN at the end separated by a space.'; 
-comment on column tn911.address_points.label is 'This is a freeform field for use in cartographic design. The values here can (and probably should) be proper case. Typically for the Site Address Points, this field would hold the street number or individual unit designation for this address. Recommended population would show street number for primary addresses and a concatenation of the UNIT_TYPE and UNIT_NUM for secondary addresses.'; 
-comment on column tn911.address_points.subname is 'The name of the subdivision this address participates in.'; 
-comment on column tn911.address_points.vanity is 'Colloquial landmark name identifying an address location. Field values can be proper case for labeling/cartographic purposes.'; 
-comment on column tn911.address_points.zip is 'The 5-digit code assigned to the USPS post office servicing this address location.'; 
-comment on column tn911.address_points.zip4 is 'The 4-digit code that value-adds the 5-digit ZIP that identifies a finite range of delivery addresses within the area serviced by the specific USPS post office.'; 
-comment on column tn911.address_points.esn is 'The Emergency Service Number is actually a 5-digit string, of which this schema is only capturing the last 3. The 3-digit code is prefixed with leading zeros. The ESN is a legacy element used for 10-digt routing.'; 
-comment on column tn911.address_points.city is 'This is not the administrative or postal city designation. This field should contain the MSAG Community Name, assigned by the 9-1-1 authority, which the address point is contained within.'; 
-comment on column tn911.address_points.county is 'The administrative county area that contains the address point.'; 
-comment on column tn911.address_points.state is 'The 2-letter abbreviation for the federal state area that contains the address point.'; 
-comment on column tn911.address_points.lon is 'The 2-letter abbreviation for the federal state area that contains the address point.'; 
-comment on column tn911.address_points.lat is 'The latitude of the address point in Geographic coordinates. Formatting can vary.'; 
-comment on column tn911.address_points.x_sp is 'Longitude-equivalent information catalogued in State Plane coordinates that meet the specifications under the Coordinate System and Projection subsection of this document.'; 
-comment on column tn911.address_points.y_sp is 'Latitude-equivalent information catalogued in State Plane coordinates that meet the specifications under the Coordinate System and Projection subsection of this document.'; 
-comment on column tn911.address_points.z_val is 'Metric elevation above mean sea level'; 
-comment on column tn911.address_points.gpsdate is 'Datetime stamp the address point was initially created. Once this value is established, it should never change. It should be noted that datetime values are not permissible in Shapefiles. Date fields in Shapefiles can hold a date or a time, but not both.'; 
-comment on column tn911.address_points.addrauth is 'The addressing authority responsible for assigning the address for the current point. Although usually a single entity, addressing authorities can vary within a given jurisdiction.'; 
-comment on column tn911.address_points.source is 'A description of what the address point is representing, be it a parcel centroid or a driveway entrance point or a main entrance point to the address represented by the attribution.'; 
-comment on column tn911.address_points.editor is 'Moniker identifying the last editor for this address point. It is at the District’s discretion as to whether this identifies an agency or individual.'; 
-comment on column tn911.address_points.geomod is 'Brief description of the type of geometry edit that was last performed on this address location.'; 
-comment on column tn911.address_points.geosrce is 'The source that was used to make the geometry edit described in GEOMOD.'; 
-comment on column tn911.address_points.geodate is 'The datetime stamp the last geometry edit was made to this address location. It should be noted that datetime values are not permissible in Shapefiles. Date fields in Shapefiles can hold a date or a time, but not both.'; 
-comment on column tn911.address_points.attmod is 'Brief description of the type of attribute edit that was last performed on this address location.'; 
-comment on column tn911.address_points.attsrce is 'The source that was used to make the attribute edit described in ATTMOD.'; 
-comment on column tn911.address_points.attdate is 'The datetime stamp the last attribute edit was made to this address location. It should be noted that datetime values are not permissible in Shapefiles. Date fields in Shapefiles can hold a date or a time, but not both.'; 
-comment on column tn911.address_points.status is 'Defines the current lifecycle status of the address.'; 
-comment on column tn911.address_points.delnotes is 'A notation field explaining the reason for a 799 lifecycle status.'; 
+create table forms.predir_tbl (
+       predir varchar(24) primary key,
+        description varchar(2)
+        );
 
-/**********************************************************************************/
+insert into forms.predir_tbl (predir, description) values ('N', 'N');
+insert into forms.predir_tbl (predir, description) values ('S', 'S');
+insert into forms.predir_tbl (predir, description) values ('E', 'E');
+insert into forms.predir_tbl (predir, description) values ('W', 'W');
+insert into forms.predir_tbl (predir, description) values ('NE', 'NE');
+insert into forms.predir_tbl (predir, description) values ('NW', 'NW');
+insert into forms.predir_tbl (predir, description) values ('SE', 'SE');
+insert into forms.predir_tbl (predir, description) values ('SW', 'SW');
 
-DROP TABLE IF EXISTS tn911.centerlines; 
-CREATE TABLE tn911.centerlines ( 
-	id serial primary key, 
-        geom geometry (linestring, 2274),	
-	oirid varchar(20), 
-	segid varchar(25), 
-	l_f_add varchar(11), 
-	l_t_add varchar(11), 
-	r_f_add varchar(11), 
-	r_t_add varchar(11), 
-	addr_type varchar(1), 
-	predir varchar(2), 
-	pretype varchar(5), 
-	name varchar(40), 
-	type varchar(5), 
-	sufdir varchar(2), 
-	postmod varchar(20), 
-	label varchar(100), 
-	vanity varchar(75), 
-	subname varchar(50), 
-	nametype smallint, 
-	cfcc varchar(3), 
-	esn_l varchar(3), 
-	esn_r varchar(3), 
-	zip_l varchar(5), 
-	zip_r varchar(5), 
-        city_l varchar(30), 
-	city_r varchar(30), 
-	county_l varchar(30), 
-	county_r varchar(30), 
-        state_l varchar(2), 
-	state_r varchar(2), 
-	spdlimit double precision,  
-	oneway varchar(2), 
-	lanes smallint, 
-	t_elev smallint, 
-	f_elev smallint, 
-	tfcost double precision, 
-	ftcost double precision, 
-	editor varchar(10), 
-	geomod varchar(75), 
-	geosrce varchar(45), 
-	geodate timestamp, 
-	attmod varchar(75), 
-	attsrc varchar(45), 
-	attdate timestamp,
-	status smallint); 
 
-/* Spatial Index */
-CREATE INDEX centerlines_idx ON tn911.centerlines using gist(geom);                  
+/* qgis tables seg_side */ 
 
-/* Comments */
-comment on column tn911.centerlines.oirid is 'Currently, this value is an alphanumeric patterned after the format: ‘%ECD name%_%numeric sequence%’ The ECD name is a one-word moniker for the District and MUST be in uppercase. For each individual record, this value MUST be unique among all road centerline records and persist for the lifetime of that record. The numeric sequence should increment by one (1) with each successive edit, but there is no requirement for consecutive numbering as long as the values are unique and persistent for each record. At this time, these unique identifiers cannot be reused once a road centerline record is deleted.';
-comment on column tn911.centerlines.segid is 'Unique identifier tying vertical alignments between segments together within the road centerline layer (see Figure 2). This field also serves to link the individual road centerline segments to the site address points they are routed and addressed from (see 1.1.2, 1.1.3, and Figure 1). This necessarily implies an auto-sequence number component, but the overall field value format is free-form.'; 
-comment on column tn911.centerlines.l_f_add is 'The address range extremity at the From node as defined by the associated address points on the left-side directionality of the centerline segment.'; 
-comment on column tn911.centerlines.l_t_add is 'The address range extremity at the From node as defined by the associated address points on the right-side directionality of the centerline segment.'; 
-comment on column tn911.centerlines.r_f_add is 'The address range extremity at the From node as defined by the associated address points on the right-side directionality of the centerline segment.'; 
-comment on column tn911.centerlines.r_t_add is 'The address range extremity at the To node as defined by the associated address points on the right-side directionality of the centerline segment.'; 
-comment on column tn911.centerlines.addr_type is 'Describes the address ranges as actual (A) or potential (P). These can be mixed in the centerline dataset. NENA-preferred values are actual.'; 
-comment on column tn911.centerlines.predir is 'An abbreviated directional indicator for the road.'; 
-comment on column tn911.centerlines.pretype is 'A type modifier for the road placed in front of the road name. The field length is currently 5 for existing special cases, but all attempts should be made to follow the domain for this field.'; 
-comment on column tn911.centerlines.name is 'The name of the thoroughfare or throughway only (without the street type or directionals).'; 
-comment on column tn911.centerlines.type is 'A type modifier for the road placed after the street name. The field length is currently 5 for existing special cases, but new assignments should follow the domain for this field.'; 
-comment on column tn911.centerlines.sufdir is 'An abbreviated directional indicator for the road.';
-comment on column tn911.centerlines.postmod is 'Always follows and modifies the street name.';
-comment on column tn911.centerlines.label is 'This is a freeform field for use in cartographic design. The values here can (and probably should) be proper case. Typically for the Site Address Points, this field would hold the street number or individual unit designation for this address. Recommended population would show street number for primary addresses and a concatenation of the UNIT_TYPE and UNIT_NUM for secondary addresses.';
-comment on column tn911.centerlines.vanity is 'Colloquial landmark name identifying an address location. Field values can be proper case for labeling/cartographic purposes.';
-comment on column tn911.centerlines.subname is 'The name of the subdivision this address participates in.'; 
-comment on column tn911.centerlines.nametype is 'Populate this field when there are multiple names associated with each segment (e.g., when a street contains both a locally known as well as a County, State or US highway designation).'; 
-comment on column tn911.centerlines.cfcc is 'Now outdated 3-character alphanumeric Census codes classifying geographical features. These will be mapped to the current 5-character alphanumeric MTFCC codes in the NG exchange formats. It is important to correctly classify certain centerline segments to isolate them during processing (e.g., connectors, bridges, ramps) and for linear network routing purposes (e.g., AVL).'; 
-comment on column tn911.centerlines.esn_l is 'The Emergency Service Number as defined by the associated address points on the left-side directionality of the centerline segment.'; 
-comment on column tn911.centerlines.esn_r is 'The Emergency Service Number as defined by the associated address points on the right-side directionality of the centerline segment.'; 
-comment on column tn911.centerlines.zip_l is 'The 5-digit code assigned to the USPS post office servicing the associated address points on the left-side directionality of the centerline segment'; 
-comment on column tn911.centerlines.zip_r is 'The 5-digit code assigned to the USPS post office servicing the associated address points on the right-side directionality of the centerline segment'; 
-comment on column tn911.centerlines.city_l is 'This is not the administrative or postal city designation. This field should contain the MSAG Community Name, assigned by the 9-1-1 authority, which the associated address points on the left-side directionality of the centerline segment are contained within.'; 
-comment on column tn911.centerlines.city_r is 'This is not the administrative or postal city designation. This field should contain the MSAG Community Name, assigned by the 9-1-1 authority, which the associated address points on the right-side directionality of the centerline segment are contained within.'; 
-comment on column tn911.centerlines.county_l is 'The administrative county area that the associated address points on the left-side directionality of the centerline segment are contained within.'; 
-comment on column tn911.centerlines.county_r is 'The administrative county area that the associated address points on the right-side directionality of the centerline segment are contained within.'; 
-comment on column tn911.centerlines.state_l is 'The 2-letter abbreviation for the federal state area that the associated address points on the left-side directionality of the centerline segment are
-contained within.'; 
-comment on column tn911.centerlines.state_r is 'The 2-letter abbreviation for the federal state area that the associated address points on the right-side directionality of the centerline segment are
-contained within.'; 
-comment on column tn911.centerlines.spdlimit is 'The posted speed limit for the centerline segment. This field is typed as Double because, although rare, decimals are allowed.'; 
-comment on column tn911.centerlines.oneway is 'Directional travel indicator.'; 
-comment on column tn911.centerlines.lanes is 'Number of lanes per road segment.'; 
-comment on column tn911.centerlines.t_elev is 'Connectivity policy value for modeling overpasses and underpasses.'; 
-comment on column tn911.centerlines.f_elev is 'Connectivity policy value for modeling overpasses and underpasses.'; 
-comment on column tn911.centerlines.tfcost is 'Travel time impedance value.'; 
-comment on column tn911.centerlines.ftcost is 'Travel time impedance value.'; 
-comment on column tn911.centerlines.editor is 'Moniker identifying the last editor for this centerline segment. It is at the District’s discretion as to whether this identifies an agency or individual.'; 
-comment on column tn911.centerlines.geomod is 'Brief description of the type of geometry edit that was last performed on this centerline segment.';
-comment on column tn911.centerlines.geosrce is 'The source that was used to make the geometry edit described in GEOMOD.'; 
-comment on column tn911.centerlines.geodate is 'The datetime stamp the last geometry edit was made to this centerline segment. It should be noted that datetime values are not permissible in Shapefiles. Date fields in Shapefiles can hold a date or a time, but not both.'; 
-comment on column tn911.centerlines.attmod is 'Brief description of the type of attribute edit that was last performed on this centerline segment.'; 
-comment on column tn911.centerlines.attsrc is 'The source that was used to make the attribute edit described in ATTMOD.'; 
-comment on column tn911.centerlines.attdate is 'The datetime stamp the last attribute edit was made to this centerline segment. It should be noted that datetime values are not permissible in Shapefiles. Date fields in Shapefiles can hold a date or a time, but not both.'; 
-comment on column tn911.centerlines.status is 'Defines the current lifecycle status of the centerline segment.'; 
-
-/**********************************************************************************/
-
-DROP TABLE IF EXISTS tn911.esn_boundary 
-CREATE TABLE tn911.esn_boundary ( 
+create table forms.segside_tbl (
         id serial primary key,
-        geom geometry (polygon, 2274),
-        oirid varchar(20),
-	esn varchar(3), 
-	wesn varchar(3), 
-	vesn varchar(3), 
-	srte varchar(25), 
-	psapid varchar(4), 
-	geodate timestamp, 
-	le varchar(75), 
-	fd varchar(75), 
-	ems varchar(75));  
+        seg_side varchar(1),
+	description varchar(12)
+        );
 
-/* Spatial Index */
-CREATE INDEX esn_idx ON tn911.esn_boundary USING gist(geom);                  
+insert into forms.segside_tbl (seg_side, description) values ('L', 'LEFT');
+insert into forms.segside_tbl (seg_side, description) values ('R', 'RIGHT');
 
-/* Comments */
+/* qgis tables structure type */ 
 
-comment on column tn911.esn_boundary.oirid is 'Currently, this value is an alphanumeric patterned after the format: ‘%ECD name%_%numeric sequence%’ The ECD name is a one-word moniker for the District and MUST be in uppercase. For each individual record, this value MUST be unique among all ESN polygon records and persist for the lifetime of that record. The numeric sequence should increment by one (1) with each successive edit, but there is no requirement for consecutive numbering as long as the values are unique and persistent for each record. At this time, these unique identifiers cannot be reused once a ESN polygon record is deleted.'; 
-comment on column tn911.esn_boundary.esn is 'The Emergency Service Number is actually a 5-digit string, of which this schema is only capturing the last 3. The 3-digit code is prefixed with leading zeros. The ESN is a legacy element used for 10-digt routing.';
-comment on column tn911.esn_boundary.wesn is '3-digit code representative of the wireless ESN. Populate this field only if the WESN and overlapping ESN are congruent or if there is a single WESN for the entire jurisdiction.'; 
-comment on column tn911.esn_boundary.vesn is '3-digit code representative of the Voice over IP ESN. Populate this field only if the VESN and overlapping ESN are congruent or if there is a single VESN for the entire jurisdiction.'; 
-comment on column tn911.esn_boundary.srte is 'The selective router associated with this ESN if known.'; 
-comment on column tn911.esn_boundary.psapid is 'The FCC maintains a registry of PSAPs within the US and its territories, and assigns a unique 4-digit key to each. This field value should be the primary PSAP identifier from the FCC Master PSAP Registry assigned to the PSAP that this ESN would default route to.  You may download the FCC Master PSAP Registry from here: https://www.fcc.gov/general/9-1-1-master-psap-registry If you do not find your PSAP or if a change has taken place, please advise the FCC using the contact information in the link provided and register.'; 
-comment on column tn911.esn_boundary.geodate is 'Datetime stamp the polygonal geometry was last modified. It should be noted that datetime values are not permissible in Shapefiles. Date fields in Shapefiles can hold a date or a time, but not both.'; 
-comment on column tn911.esn_boundary.le is 'Designation for the law enforcement response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
-comment on column tn911.esn_boundary.fd is 'Designation for the responding fire department associated with this ESN.  This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
-comment on column tn911.esn_boundary.ems is 'Designation for the emergency medical response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
+create table forms.strucdomain_tbl ( 
+	strucdomain smallint primary key, 
+	description varchar(50)
+); 
+
+insert into forms.strucdomain_tbl (strucdomain, description) values (100, '100-Familial'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (200, '200-Religious'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (300, '300-Education'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (400, '400-Medical'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (500, '500-Agricultural'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (600, '600-Government'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (700, '700-Utility'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (800, '800-Industrial'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (900, '900-Public Safety'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (1000, '1000-Transportation'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (1200, '1200-Assets'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (1300, '1300-Commercial'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (1400, '1400-Entertainment'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (1500, '1500-Recreational'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (1600, '1600-Historical'); 
+insert into forms.strucdomain_tbl (strucdomain, description) values (9000, '1700-Miscellaneous'); 
+
+create table forms.structype_tbl ( 
+	id serial primary key,
+	structype smallint, 
+	strucfk smallint, 
+        description varchar(50)
+        ); 
+
+insert into forms.structype_tbl (structype, strucfk, description) values (1, 100, '1-House'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (2, 100, '2-Duplex'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (3, 100, '3-Mobile Home'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (4, 100, '4-Apartment'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (5, 100, '5-Secondary Structure'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (6, 100, '6-Underground House'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (7, 100, '7-Condominium'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (8, 100, '8-Townhome'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (9, 100, '9-Triplex'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (10, 100, '10-Trailer Park'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (11, 100, '11-RV/Camper'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (12, 100, '12-Cabin'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (13, 100, '13-Day Care'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (14, 100, '14-Day Care'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (15, 100, '15-Senior Citizen Center'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (16, 100, '16-Bus'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (17, 100, '17-Quadplex'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (18, 100, '18-Communal Area');
+insert into forms.structype_tbl (structype, strucfk, description) values (200, 200, '200-Religious'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (201, 200, '201-Place of Worship'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (300, 300, '300-Education'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (301, 300, '301-School'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (302, 300, '302-University/College'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (303, 300, '303-Library'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (304, 300, '304-Dormitory'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (400, 400, '400-Medical'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (401, 400, '401-Hospital'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (402, 400, '402-Clinic'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (403, 400, '403-Pharmacy'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (404, 400, '404-Dental'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (405, 400, '405-Vision'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (406, 400, '406-Nursing Home'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (407, 400, '407-Assisted Living Facility'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (408, 400, '408-Rehabilitation Center'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (409, 400, '409-Morgue'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (500, 500, '500-Agricultural'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (501, 500, '501-Farm'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (502, 500, '502-Barn'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (503, 500, '503-Veterinary'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (504, 500, '504-Animal Shelter'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (505, 500, '505-Fish Hatchery'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (506, 500, '506-Greenhouse/Nursery'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (507, 500, '507-Chicken House'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (600, 600, '600-Government'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (601, 600, '601-Capitol'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (602, 600, '602-City Hall'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (603, 600, '603-Court House'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (604, 600, '604-Post Office'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (605, 600, '605-DoD/Military'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (700, 700, '700-Utility'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (701, 700, '701-Tower'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (702, 700, '702-Cell Tower'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (703, 700, '703-Radio Tower'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (704, 700, '704-TVA Siren'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (705, 700, '705-Water Tank'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (706, 700, '706-Oil Tank'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (707, 700, '707-Oil Well'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (708, 700, '708-Natural Gas Tank'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (709, 700, '709-Natural Gas Well'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (710, 700, '710-Natural Gas Pipeline'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (711, 700, '711-Power Substation'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (712, 700, '712-Pump Station'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (800, 800, '800-Industrial'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (801, 800, '801-Warehouse'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (802, 800, '802-Recycle Facility'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (803, 800, '803-Bottling Plant'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (804, 800, '804-Treatment Plant'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (805, 800, '805-Landfill'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (806, 800, '806-Mine'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (807, 800, '807-Rock Quarry'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (900, 900, '900-Public Safety'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (901, 900, '901-Prison'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (902, 900, '902-Detention Center'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (903, 900, '903-Police'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (904, 900, '904-Sheriff'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (905, 900, '905-Fire'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (906, 900, '906-Rescue Squad'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (907, 900, '907-EMS'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (908, 900, '908-Shelter'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (909, 900, '909-Fire Hydrant'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (910, 900, '910-PELA/LZ/Helicopter Pad'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (911, 900, '911-PSAP'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1000, 1000, '1000-Transportation'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1001, 1000, '1001-Airport'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1002, 1000, '1002-Airport Hanger'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1003, 1000, '1003-Airport Terminal'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1004, 1000, '1004-Bus Station'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1005, 1000, '1005-Gas Station'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1006, 1000, '1006-Bridge'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1007, 1000, '1007-Rest Area'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1008, 1000, '1008-Railroad'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1009, 1000, '1009-Roundhouse'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1010, 1000, '1010-Train Station'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1011, 1000, '1011-Railroad Crossing'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1012, 1000, '1012-Railroad Equipment'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1013, 1000, '1013-Railroad Mile Marker'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1014, 1000, '1014-River Marker'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1015, 1000, '1015-Mile Marker'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1200, 1200, '1200-Asset'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1201, 1200, '1201-Gate'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1202, 1200, '1202-Call Box/Phone Cabinet'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1203, 1200, '1203-Billboard'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1300, 1300, '1300-Commercial'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1301, 1300, '1301-Shopping Area'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1302, 1300, '1302-Store'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1303, 1300, '1303-Office'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1304, 1300, '1304-Parking Garage'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1305, 1300, '1305-Bank'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1306, 1300, '1306-Massage Parlor'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1307, 1300, '1307-Hotel/Motel'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1308, 1300, '1308-Laundry Mat'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1309, 1300, '1309-Storage Facility'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1400, 1400, '1400-Entertainment'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1401, 1400, '1401-Restaurant'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1402, 1400, '1402-Cafe'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1403, 1400, '1403-Bar'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1404, 1400, '1404-Club'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1405, 1400, '1405-Theater'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1406, 1400, '1406-Convention Center'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1407, 1400, '1407-Stadium'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1408, 1400, '1408-Arena'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1409, 1400, '1409-Sports Complex'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1500, 1500, '1500-Recreational'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1501, 1500, '1501-Park'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1502, 1500, '1502-Campground'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1503, 1500, '1503-Lodge'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1504, 1500, '1504-Golf Course'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1505, 1500, '1505-Boat Dock'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1506, 1500, '1506-Watercraft'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1600, 1600, '1600-Historical'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1601, 1600, '1601-Museum'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1602, 1600, '1602-Cemetery'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (9000, 9000, '9000-Temporary'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (9001, 9000, '9001-Vacant'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (9002, 9000, '9002-Unknown'); 
+
+/* C1 Street Suffix Abbreviations. Also to be used for Pre-type and PostMod */
+
+create table forms.type_tbl ( 
+	id serial primary key,
+        description varchar(24),
+	type varchar(5) 
+        ); 
+
+insert into forms.type_tbl (description, type) values ('ALLEY', 'ALY'); 
+insert into forms.type_tbl (description, type) values ('ANEX', 'ANX'); 
+insert into forms.type_tbl (description, type) values ('ARCADE', 'ARC'); 
+insert into forms.type_tbl (description, type) values ('AVENUE', 'AVE'); 
+insert into forms.type_tbl (description, type) values ('BAYOU', 'BYU'); 
+insert into forms.type_tbl (description, type) values ('BEACH', 'BCH'); 
+insert into forms.type_tbl (description, type) values ('BEND', 'BND'); 
+insert into forms.type_tbl (description, type) values ('BLUFF', 'BLF'); 
+insert into forms.type_tbl (description, type) values ('BLUFFS', 'BLFS'); 
+insert into forms.type_tbl (description, type) values ('BOTTOM', 'BTM'); 
+insert into forms.type_tbl (description, type) values ('BOULEVARD', 'BLVD'); 
+insert into forms.type_tbl (description, type) values ('BRANCH', 'BR'); 
+insert into forms.type_tbl (description, type) values ('BRIDGE', 'BRG'); 
+insert into forms.type_tbl (description, type) values ('BROOK', 'BRK'); 
+insert into forms.type_tbl (description, type) values ('BROOKS', 'BRKS'); 
+insert into forms.type_tbl (description, type) values ('BURG', 'BG'); 
+insert into forms.type_tbl (description, type) values ('BURGS', 'BGS'); 
+insert into forms.type_tbl (description, type) values ('BYPASS', 'BYP'); 
+insert into forms.type_tbl (description, type) values ('CAMP', 'CP'); 
+insert into forms.type_tbl (description, type) values ('CANYON', 'CYN'); 
+insert into forms.type_tbl (description, type) values ('CAPE', 'CPE'); 
+insert into forms.type_tbl (description, type) values ('CAUSEWAY', 'CSWY'); 
+insert into forms.type_tbl (description, type) values ('CENTER', 'CTR'); 
+insert into forms.type_tbl (description, type) values ('CENTERS', 'CTRS'); 
+insert into forms.type_tbl (description, type) values ('CIRCLE', 'CIR'); 
+insert into forms.type_tbl (description, type) values ('CIRCLES', 'CIRS'); 
+insert into forms.type_tbl (description, type) values ('CLIFF', 'CLF'); 
+insert into forms.type_tbl (description, type) values ('CLIFFS', 'CLFS'); 
+insert into forms.type_tbl (description, type) values ('CLUB', 'CLB'); 
+insert into forms.type_tbl (description, type) values ('COMMON', 'CMN'); 
+insert into forms.type_tbl (description, type) values ('COMMONS', 'CMNS'); 
+insert into forms.type_tbl (description, type) values ('CORNER', 'COR'); 
+insert into forms.type_tbl (description, type) values ('CORNERS', 'CORS'); 
+insert into forms.type_tbl (description, type) values ('COURSE', 'CRSE'); 
+insert into forms.type_tbl (description, type) values ('COURT', 'CT'); 
+insert into forms.type_tbl (description, type) values ('COURTS', 'CTS'); 
+insert into forms.type_tbl (description, type) values ('COVE', 'CV'); 
+insert into forms.type_tbl (description, type) values ('COVES', 'CVS'); 
+insert into forms.type_tbl (description, type) values ('CREEK', 'CRK'); 
+insert into forms.type_tbl (description, type) values ('CRESCENT', 'CRES'); 
+insert into forms.type_tbl (description, type) values ('CREST', 'CRST'); 
+insert into forms.type_tbl (description, type) values ('CROSSING', 'XING'); 
+insert into forms.type_tbl (description, type) values ('CROSSROAD', 'XRD'); 
+insert into forms.type_tbl (description, type) values ('CROSSROADS', 'XRDS'); 
+insert into forms.type_tbl (description, type) values ('CURVE', 'CURV'); 
+insert into forms.type_tbl (description, type) values ('DALE', 'DL'); 
+insert into forms.type_tbl (description, type) values ('DAM', 'DM'); 
+insert into forms.type_tbl (description, type) values ('DIVIDE', 'DV'); 
+insert into forms.type_tbl (description, type) values ('DRIVE', 'DR'); 
+insert into forms.type_tbl (description, type) values ('DRIVES', 'DRS'); 
+insert into forms.type_tbl (description, type) values ('ESTATE', 'EST'); 
+insert into forms.type_tbl (description, type) values ('ESTATES', 'ESTS'); 
+insert into forms.type_tbl (description, type) values ('EXPRESSWAY', 'EXPY'); 
+insert into forms.type_tbl (description, type) values ('EXTENSION', 'EXT'); 
+insert into forms.type_tbl (description, type) values ('EXTENSIONS', 'EXTS'); 
+insert into forms.type_tbl (description, type) values ('FALL', 'FALL'); 
+insert into forms.type_tbl (description, type) values ('FALLS', 'FLS'); 
+insert into forms.type_tbl (description, type) values ('FERRY', 'FRY');  
+insert into forms.type_tbl (description, type) values ('FIELD', 'FLD'); 
+insert into forms.type_tbl (description, type) values ('FIELDS', 'FLDS'); 
+insert into forms.type_tbl (description, type) values ('FLAT', 'FLT');
+insert into forms.type_tbl (description, type) values ('FLATS', 'FLTS');
+insert into forms.type_tbl (description, type) values ('FORD', 'FRD');
+insert into forms.type_tbl (description, type) values ('FORDS', 'FRDS');
+insert into forms.type_tbl (description, type) values ('FOREST', 'FRST');
+insert into forms.type_tbl (description, type) values ('FORGE', 'FRG');
+insert into forms.type_tbl (description, type) values ('FORGES', 'FRGS');
+insert into forms.type_tbl (description, type) values ('FORK', 'FRK');
+insert into forms.type_tbl (description, type) values ('FORKS', 'FRKS');
+insert into forms.type_tbl (description, type) values ('FORT', 'FT');
+insert into forms.type_tbl (description, type) values ('FREEWAY', 'FWY');
+insert into forms.type_tbl (description, type) values ('GARDEN', 'GDN');
+insert into forms.type_tbl (description, type) values ('GARDENS', 'GDNS');
+insert into forms.type_tbl (description, type) values ('GATEWAY', 'GTWY');
+insert into forms.type_tbl (description, type) values ('GLEN', 'GLN');
+insert into forms.type_tbl (description, type) values ('GLENS', 'GLNS');
+insert into forms.type_tbl (description, type) values ('GREEN', 'GRN');
+insert into forms.type_tbl (description, type) values ('GREENS', 'GRNS');
+insert into forms.type_tbl (description, type) values ('GROVE', 'GRV');
+insert into forms.type_tbl (description, type) values ('GROVES', 'GRVS');
+insert into forms.type_tbl (description, type) values ('HARBOR', 'HBR');
+insert into forms.type_tbl (description, type) values ('HARBORS', 'HBRS');
+insert into forms.type_tbl (description, type) values ('HAVEN', 'HVN');
+insert into forms.type_tbl (description, type) values ('HEIGHTS', 'HTS');
+insert into forms.type_tbl (description, type) values ('HIGHWAY', 'HWY');
+insert into forms.type_tbl (description, type) values ('HILL', 'HL');
+insert into forms.type_tbl (description, type) values ('HILLS', 'HLS');
+insert into forms.type_tbl (description, type) values ('HOLLOW', 'HOLW');
+insert into forms.type_tbl (description, type) values ('INLET', 'INLT');
+insert into forms.type_tbl (description, type) values ('ISLAND', 'IS');
+insert into forms.type_tbl (description, type) values ('ISLANDS', 'ISS');
+insert into forms.type_tbl (description, type) values ('ISLE', 'ISLE');
+insert into forms.type_tbl (description, type) values ('JUNCTION', 'JCT');
+insert into forms.type_tbl (description, type) values ('JUNCTIONS', 'JCTS');
+insert into forms.type_tbl (description, type) values ('KEY', 'KY');
+insert into forms.type_tbl (description, type) values ('KEYS', 'KYS');
+insert into forms.type_tbl (description, type) values ('KNOLL', 'KNL');
+insert into forms.type_tbl (description, type) values ('KNOLLS', 'KNLS');
+insert into forms.type_tbl (description, type) values ('LAKE', 'LK');
+insert into forms.type_tbl (description, type) values ('LAKES', 'LKS');
+insert into forms.type_tbl (description, type) values ('LAND', 'LAND');
+insert into forms.type_tbl (description, type) values ('LANDING', 'LNDG');
+insert into forms.type_tbl (description, type) values ('LANE', 'LN');
+insert into forms.type_tbl (description, type) values ('LIGHT', 'LGT');
+insert into forms.type_tbl (description, type) values ('LIGHTS', 'LGTS');
+insert into forms.type_tbl (description, type) values ('LOAF', 'LF');
+insert into forms.type_tbl (description, type) values ('LOCK', 'LCK');
+insert into forms.type_tbl (description, type) values ('LOCKS', 'LCKS');
+insert into forms.type_tbl (description, type) values ('LODGE', 'LDG');
+insert into forms.type_tbl (description, type) values ('LOOP', 'LOOP');
+insert into forms.type_tbl (description, type) values ('MALL', 'MALL');
+insert into forms.type_tbl (description, type) values ('MANOR', 'MNR');
+insert into forms.type_tbl (description, type) values ('MANORS', 'MNRS');
+insert into forms.type_tbl (description, type) values ('MEADOW', 'MDW');
+insert into forms.type_tbl (description, type) values ('MEADOWS', 'MDWS');
+insert into forms.type_tbl (description, type) values ('MEWS', 'MEWS');
+insert into forms.type_tbl (description, type) values ('MILL', 'ML');
+insert into forms.type_tbl (description, type) values ('MILLS', 'MLS');
+insert into forms.type_tbl (description, type) values ('MISSION', 'MSN');
+insert into forms.type_tbl (description, type) values ('MOTORWAY', 'MTWY');
+insert into forms.type_tbl (description, type) values ('MOUNT', 'MT');
+insert into forms.type_tbl (description, type) values ('MOUNTAIN', 'MTN');
+insert into forms.type_tbl (description, type) values ('MOUNTAINS', 'MTNS');
+insert into forms.type_tbl (description, type) values ('NECK','NCK');
+insert into forms.type_tbl (description, type) values ('ORCHARD', 'ORCH');
+insert into forms.type_tbl (description, type) values ('OVAL', 'OVAL');
+insert into forms.type_tbl (description, type) values ('OVERPASS', 'OPAS');
+insert into forms.type_tbl (description, type) values ('PARK', 'PARK');
+insert into forms.type_tbl (description, type) values ('PARKS', 'PARK');
+insert into forms.type_tbl (description, type) values ('PARKWAY', 'PKWY');
+insert into forms.type_tbl (description, type) values ('PARKWAYS', 'PKWY');
+insert into forms.type_tbl (description, type) values ('PASS', 'PASS');
+insert into forms.type_tbl (description, type) values ('PASSAGE', 'PSGE');
+insert into forms.type_tbl (description, type) values ('PATH', 'PATH');
+insert into forms.type_tbl (description, type) values ('PIKE', 'PIKE');
+insert into forms.type_tbl (description, type) values ('PINE', 'PNE');
+insert into forms.type_tbl (description, type) values ('PINES', 'PNES');
+insert into forms.type_tbl (description, type) values ('PLACE', 'PL');
+insert into forms.type_tbl (description, type) values ('PLAIN', 'PLN');
+insert into forms.type_tbl (description, type) values ('PLAINS', 'PLNS');
+insert into forms.type_tbl (description, type) values ('PLAZA', 'PLZ');
+insert into forms.type_tbl (description, type) values ('POINT', 'PT');
+insert into forms.type_tbl (description, type) values ('POINTS', 'PTS');
+insert into forms.type_tbl (description, type) values ('PORT', 'PRT');
+insert into forms.type_tbl (description, type) values ('PORTS', 'PRTS');
+insert into forms.type_tbl (description, type) values ('PRAIRIE', 'PR');
+insert into forms.type_tbl (description, type) values ('RADIAL', 'RADL');
+insert into forms.type_tbl (description, type) values ('RAMP', 'RAMP');
+insert into forms.type_tbl (description, type) values ('RANCH', 'RNCH');
+insert into forms.type_tbl (description, type) values ('RAPID', 'RPD');
+insert into forms.type_tbl (description, type) values ('RAPIDS', 'RPDS');
+insert into forms.type_tbl (description, type) values ('REST', 'RST');
+insert into forms.type_tbl (description, type) values ('RIDGE', 'RDG');
+insert into forms.type_tbl (description, type) values ('RIDGES', 'RDGS');
+insert into forms.type_tbl (description, type) values ('RIVER', 'RIV');
+insert into forms.type_tbl (description, type) values ('ROAD', 'RD');
+insert into forms.type_tbl (description, type) values ('ROADS', 'RDS');
+insert into forms.type_tbl (description, type) values ('ROUTE', 'RTE');
+insert into forms.type_tbl (description, type) values ('ROW', 'ROW');
+insert into forms.type_tbl (description, type) values ('RUE', 'RUE');
+insert into forms.type_tbl (description, type) values ('RUN', 'RUN');
+insert into forms.type_tbl (description, type) values ('SHOAL', 'SHL');
+insert into forms.type_tbl (description, type) values ('SHOALS', 'SHLS');
+insert into forms.type_tbl (description, type) values ('SHORE', 'SHR');
+insert into forms.type_tbl (description, type) values ('SHORES', 'SHRS');
+insert into forms.type_tbl (description, type) values ('SKYWAY', 'SKWY');
+insert into forms.type_tbl (description, type) values ('SPRING', 'SPG');
+insert into forms.type_tbl (description, type) values ('SPRINGS', 'SPGS');
+insert into forms.type_tbl (description, type) values ('SPUR', 'SPUR');
+insert into forms.type_tbl (description, type) values ('SPURS', 'SPUR');
+insert into forms.type_tbl (description, type) values ('SQUARE', 'SQ');
+insert into forms.type_tbl (description, type) values ('SQUARES', 'SQS');
+insert into forms.type_tbl (description, type) values ('STATION', 'STA');
+insert into forms.type_tbl (description, type) values ('STRAVENUE', 'STRA');
+insert into forms.type_tbl (description, type) values ('STREAM', 'STRM');
+insert into forms.type_tbl (description, type) values ('STREET', 'ST');
+insert into forms.type_tbl (description, type) values ('STREETS', 'STS');
+insert into forms.type_tbl (description, type) values ('SUMMIT', 'SMT');
+insert into forms.type_tbl (description, type) values ('TERRACE', 'TER');
+insert into forms.type_tbl (description, type) values ('THROUGHWAY', 'TRWY');
+insert into forms.type_tbl (description, type) values ('TRACE', 'TRCE');
+insert into forms.type_tbl (description, type) values ('TRACK', 'TRAK');
+insert into forms.type_tbl (description, type) values ('TRAFFICWAY', 'TRFY');
+insert into forms.type_tbl (description, type) values ('TRAIL', 'TRL');
+insert into forms.type_tbl (description, type) values ('TRAILER', 'TRLR');
+insert into forms.type_tbl (description, type) values ('TUNNEL', 'TUNL');
+insert into forms.type_tbl (description, type) values ('TURNPIKE', 'TPKE');
+insert into forms.type_tbl (description, type) values ('UNDERPASS', 'UPAS');
+insert into forms.type_tbl (description, type) values ('UNION', 'UN');
+insert into forms.type_tbl (description, type) values ('UNIONS', 'UNS');
+insert into forms.type_tbl (description, type) values ('VALLEY', 'VLY');
+insert into forms.type_tbl (description, type) values ('VALLEYS', 'VLYS');
+insert into forms.type_tbl (description, type) values ('VIADUCT', 'VIA');
+insert into forms.type_tbl (description, type) values ('VIEW', 'VW');
+insert into forms.type_tbl (description, type) values ('VIEWS', 'VWS');
+insert into forms.type_tbl (description, type) values ('VILLAGE', 'VLG');
+insert into forms.type_tbl (description, type) values ('VILLAGES', 'VLGS');
+insert into forms.type_tbl (description, type) values ('VILLE', 'VL');
+insert into forms.type_tbl (description, type) values ('VISTA', 'VIS');
+insert into forms.type_tbl (description, type) values ('WALK', 'WALK');
+insert into forms.type_tbl (description, type) values ('WALK', 'WALK');
+insert into forms.type_tbl (description, type) values ('WALL', 'WALL');
+insert into forms.type_tbl (description, type) values ('WAY', 'WAY');
+insert into forms.type_tbl (description, type) values ('WAYS', 'WAYS');
+insert into forms.type_tbl (description, type) values ('WELL', 'WL');
+insert into forms.type_tbl (description, type) values ('WELLS', 'WLS');
+
+/* qgis table unit */ 
+
+create table forms.unit_type_tbl ( 
+	id serial primary key,
+        description varchar(24),
+	unit_type varchar(4) 
+        ); 
+
+insert into forms.unit_type_tbl (description, unit_type) values ('APARTMENT', 'APT'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('BASEMENT', 'BSMT'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('BUILDING', 'BLDG'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('DEPARTMENT', 'DEPT'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('FLOOR', 'FL'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('FRONT', 'FRNT'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('HANGAR', 'HNGR'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('LOBBY', 'LBBY'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('LOT',	'LOT'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('LOWER', 'LOWR'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('OFFICE', 'OFC'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('PENTHOUSE', 'PH'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('PIER', 'PIER'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('REAR', 'REAR'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('ROOM', 'RM'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('SIDE', 'SIDE'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('SLIP', 'SLIP'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('SPACE', 'SPC'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('STOP', 'STOP'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('SUITE', 'STE'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('TRAILER', 'TRLR'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('UNIT', 'UNIT'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('UPPER', 'UPPR'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('GARAGE', 'GAR'); 
+insert into forms.unit_type_tbl (description, unit_type) values ('OTHER', 'OTH'); 
+
+/* Create Source  Table */
+create table forms.source_tbl ( 
+	id serial primary key, 
+	source integer,
+	description varchar(24)
+        ); 
+
+insert into forms.source_tbl (source, description) values (1, '1-Parcel Centroid'); 
+insert into forms.source_tbl (source, description) values (2, '2-Driveway Entrance'); 
+insert into forms.source_tbl (source, description) values (3, '3-Structure Centroid'); 
+insert into forms.source_tbl (source, description) values (4, '4-Main entrace'); 
+insert into forms.source_tbl (source, description) values (5, '5-Frontage Centroid'); 
+insert into forms.source_tbl (source, description) values (0, '6-Undefined'); 
+
+/* Create Lifecycle Status Table */
+
+create table forms.lifecyclestatus_tbl ( 
+	id serial primary key, 
+	status integer,
+	description varchar(24)
+        ); 
+
+insert into forms.lifecyclestatus_tbl (status, description) values (730, '730-ACTIVE'); 
+insert into forms.lifecyclestatus_tbl (status, description) values (734, '734-PROPOSED'); 
+insert into forms.lifecyclestatus_tbl (status, description) values (736, '736-POTENTIAL'); 
+insert into forms.lifecyclestatus_tbl (status, description) values (799, '799-RETIRED'); 
+
+/* Create a addr_type */
+
+create table forms.addrtype_tbl ( 
+	id serial primary key, 
+	type char(2),
+	description varchar(24)
+        ); 
+
+insert into forms.addrtype_tbl (type, description) values ('P', 'Potential'); 
+insert into forms.addrtype_tbl (type, description) values ('A', 'Actual'); 
+
+/* Nametype */ 
+
+create table forms.nametype_tbl ( 
+	id serial primary key, 
+	type integer,
+	description varchar(50)
+        ); 
+
+insert into forms.nametype_tbl (type, description) values (1, '1-Signed Name'); 
+insert into forms.nametype_tbl (type, description) values (2, '2-Long Haul Name - State Wide'); 
+insert into forms.nametype_tbl (type, description) values (3, '3-Long Haul Name - County Wide'); 
+insert into forms.nametype_tbl (type, description) values (4, '4-Long Haul Name - City Wide'); 
+insert into forms.nametype_tbl (type, description) values (5, '5-Postal Name'); 
+insert into forms.nametype_tbl (type, description) values (6, '6-MSAG Name'); 
+insert into forms.nametype_tbl (type, description) values (7, '7-Inventory Name'); 
+
+/* CFCC Table */
+
+create table forms.cfcc_tbl ( 
+	id serial primary key, 
+	cfcc char(3),
+	description varchar(150)
+        ); 
+
+insert into forms.cfcc_tbl (cfcc, description) values ('A10', 'A10-Road, major and minor categories unknown');
+insert into forms.cfcc_tbl (cfcc, description) values ('A11', 'A11-Primary road with limited access or interstate highway, unseparated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A12', 'A12-Primary road with limited access or interstate highway, unseparated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A13', 'A13-Primary road with limited access or interstate highway, unseparated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A14', 'A14-Primary road with limited access or interstate highway, unseparated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A15', 'A15-Primary road with limited access or interstate highway, separated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A16', 'A16-Primary road with limited access or interstate highway, separated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A17', 'A17-Primary road with limited access or interstate highway, separated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A18', 'A18-Primary road with limited access or interstate highway, separated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A19', 'A19-Primary road with limited access or interstate highway, bridge');
+insert into forms.cfcc_tbl (cfcc, description) values ('A21', 'A21-Primary road without limited access, U.S. and State highways, unseparated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A22', 'A22-Primary road without limited access, U.S. and State highways, unseparated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A23', 'A23-Primary road without limited access, U.S. and State highways, unseparated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A24', 'A24-Primary road without limited access, U.S. and State highways, unseparated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A25', 'A25-Primary road without limited access, U.S. and State highways, separated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A26', 'A26-Primary road without limited access, U.S. and State highways, separated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A27', 'A27-Primary road without limited access, U.S. and State highways, separated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A28', 'A28-Primary road without limited access, U.S. and State highways, separated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A29', 'A29-Primary road without limited access, US highways, bridge');
+insert into forms.cfcc_tbl (cfcc, description) values ('A31', 'A31-Secondary and connecting road, State and county highways, unseparated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A32', 'A32-Secondary and connecting road, State and county highways, unseparated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A33', 'A33-Secondary and connecting road, State and county highways, unseparated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A34', 'A34-Secondary and connecting road, State and county highways, unseparated, with rail lin in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A35', 'A35-Secondary and connecting road, State and county highways, separated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A36', 'A36-Secondary and connecting road, State and county highways, separated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A37', 'A37-Secondary and connecting road, State and county highways, separated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A38', 'A38-Secondary and connecting road, State and county highway, separated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A39', 'A39-Secondary and connecting road, state and county highways, bridge');
+insert into forms.cfcc_tbl (cfcc, description) values ('A41', 'A41-Local, neighborhood, and rural road, city street, unseparated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A42', 'A42-Local, neighborhood, and rural road, city street, unseparated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A43', 'A43-Local, neighborhood, and rural road, city street, unseparated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A44', 'A44-Local, neighborhood, and rural road, city street, unseparated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A45', 'A45-Local, neighborhood, and rural road, city street, separated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A46', 'A46-Local, neighborhood, and rural road, city street, separated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A47', 'A47-Local, neighborhood, and rural road, city street, separated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A48', 'A48-Local, neighborhood, and rural road, city street, separated, with rail line in center');
+insert into forms.cfcc_tbl (cfcc, description) values ('A49', 'A49-Local, neighborhood, and rural road, city street, bridge');
+insert into forms.cfcc_tbl (cfcc, description) values ('A50', 'A50-Vehicular trail, road passable only by four-wheel drive (4WD) vehicle, major category');
+insert into forms.cfcc_tbl (cfcc, description) values ('A51', 'A51-Vehicular trail, road passable only by 4WD vehicle, unseparated');
+insert into forms.cfcc_tbl (cfcc, description) values ('A52', 'A52-Vehicular trail, road passable only by 4WD vehicle, unseparated, in tunnel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A53', 'A53-Vehicular trail, road passable only by 4WD vehicle, unseparated, underpassing');
+insert into forms.cfcc_tbl (cfcc, description) values ('A60', 'A60-Special road feature, major category used when the minor category could not be determined');
+insert into forms.cfcc_tbl (cfcc, description) values ('A61', 'A61-Cul-de-sac, the closed end of a road that forms a loop or turn around');
+insert into forms.cfcc_tbl (cfcc, description) values ('A62', 'A62-Traffic circle, the portion of a road or intersection of roads that form a roundabout');
+insert into forms.cfcc_tbl (cfcc, description) values ('A63', 'A63-Access ramp, the portion of a road that forms a cloverleaf or limited access interchange');
+insert into forms.cfcc_tbl (cfcc, description) values ('A64', 'A64-Service drive, road that provides access to businesses, facilities, and rest areas along limited-access highway');
+insert into forms.cfcc_tbl (cfcc, description) values ('A65', 'A65-Ferry crossing, the representation of a route over water that connects roads on opposite shores');
+insert into forms.cfcc_tbl (cfcc, description) values ('A66', 'A66-Gated barrier to travel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A67', 'A67-Toll booth barrier to travel');
+insert into forms.cfcc_tbl (cfcc, description) values ('A70', 'A70-Other thoroughfare, major category used when the minor category could not be determined');
+insert into forms.cfcc_tbl (cfcc, description) values ('A71', 'A71-Walkway, nearly level road for pedestrians, usually unnamed');
+insert into forms.cfcc_tbl (cfcc, description) values ('A72', 'A72-Stairway, stepped road for pedestrians, usually unnamed');
+insert into forms.cfcc_tbl (cfcc, description) values ('A73', 'A73-Alley, road for service vehicles, usually unnamed, located at the rear of buildings and property');
+insert into forms.cfcc_tbl (cfcc, description) values ('A74', 'A74-Driveway or service road, usually privately owned and unnamed, used as access to residences, etc., or as access to logging areas, etc.');
+
+/* Lanes */ 
+
+create table forms.lanes_tbl ( 
+	id serial primary key, 
+	lanes integer
+        ); 
+
+insert into forms.lanes_tbl (lanes) values (1); 
+insert into forms.lanes_tbl (lanes) values (2); 
+insert into forms.lanes_tbl (lanes) values (3); 
+insert into forms.lanes_tbl (lanes) values (4); 
+insert into forms.lanes_tbl (lanes) values (5); 
+insert into forms.lanes_tbl (lanes) values (6); 
+insert into forms.lanes_tbl (lanes) values (7); 
+insert into forms.lanes_tbl (lanes) values (8); 
+insert into forms.lanes_tbl (lanes) values (9); 
+insert into forms.lanes_tbl (lanes) values (10); 
+insert into forms.lanes_tbl (lanes) values (11); 
+insert into forms.lanes_tbl (lanes) values (12); 
+insert into forms.lanes_tbl (lanes) values (13); 
 
 
+create table forms.oneway_tbl ( 
+	id serial primary key, 
+	oneway varchar(3),
+	description varchar(50)
+        ); 
+
+insert into forms.oneway_tbl (oneway, description) values ('TF', 'One Way is To-From Node Direction'); 
+insert into forms.oneway_tbl (oneway, description) values ('TF', 'One Way is From-To Node Direction'); 
+
+
+create table forms.access_tbl ( 
+	id serial primary key, 
+	type varchar(24),
+	description varchar(50)
+        ); 
+
+insert into forms.access_tbl (type, description) values ('access', 'Access Point'); 
+insert into forms.access_tbl (type, description) values ('routing', 'Routing Point'); 
+insert into forms.access_tbl (type, description) values ('access and routing', 'Structure is accessed and routed from this point'); 
