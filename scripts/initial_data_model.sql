@@ -23,8 +23,7 @@ insert into forms.predir_tbl (predir, description) values ('SW', 'SW');
 /* qgis tables seg_side */ 
 
 create table forms.segside_tbl (
-        id serial primary key,
-        seg_side varchar(1),
+        seg_side varchar(1) primary Key,
 	description varchar(12)
         );
 
@@ -201,9 +200,8 @@ insert into forms.structype_tbl (structype, strucfk, description) values (9002, 
 /* C1 Street Suffix Abbreviations. Also to be used for Pre-type and PostMod */
 
 create table forms.type_tbl ( 
-	id serial primary key,
         description varchar(24),
-	type varchar(5) 
+	type varchar(5) primary key  
         ); 
 
 insert into forms.type_tbl (description, type) values ('ALLEY', 'ALY'); 
