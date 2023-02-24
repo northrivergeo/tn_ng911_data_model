@@ -30,6 +30,11 @@ create table forms.segside_tbl (
 insert into forms.segside_tbl (seg_side, description) values ('L', 'LEFT');
 insert into forms.segside_tbl (seg_side, description) values ('R', 'RIGHT');
 
+/*qgis table for zipcode */ 
+create table forms.zipcode ( 
+	zipcode varchar(5) primary key
+                           ); 
+
 /* qgis tables structure type */ 
 
 create table forms.strucdomain_tbl ( 
@@ -55,147 +60,146 @@ insert into forms.strucdomain_tbl (strucdomain, description) values (1600, '1600
 insert into forms.strucdomain_tbl (strucdomain, description) values (9000, '1700-Miscellaneous'); 
 
 create table forms.structype_tbl ( 
-	id serial primary key,
-	structype smallint, 
+	structype smallint primary key, 
 	strucfk smallint, 
         description varchar(50)
         ); 
 
-insert into forms.structype_tbl (structype, strucfk, description) values (1, 100, '1-House'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (2, 100, '2-Duplex'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (3, 100, '3-Mobile Home'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (4, 100, '4-Apartment'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (5, 100, '5-Secondary Structure'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (6, 100, '6-Underground House'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (7, 100, '7-Condominium'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (8, 100, '8-Townhome'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (9, 100, '9-Triplex'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (10, 100, '10-Trailer Park'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (11, 100, '11-RV/Camper'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (12, 100, '12-Cabin'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (13, 100, '13-Day Care'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (14, 100, '14-Day Care'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (15, 100, '15-Senior Citizen Center'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (16, 100, '16-Bus'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (17, 100, '17-Quadplex'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (18, 100, '18-Communal Area');
-insert into forms.structype_tbl (structype, strucfk, description) values (200, 200, '200-Religious'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (201, 200, '201-Place of Worship'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (300, 300, '300-Education'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (301, 300, '301-School'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (302, 300, '302-University/College'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (303, 300, '303-Library'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (304, 300, '304-Dormitory'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (400, 400, '400-Medical'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (401, 400, '401-Hospital'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (402, 400, '402-Clinic'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (403, 400, '403-Pharmacy'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (404, 400, '404-Dental'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (405, 400, '405-Vision'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (406, 400, '406-Nursing Home'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (407, 400, '407-Assisted Living Facility'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (408, 400, '408-Rehabilitation Center'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (409, 400, '409-Morgue'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (500, 500, '500-Agricultural'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (501, 500, '501-Farm'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (502, 500, '502-Barn'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (503, 500, '503-Veterinary'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (504, 500, '504-Animal Shelter'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (505, 500, '505-Fish Hatchery'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (506, 500, '506-Greenhouse/Nursery'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (507, 500, '507-Chicken House'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (600, 600, '600-Government'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (601, 600, '601-Capitol'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (602, 600, '602-City Hall'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (603, 600, '603-Court House'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (604, 600, '604-Post Office'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (605, 600, '605-DoD/Military'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (700, 700, '700-Utility'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (701, 700, '701-Tower'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (702, 700, '702-Cell Tower'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (703, 700, '703-Radio Tower'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (704, 700, '704-TVA Siren'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (705, 700, '705-Water Tank'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (706, 700, '706-Oil Tank'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (707, 700, '707-Oil Well'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (708, 700, '708-Natural Gas Tank'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (709, 700, '709-Natural Gas Well'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (710, 700, '710-Natural Gas Pipeline'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (711, 700, '711-Power Substation'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (712, 700, '712-Pump Station'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (800, 800, '800-Industrial'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (801, 800, '801-Warehouse'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (802, 800, '802-Recycle Facility'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (803, 800, '803-Bottling Plant'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (804, 800, '804-Treatment Plant'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (805, 800, '805-Landfill'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (806, 800, '806-Mine'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (807, 800, '807-Rock Quarry'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (900, 900, '900-Public Safety'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (901, 900, '901-Prison'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (902, 900, '902-Detention Center'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (903, 900, '903-Police'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (904, 900, '904-Sheriff'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (905, 900, '905-Fire'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (906, 900, '906-Rescue Squad'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (907, 900, '907-EMS'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (908, 900, '908-Shelter'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (909, 900, '909-Fire Hydrant'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (910, 900, '910-PELA/LZ/Helicopter Pad'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (911, 900, '911-PSAP'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1000, 1000, '1000-Transportation'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1001, 1000, '1001-Airport'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1002, 1000, '1002-Airport Hanger'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1003, 1000, '1003-Airport Terminal'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1004, 1000, '1004-Bus Station'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1005, 1000, '1005-Gas Station'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1006, 1000, '1006-Bridge'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1007, 1000, '1007-Rest Area'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1008, 1000, '1008-Railroad'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1009, 1000, '1009-Roundhouse'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1010, 1000, '1010-Train Station'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1011, 1000, '1011-Railroad Crossing'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1012, 1000, '1012-Railroad Equipment'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1013, 1000, '1013-Railroad Mile Marker'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1014, 1000, '1014-River Marker'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1015, 1000, '1015-Mile Marker'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1200, 1200, '1200-Asset'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1201, 1200, '1201-Gate'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1202, 1200, '1202-Call Box/Phone Cabinet'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1203, 1200, '1203-Billboard'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1300, 1300, '1300-Commercial'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1301, 1300, '1301-Shopping Area'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1302, 1300, '1302-Store'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1303, 1300, '1303-Office'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1304, 1300, '1304-Parking Garage'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1305, 1300, '1305-Bank'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1306, 1300, '1306-Massage Parlor'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1307, 1300, '1307-Hotel/Motel'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1308, 1300, '1308-Laundry Mat'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1309, 1300, '1309-Storage Facility'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1400, 1400, '1400-Entertainment'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1401, 1400, '1401-Restaurant'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1402, 1400, '1402-Cafe'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1403, 1400, '1403-Bar'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1404, 1400, '1404-Club'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1405, 1400, '1405-Theater'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1406, 1400, '1406-Convention Center'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1407, 1400, '1407-Stadium'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1408, 1400, '1408-Arena'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1409, 1400, '1409-Sports Complex'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1500, 1500, '1500-Recreational'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1501, 1500, '1501-Park'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1502, 1500, '1502-Campground'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1503, 1500, '1503-Lodge'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1504, 1500, '1504-Golf Course'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1505, 1500, '1505-Boat Dock'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1506, 1500, '1506-Watercraft'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1600, 1600, '1600-Historical'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1601, 1600, '1601-Museum'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (1602, 1600, '1602-Cemetery'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (9000, 9000, '9000-Temporary'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (9001, 9000, '9001-Vacant'); 
-insert into forms.structype_tbl (structype, strucfk, description) values (9002, 9000, '9002-Unknown'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1, 100, 'House'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (2, 100, 'Duplex'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (3, 100, 'Mobile Home'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (4, 100, 'Apartment'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (5, 100, 'Secondary Structure'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (6, 100, 'Underground House'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (7, 100, 'Condominium'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (8, 100, 'Townhome'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (9, 100, 'Triplex'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (10, 100, 'Trailer Park'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (11, 100, 'RV/Camper'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (12, 100, 'Cabin'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (13, 100, 'Day Care'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (14, 100, 'Day Care'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (15, 100, 'Senior Citizen Center'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (16, 100, 'Bus'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (17, 100, 'Quadplex'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (18, 100, 'Communal Area');
+insert into forms.structype_tbl (structype, strucfk, description) values (200, 200, 'Religious'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (201, 200, 'Place of Worship'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (300, 300, 'Education'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (301, 300, 'School'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (302, 300, 'University/College'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (303, 300, 'Library'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (304, 300, 'Dormitory'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (400, 400, 'Medical'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (401, 400, 'Hospital'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (402, 400, 'Clinic'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (403, 400, 'Pharmacy'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (404, 400, 'Dental'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (405, 400, 'Vision'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (406, 400, 'Nursing Home'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (407, 400, 'Assisted Living Facility'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (408, 400, 'Rehabilitation Center'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (409, 400, 'Morgue'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (500, 500, 'Agricultural'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (501, 500, 'Farm'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (502, 500, 'Barn'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (503, 500, 'Veterinary'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (504, 500, 'Animal Shelter'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (505, 500, 'Fish Hatchery'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (506, 500, 'Greenhouse/Nursery'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (507, 500, 'Chicken House'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (600, 600, 'Government'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (601, 600, 'Capitol'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (602, 600, 'City Hall'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (603, 600, 'Court House'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (604, 600, 'Post Office'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (605, 600, 'DoD/Military'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (700, 700, 'Utility'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (701, 700, 'Tower'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (702, 700, 'Cell Tower'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (703, 700, 'Radio Tower'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (704, 700, 'TVA Siren'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (705, 700, 'Water Tank'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (706, 700, 'Oil Tank'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (707, 700, 'Oil Well'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (708, 700, 'Natural Gas Tank'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (709, 700, 'Natural Gas Well'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (710, 700, 'Natural Gas Pipeline'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (711, 700, 'Power Substation'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (712, 700, 'Pump Station'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (800, 800, 'Industrial'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (801, 800, 'Warehouse'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (802, 800, 'Recycle Facility'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (803, 800, 'Bottling Plant'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (804, 800, 'Treatment Plant'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (805, 800, 'Landfill'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (806, 800, 'Mine'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (807, 800, 'Rock Quarry'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (900, 900, 'Public Safety'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (901, 900, 'Prison'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (902, 900, 'Detention Center'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (903, 900, 'Police'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (904, 900, 'Sheriff'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (905, 900, 'Fire'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (906, 900, 'Rescue Squad'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (907, 900, 'EMS'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (908, 900, 'Shelter'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (909, 900, 'Fire Hydrant'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (910, 900, 'PELA/LZ/Helicopter Pad'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (911, 900, 'PSAP'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1000, 1000, 'Transportation'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1001, 1000, 'Airport'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1002, 1000, 'Airport Hanger'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1003, 1000, 'Airport Terminal'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1004, 1000, 'Bus Station'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1005, 1000, 'Gas Station'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1006, 1000, 'Bridge'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1007, 1000, 'Rest Area'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1008, 1000, 'Railroad'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1009, 1000, 'Roundhouse'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1010, 1000, 'Train Station'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1011, 1000, 'Railroad Crossing'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1012, 1000, 'Railroad Equipment'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1013, 1000, 'Railroad Mile Marker'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1014, 1000, 'River Marker'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1015, 1000, 'Mile Marker'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1200, 1200, 'Asset'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1201, 1200, 'Gate'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1202, 1200, 'Call Box/Phone Cabinet'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1203, 1200, 'Billboard'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1300, 1300, 'Commercial'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1301, 1300, 'Shopping Area'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1302, 1300, 'Store'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1303, 1300, 'Office'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1304, 1300, 'Parking Garage'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1305, 1300, 'Bank'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1306, 1300, 'Massage Parlor'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1307, 1300, 'Hotel/Motel'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1308, 1300, 'Laundry Mat'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1309, 1300, 'Storage Facility'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1400, 1400, 'Entertainment'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1401, 1400, 'Restaurant'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1402, 1400, 'Cafe'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1403, 1400, 'Bar'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1404, 1400, 'Club'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1405, 1400, 'Theater'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1406, 1400, 'Convention Center'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1407, 1400, 'Stadium'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1408, 1400, 'Arena'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1409, 1400, 'Sports Complex'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1500, 1500, 'Recreational'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1501, 1500, 'Park'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1502, 1500, 'Campground'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1503, 1500, 'Lodge'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1504, 1500, 'Golf Course'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1505, 1500, 'Boat Dock'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1506, 1500, 'Watercraft'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1600, 1600, 'Historical'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1601, 1600, 'Museum'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (1602, 1600, 'Cemetery'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (9000, 9000, 'Temporary'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (9001, 9000, 'Vacant'); 
+insert into forms.structype_tbl (structype, strucfk, description) values (9002, 9000, 'Unknown'); 
 
 /* C1 Street Suffix Abbreviations. Also to be used for Pre-type and PostMod */
 
@@ -414,9 +418,8 @@ insert into forms.type_tbl (description, type) values ('WELLS', 'WLS');
 /* qgis table unit */ 
 
 create table forms.unit_type_tbl ( 
-	id serial primary key,
         description varchar(24),
-	unit_type varchar(4) 
+	unit_type varchar(4) primary key 
         ); 
 
 insert into forms.unit_type_tbl (description, unit_type) values ('APARTMENT', 'APT'); 
@@ -447,8 +450,7 @@ insert into forms.unit_type_tbl (description, unit_type) values ('OTHER', 'OTH')
 
 /* Create Source  Table */
 create table forms.source_tbl ( 
-	id serial primary key, 
-	source integer,
+	source integer primary key,
 	description varchar(24)
         ); 
 
@@ -462,8 +464,7 @@ insert into forms.source_tbl (source, description) values (0, '6-Undefined');
 /* Create Lifecycle Status Table */
 
 create table forms.lifecyclestatus_tbl ( 
-	id serial primary key, 
-	status integer,
+	status integer primary key,
 	description varchar(24)
         ); 
 
@@ -475,8 +476,7 @@ insert into forms.lifecyclestatus_tbl (status, description) values (799, '799-RE
 /* Create a addr_type */
 
 create table forms.addrtype_tbl ( 
-	id serial primary key, 
-	type char(2),
+	type char(2) primary_key,
 	description varchar(24)
         ); 
 
