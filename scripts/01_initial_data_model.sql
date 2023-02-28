@@ -502,8 +502,7 @@ insert into forms.nametype_tbl (type, description) values (7, '7-Inventory Name'
 /* CFCC Table */
 
 create table forms.cfcc_tbl ( 
-	id serial primary key, 
-	cfcc char(3),
+	cfcc char(3) primary key,
 	description varchar(150)
         ); 
 
