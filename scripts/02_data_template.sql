@@ -24,7 +24,7 @@ CREATE TABLE tn911.address_points (
 	stnumsuf varchar(10), 
 	building varchar(35), 
 	floor varchar(10), 
-	unit_type varchar(10) references tn911.unit_tbl(unit_type), 
+	unit_type varchar(10) references tn911.unit_type_tbl(unit_type), 
 	unit_num varchar(10), 
 	predir varchar(2) references tn911.predir_tbl(predir), 
 	pretype varchar(5) references tn911.type_tbl(type), 
@@ -129,7 +129,7 @@ CREATE TABLE tn911.centerlines (
 	r_f_add varchar(11), 
 	r_t_add varchar(11), 
 	addr_type varchar(1) references tn911.addrtype_tbl(type), 
-	predir varchar(2) reference tn911.predir_tbl(predir), 
+	predir varchar(2) references tn911.predir_tbl(predir), 
 	pretype varchar(5) references tn911.type_tbl(type), 
 	name varchar(40), 
 	type varchar(5) references tn911.type_tbl(type), 
@@ -152,7 +152,7 @@ CREATE TABLE tn911.centerlines (
 	state_r varchar(2), 
 	spdlimit double precision,  
 	oneway varchar(2), 
-	lanes smallint refereces tn911.lanes_tbl(lanes), 
+	lanes smallint references tn911.lanes_tbl(lanes), 
 	t_elev smallint, 
 	f_elev smallint, 
 	tfcost double precision, 
@@ -218,7 +218,7 @@ comment on column tn911.centerlines.status is 'Defines the current lifecycle sta
 
 /**********************************************************************************/
 
-DROP TABLE IF EXISTS tn911.esn_boundary 
+DROP TABLE IF EXISTS tn911.esn_boundary; 
 CREATE TABLE tn911.esn_boundary ( 
         id serial primary key,
         geom geometry (polygon, 2274),

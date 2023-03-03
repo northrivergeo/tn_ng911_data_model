@@ -5,6 +5,7 @@ create schema tn911;
 
 /* qgis form for predir and reference*/ 
 
+DROP TABLE IF EXISTS tn911.predir_tbl; 
 create table tn911.predir_tbl (
        predir varchar(24) primary key,
         description varchar(2)
@@ -22,6 +23,7 @@ insert into tn911.predir_tbl (predir, description) values ('SW', 'SW');
 
 /* qgis tables seg_side */ 
 
+DROP TABLE IF EXISTS tn911.segside_tbl; 
 create table tn911.segside_tbl (
         seg_side varchar(1) primary Key,
 	description varchar(12)
@@ -31,14 +33,16 @@ insert into tn911.segside_tbl (seg_side, description) values ('L', 'LEFT');
 insert into tn911.segside_tbl (seg_side, description) values ('R', 'RIGHT');
 
 /*qgis table for zipcode */ 
+DROP TABLE IF EXISTS tn911.zipcode; 
 create table tn911.zipcode ( 
 	zipcode varchar(5) primary key
                            ); 
 
 /* qgis tables structure type */ 
 
+DROP TABLE IF EXISTS tn911.strucdomain_tbl; 
 create table tn911.strucdomain_tbl ( 
-	strucdomain smallint primary key, 
+	strucdomain varchar(4) primary key, 
 	description varchar(50)
 ); 
 
@@ -59,6 +63,7 @@ insert into tn911.strucdomain_tbl (strucdomain, description) values (1500, '1500
 insert into tn911.strucdomain_tbl (strucdomain, description) values (1600, '1600-Historical'); 
 insert into tn911.strucdomain_tbl (strucdomain, description) values (9000, '1700-Miscellaneous'); 
 
+DROP TABLE IF EXISTS tn911.structype_tbl; 
 create table tn911.structype_tbl ( 
 	structype smallint primary key, 
 	strucfk smallint, 
@@ -202,7 +207,7 @@ insert into tn911.structype_tbl (structype, strucfk, description) values (9001, 
 insert into tn911.structype_tbl (structype, strucfk, description) values (9002, 9000, 'Unknown'); 
 
 /* C1 Street Suffix Abbreviations. Also to be used for Pre-type and PostMod */
-
+DROP TABLE IF EXISTS tn911.type_tbl;
 create table tn911.type_tbl ( 
         description varchar(24),
 	type varchar(5) primary key  
@@ -412,7 +417,7 @@ insert into tn911.type_tbl (description, type) values ('WELL', 'WL');
 insert into tn911.type_tbl (description, type) values ('WELLS', 'WLS');
 
 /* qgis table unit */ 
-
+DROP TABLE IF EXISTS tn911.unit_type_tbl; 
 create table tn911.unit_type_tbl ( 
         description varchar(24),
 	unit_type varchar(4) primary key 
@@ -445,6 +450,7 @@ insert into tn911.unit_type_tbl (description, unit_type) values ('GARAGE', 'GAR'
 insert into tn911.unit_type_tbl (description, unit_type) values ('OTHER', 'OTH'); 
 
 /* Create Source  Table */
+DROP TABLE IF EXISTS tn911.source_tbl; 
 create table tn911.source_tbl ( 
 	source integer primary key,
 	description varchar(24)
@@ -458,7 +464,7 @@ insert into tn911.source_tbl (source, description) values (5, '5-Frontage Centro
 insert into tn911.source_tbl (source, description) values (0, '6-Undefined'); 
 
 /* Create Lifecycle Status Table */
-
+DROP TABLE IF EXISTS tn911.lifecyclestatus_tbl; 
 create table tn911.lifecyclestatus_tbl ( 
 	status integer primary key,
 	description varchar(24)
@@ -470,7 +476,7 @@ insert into tn911.lifecyclestatus_tbl (status, description) values (736, '736-PO
 insert into tn911.lifecyclestatus_tbl (status, description) values (799, '799-RETIRED'); 
 
 /* Create a addr_type */
-
+DROP TABLE IF EXISTS tn911.addrtype_tbl; 
 create table tn911.addrtype_tbl ( 
 	type char(2) primary key,
 	description varchar(24)
@@ -480,7 +486,7 @@ insert into tn911.addrtype_tbl (type, description) values ('P', 'Potential');
 insert into tn911.addrtype_tbl (type, description) values ('A', 'Actual'); 
 
 /* Nametype */ 
-
+DROP TABLE IF EXISTS tn911.nametype_tbl; 
 create table tn911.nametype_tbl ( 
 	nametype integer primary key,
 	description varchar(50)
@@ -495,7 +501,7 @@ insert into tn911.nametype_tbl (nametype, description) values (6, '6-MSAG Name')
 insert into tn911.nametype_tbl (nametype, description) values (7, '7-Inventory Name'); 
 
 /* CFCC Table */
-
+DROP TABLE IF EXISTS tn911.cfcc_tbl; 
 create table tn911.cfcc_tbl ( 
 	cfcc char(3) primary key,
 	description varchar(150)
@@ -557,7 +563,7 @@ insert into tn911.cfcc_tbl (cfcc, description) values ('A73', 'A73-Alley, road f
 insert into tn911.cfcc_tbl (cfcc, description) values ('A74', 'A74-Driveway or service road, usually privately owned and unnamed, used as access to residences, etc., or as access to logging areas, etc.');
 
 /* Lanes */ 
-
+DROP TABLE IF EXISTS tn911.lanes_tbl; 
 create table tn911.lanes_tbl ( 
 	lanes integer primary key
         ); 
@@ -576,7 +582,7 @@ insert into tn911.lanes_tbl (lanes) values (11);
 insert into tn911.lanes_tbl (lanes) values (12); 
 insert into tn911.lanes_tbl (lanes) values (13); 
 
-
+DROP TABLE IF EXISTS tn911.oneway_tbl; 
 create table tn911.oneway_tbl ( 
 	id serial primary key, 
 	oneway varchar(3),
@@ -584,9 +590,12 @@ create table tn911.oneway_tbl (
         ); 
 
 insert into tn911.oneway_tbl (oneway, description) values ('TF', 'One Way is To-From Node Direction'); 
-insert into tn911.oneway_tbl (oneway, description) values ('TF', 'One Way is From-To Node Direction'); 
+insert into tn911.oneway_tbl (oneway, description) values ('FT', 'One Way is From-To Node Direction'); 
+insert into tn911.oneway_tbl (oneway, description) values ('T', 'One Way is TO-From Node Direction'); 
+insert into tn911.oneway_tbl (oneway, description) values ('F', 'One Way is From-To Node Direction'); 
+insert into tn911.oneway_tbl (oneway, description) values ('N', 'One Way is in Neither Direction'); 
 
-
+DROP TABLE IF EXISTS tn911.access_tbl; 
 create table tn911.access_tbl ( 
 	id serial primary key, 
 	type varchar(24),
