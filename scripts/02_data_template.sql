@@ -37,7 +37,7 @@ CREATE TABLE tn911.address_points (
 	label varchar(100), 
 	subname varchar(50), 
 	vanity varchar(50), 
-	zip varchar(5) references tn911.zipcode(zipcode), 
+	zip varchar(5), 
 	zip4 varchar(4), 
 	esn varchar(4), 
 	city varchar(30), 

@@ -32,12 +32,6 @@ create table tn911.segside_tbl (
 insert into tn911.segside_tbl (seg_side, description) values ('L', 'LEFT');
 insert into tn911.segside_tbl (seg_side, description) values ('R', 'RIGHT');
 
-/*qgis table for zipcode */ 
-DROP TABLE IF EXISTS tn911.zipcode; 
-create table tn911.zipcode ( 
-	zipcode varchar(5) primary key
-                           ); 
-
 /* qgis tables structure type */ 
 
 DROP TABLE IF EXISTS tn911.strucdomain_tbl; 
