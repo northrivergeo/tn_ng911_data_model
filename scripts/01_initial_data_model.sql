@@ -599,3 +599,14 @@ create table tn911.access_tbl (
 insert into tn911.access_tbl (type, description) values ('access', 'Access Point'); 
 insert into tn911.access_tbl (type, description) values ('routing', 'Routing Point'); 
 insert into tn911.access_tbl (type, description) values ('access and routing', 'Structure is accessed and routed from this point'); 
+
+DROP TABLE IF EXISTS tn911.geosrc_tbl; 
+create table tn911.geosrc_tbl ( 
+	geosrc varchar(50)
+        ); 
+
+insert into tn911.geosrc_tbl (geosrc) values ('Survey'); 
+insert into tn911.geosrc_tbl (geosrc) values ('GPS'); 
+insert into tn911.geosrc_tbl (geosrc) values ('Aerial Imagery'); 
+insert into tn911.geosrc_tbl (geosrc) values ('Drone'); 
+insert into tn911.geosrc_tbl (geosrc) values ('Other'); 
