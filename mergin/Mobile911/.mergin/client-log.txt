@@ -1,0 +1,130 @@
+2023-03-18 21:05:46,989 --- version: Python-client/0.8.0 Plugin/2023.1 QGIS/3.28.3 (Linux/Fedora Linux)
+2023-03-18 21:05:46,989 --- start push nrgsinc/Mobile911
+2023-03-18 21:05:47,551 got project info: local version v0 / server version v0
+2023-03-18 21:05:48,149 push changes:
+{'added': [{'checksum': '2ccd64587c7227ab6fae6ea7bd195581d82acbcf',
+            'chunks': ['0992bc8d-4520-4eff-a72d-23ce35028557'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 45, 987304, tzinfo=tzlocal()),
+            'path': 'structype_tbl.gpkg',
+            'size': 73728},
+           {'checksum': 'e564cefc241da7fbd19f86b8e55bd5ad72bbee57',
+            'chunks': ['b063615e-7ee6-4f66-b500-c40318722526'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 45, 966305, tzinfo=tzlocal()),
+            'path': 'predir_tbl_2.gpkg',
+            'size': 73728},
+           {'checksum': '98b38907b7e0baebf5f1b0aa42e09ea6c3fd3c56',
+            'chunks': ['c77db898-eb88-4754-a8f6-90ffcd73281f'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 45, 919305, tzinfo=tzlocal()),
+            'path': 'lifecyclestatus_tbl.gpkg',
+            'size': 73728},
+           {'checksum': '44e7d044e9de8076625c57fe031c688a24812558',
+            'chunks': ['a58a90d7-345b-48ac-b2e8-3d74427d8f10'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 46, 44304, tzinfo=tzlocal()),
+            'path': 'esn_boundary.gpkg',
+            'size': 98304},
+           {'checksum': '4b2e8fc747274fbb58bc7840059a430cc18bd55d',
+            'chunks': ['bb7ab816-db22-4940-aa79-ec010ec99d52'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 45, 958305, tzinfo=tzlocal()),
+            'path': 'predir_tbl_1.gpkg',
+            'size': 73728},
+           {'checksum': '80661462dd0378227c73d72f8be91857653ec20d',
+            'chunks': ['e8e616f8-cc43-422f-b65f-48efe0539bcc'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 45, 939305, tzinfo=tzlocal()),
+            'path': 'predir_tbl.gpkg',
+            'size': 73728},
+           {'checksum': 'f54b16113d6fe32b037767f8b2f23e907815a51a',
+            'chunks': ['3c69e9f5-f3ab-453e-a359-20c6a664fa57'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 45, 949305, tzinfo=tzlocal()),
+            'path': 'type_tbl.gpkg',
+            'size': 73728},
+           {'checksum': 'a40d1b9a2eab6f7b3603bb666bfe333767c7488b',
+            'chunks': ['2cec9763-e39f-4a03-8f4c-544e2c3302b0'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 46, 73303, tzinfo=tzlocal()),
+            'path': 'Mobile911.qgz',
+            'size': 26592},
+           {'checksum': '40305c0e1325a8fc5a1b7646c66217b6d629718c',
+            'chunks': ['e761e92c-4ae9-4fcf-95d7-53b78dc6660b'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 46, 23304, tzinfo=tzlocal()),
+            'path': 'address_points.gpkg',
+            'size': 98304},
+           {'checksum': '3147eaed4e7651d28754912483ebce53913d9a4d',
+            'chunks': ['a60601fa-0872-4e24-8e21-8a993e236a53'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 46, 4304, tzinfo=tzlocal()),
+            'path': 'segside_tbl.gpkg',
+            'size': 73728},
+           {'checksum': 'ac81fbc2af6d5e5d80712c423fc02b61b26e4ef4',
+            'chunks': ['451ff720-ae2a-4698-b3a8-753ac445d3cc'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 46, 34304, tzinfo=tzlocal()),
+            'path': 'centerlines.gpkg',
+            'size': 98304},
+           {'checksum': 'e37e75a7952cd8900c51521d4d93eb73a7dba725',
+            'chunks': ['54e773fe-971a-42e7-9665-768a15f1a104'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 45, 976305, tzinfo=tzlocal()),
+            'path': 'unit_type_tbl.gpkg',
+            'size': 73728},
+           {'checksum': 'b8b2d7946fef4e922df1bc7f1bf9a4bc2b4a5abc',
+            'chunks': ['52f71027-cdbc-4be1-874b-21691a203787'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 45, 996304, tzinfo=tzlocal()),
+            'path': 'strucdomain_tbl.gpkg',
+            'size': 73728},
+           {'checksum': '4e9deabc9569afb34a506fdbf7db657e6df1955a',
+            'chunks': ['6c936837-4aba-4f87-a0b1-ce2b843718ea'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 45, 929305, tzinfo=tzlocal()),
+            'path': 'source_tbl.gpkg',
+            'size': 73728},
+           {'checksum': '7bdfd30d5ef34db7c253fee92e988aa48acc1eff',
+            'chunks': ['9cd6118e-4244-40a0-b159-30040ffd4ae4'],
+            'mtime': datetime.datetime(2023, 3, 18, 21, 5, 46, 13304, tzinfo=tzlocal()),
+            'path': 'geosrc_tbl.gpkg',
+            'size': 73728}],
+ 'removed': [],
+ 'renamed': [],
+ 'updated': []}
+2023-03-18 21:05:48,149 Making a temporary copy (full upload): structype_tbl.gpkg
+2023-03-18 21:05:48,149 Making a temporary copy (full upload): predir_tbl_2.gpkg
+2023-03-18 21:05:48,150 Making a temporary copy (full upload): lifecyclestatus_tbl.gpkg
+2023-03-18 21:05:48,150 Making a temporary copy (full upload): esn_boundary.gpkg
+2023-03-18 21:05:48,150 Making a temporary copy (full upload): predir_tbl_1.gpkg
+2023-03-18 21:05:48,150 Making a temporary copy (full upload): predir_tbl.gpkg
+2023-03-18 21:05:48,150 Making a temporary copy (full upload): type_tbl.gpkg
+2023-03-18 21:05:48,151 Making a temporary copy (full upload): address_points.gpkg
+2023-03-18 21:05:48,151 Making a temporary copy (full upload): segside_tbl.gpkg
+2023-03-18 21:05:48,151 Making a temporary copy (full upload): centerlines.gpkg
+2023-03-18 21:05:48,151 Making a temporary copy (full upload): unit_type_tbl.gpkg
+2023-03-18 21:05:48,152 Making a temporary copy (full upload): strucdomain_tbl.gpkg
+2023-03-18 21:05:48,152 Making a temporary copy (full upload): source_tbl.gpkg
+2023-03-18 21:05:48,152 Making a temporary copy (full upload): geosrc_tbl.gpkg
+2023-03-18 21:05:48,762 got transaction ID 0608f44c-40df-44cb-b3e4-3bfa9571abc7
+2023-03-18 21:05:48,762 will upload 15 items with total size 1132512
+2023-03-18 21:05:48,764 Uploading /tmp/mergin-py-client-feflc_en/structype_tbl.gpkg part=0
+2023-03-18 21:05:48,764 Uploading /tmp/mergin-py-client-feflc_en/predir_tbl_2.gpkg part=0
+2023-03-18 21:05:48,765 Uploading /tmp/mergin-py-client-feflc_en/lifecyclestatus_tbl.gpkg part=0
+2023-03-18 21:05:48,766 Uploading /tmp/mergin-py-client-feflc_en/esn_boundary.gpkg part=0
+2023-03-18 21:05:49,699 Upload finished: /tmp/mergin-py-client-feflc_en/lifecyclestatus_tbl.gpkg
+2023-03-18 21:05:49,700 Uploading /tmp/mergin-py-client-feflc_en/predir_tbl_1.gpkg part=0
+2023-03-18 21:05:49,711 Upload finished: /tmp/mergin-py-client-feflc_en/structype_tbl.gpkg
+2023-03-18 21:05:49,711 Uploading /tmp/mergin-py-client-feflc_en/predir_tbl.gpkg part=0
+2023-03-18 21:05:49,740 Upload finished: /tmp/mergin-py-client-feflc_en/predir_tbl_2.gpkg
+2023-03-18 21:05:49,741 Uploading /tmp/mergin-py-client-feflc_en/type_tbl.gpkg part=0
+2023-03-18 21:05:49,742 Upload finished: /tmp/mergin-py-client-feflc_en/esn_boundary.gpkg
+2023-03-18 21:05:49,742 Uploading /data/local_projects/tn_ng911_data_model/mergin/Mobile911/Mobile911.qgz part=0
+2023-03-18 21:05:50,482 Upload finished: /data/local_projects/tn_ng911_data_model/mergin/Mobile911/Mobile911.qgz
+2023-03-18 21:05:50,483 Uploading /tmp/mergin-py-client-feflc_en/address_points.gpkg part=0
+2023-03-18 21:05:50,577 Upload finished: /tmp/mergin-py-client-feflc_en/predir_tbl.gpkg
+2023-03-18 21:05:50,578 Uploading /tmp/mergin-py-client-feflc_en/segside_tbl.gpkg part=0
+2023-03-18 21:05:50,580 Upload finished: /tmp/mergin-py-client-feflc_en/predir_tbl_1.gpkg
+2023-03-18 21:05:50,580 Uploading /tmp/mergin-py-client-feflc_en/centerlines.gpkg part=0
+2023-03-18 21:05:50,593 Upload finished: /tmp/mergin-py-client-feflc_en/type_tbl.gpkg
+2023-03-18 21:05:50,593 Uploading /tmp/mergin-py-client-feflc_en/unit_type_tbl.gpkg part=0
+2023-03-18 21:05:51,401 Upload finished: /tmp/mergin-py-client-feflc_en/address_points.gpkg
+2023-03-18 21:05:51,402 Uploading /tmp/mergin-py-client-feflc_en/strucdomain_tbl.gpkg part=0
+2023-03-18 21:05:51,448 Upload finished: /tmp/mergin-py-client-feflc_en/segside_tbl.gpkg
+2023-03-18 21:05:51,448 Uploading /tmp/mergin-py-client-feflc_en/source_tbl.gpkg part=0
+2023-03-18 21:05:51,521 Upload finished: /tmp/mergin-py-client-feflc_en/unit_type_tbl.gpkg
+2023-03-18 21:05:51,522 Uploading /tmp/mergin-py-client-feflc_en/geosrc_tbl.gpkg part=0
+2023-03-18 21:05:51,524 Upload finished: /tmp/mergin-py-client-feflc_en/centerlines.gpkg
+2023-03-18 21:05:52,230 Upload finished: /tmp/mergin-py-client-feflc_en/strucdomain_tbl.gpkg
+2023-03-18 21:05:52,284 Upload finished: /tmp/mergin-py-client-feflc_en/source_tbl.gpkg
+2023-03-18 21:05:52,418 Upload finished: /tmp/mergin-py-client-feflc_en/geosrc_tbl.gpkg
+2023-03-18 21:05:52,446 Finishing transaction 0608f44c-40df-44cb-b3e4-3bfa9571abc7
+2023-03-18 21:05:53,725 --- push finished - new project version v1

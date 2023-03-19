@@ -1,18 +1,18 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis simplifyDrawingHints="0" minScale="0" simplifyDrawingTol="1" maxScale="0" simplifyMaxScale="1" simplifyAlgorithm="0" simplifyLocal="1" symbologyReferenceScale="-1" hasScaleBasedVisibilityFlag="0" labelsEnabled="0" styleCategories="AllStyleCategories" readOnly="0" version="3.28.3-Firenze">
+<qgis labelsEnabled="0" simplifyMaxScale="1" symbologyReferenceScale="-1" minScale="0" styleCategories="AllStyleCategories" simplifyLocal="1" hasScaleBasedVisibilityFlag="0" simplifyDrawingHints="0" version="3.28.3-Firenze" maxScale="0" readOnly="0" simplifyAlgorithm="0" simplifyDrawingTol="1">
   <flags>
     <Identifiable>1</Identifiable>
     <Removable>1</Removable>
     <Searchable>1</Searchable>
     <Private>0</Private>
   </flags>
-  <temporal endField="" startField="" endExpression="" startExpression="" fixedDuration="0" enabled="0" durationField="" mode="0" durationUnit="min" limitMode="0" accumulate="0">
+  <temporal enabled="0" endExpression="" fixedDuration="0" accumulate="0" startField="" durationField="" startExpression="" durationUnit="min" mode="0" limitMode="0" endField="">
     <fixedRange>
       <start></start>
       <end></end>
     </fixedRange>
   </temporal>
-  <elevation zoffset="0" respectLayerSymbol="1" showMarkerSymbolInSurfacePlots="0" clamping="Terrain" symbology="Line" extrusionEnabled="0" type="IndividualFeatures" zscale="1" extrusion="0" binding="Centroid">
+  <elevation extrusion="0" clamping="Terrain" binding="Centroid" showMarkerSymbolInSurfacePlots="0" extrusionEnabled="0" type="IndividualFeatures" zoffset="0" zscale="1" respectLayerSymbol="1" symbology="Line">
     <data-defined-properties>
       <Option type="Map">
         <Option value="" type="QString" name="name"/>
@@ -21,7 +21,7 @@
       </Option>
     </data-defined-properties>
     <profileLineSymbol>
-      <symbol frame_rate="10" clip_to_extent="1" alpha="1" force_rhr="0" is_animated="0" type="line" name="">
+      <symbol alpha="1" clip_to_extent="1" frame_rate="10" type="line" force_rhr="0" name="" is_animated="0">
         <data_defined_properties>
           <Option type="Map">
             <Option value="" type="QString" name="name"/>
@@ -29,7 +29,7 @@
             <Option value="collection" type="QString" name="type"/>
           </Option>
         </data_defined_properties>
-        <layer class="SimpleLine" locked="0" enabled="1" pass="0">
+        <layer enabled="1" pass="0" class="SimpleLine" locked="0">
           <Option type="Map">
             <Option value="0" type="QString" name="align_dash_pattern"/>
             <Option value="square" type="QString" name="capstyle"/>
@@ -70,7 +70,7 @@
       </symbol>
     </profileLineSymbol>
     <profileFillSymbol>
-      <symbol frame_rate="10" clip_to_extent="1" alpha="1" force_rhr="0" is_animated="0" type="fill" name="">
+      <symbol alpha="1" clip_to_extent="1" frame_rate="10" type="fill" force_rhr="0" name="" is_animated="0">
         <data_defined_properties>
           <Option type="Map">
             <Option value="" type="QString" name="name"/>
@@ -78,7 +78,7 @@
             <Option value="collection" type="QString" name="type"/>
           </Option>
         </data_defined_properties>
-        <layer class="SimpleFill" locked="0" enabled="1" pass="0">
+        <layer enabled="1" pass="0" class="SimpleFill" locked="0">
           <Option type="Map">
             <Option value="3x:0,0,0,0,0,0" type="QString" name="border_width_map_unit_scale"/>
             <Option value="133,182,111,255" type="QString" name="color"/>
@@ -103,7 +103,7 @@
       </symbol>
     </profileFillSymbol>
     <profileMarkerSymbol>
-      <symbol frame_rate="10" clip_to_extent="1" alpha="1" force_rhr="0" is_animated="0" type="marker" name="">
+      <symbol alpha="1" clip_to_extent="1" frame_rate="10" type="marker" force_rhr="0" name="" is_animated="0">
         <data_defined_properties>
           <Option type="Map">
             <Option value="" type="QString" name="name"/>
@@ -111,7 +111,7 @@
             <Option value="collection" type="QString" name="type"/>
           </Option>
         </data_defined_properties>
-        <layer class="SimpleMarker" locked="0" enabled="1" pass="0">
+        <layer enabled="1" pass="0" class="SimpleMarker" locked="0">
           <Option type="Map">
             <Option value="0" type="QString" name="angle"/>
             <Option value="square" type="QString" name="cap_style"/>
@@ -144,9 +144,9 @@
       </symbol>
     </profileMarkerSymbol>
   </elevation>
-  <renderer-v2 referencescale="-1" enableorderby="0" symbollevels="0" type="singleSymbol" forceraster="0">
+  <renderer-v2 enableorderby="0" referencescale="-1" type="singleSymbol" forceraster="0" symbollevels="0">
     <symbols>
-      <symbol frame_rate="10" clip_to_extent="1" alpha="1" force_rhr="0" is_animated="0" type="marker" name="0">
+      <symbol alpha="1" clip_to_extent="1" frame_rate="10" type="marker" force_rhr="0" name="0" is_animated="0">
         <data_defined_properties>
           <Option type="Map">
             <Option value="" type="QString" name="name"/>
@@ -154,7 +154,7 @@
             <Option value="collection" type="QString" name="type"/>
           </Option>
         </data_defined_properties>
-        <layer class="SimpleMarker" locked="0" enabled="1" pass="0">
+        <layer enabled="1" pass="0" class="SimpleMarker" locked="0">
           <Option type="Map">
             <Option value="0" type="QString" name="angle"/>
             <Option value="square" type="QString" name="cap_style"/>
@@ -199,12 +199,12 @@
   <blendMode>0</blendMode>
   <featureBlendMode>0</featureBlendMode>
   <layerOpacity>1</layerOpacity>
-  <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
-    <DiagramCategory barWidth="5" minScaleDenominator="0" showAxis="1" direction="0" diagramOrientation="Up" lineSizeScale="3x:0,0,0,0,0,0" backgroundAlpha="255" enabled="0" spacingUnit="MM" height="15" penWidth="0" penColor="#000000" backgroundColor="#ffffff" labelPlacementMethod="XHeight" minimumSize="0" lineSizeType="MM" width="15" scaleDependency="Area" opacity="1" sizeType="MM" scaleBasedVisibility="0" rotationOffset="270" spacingUnitScale="3x:0,0,0,0,0,0" maxScaleDenominator="0" penAlpha="255" spacing="5" sizeScale="3x:0,0,0,0,0,0">
-      <fontProperties style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
-      <attribute field="" color="#000000" label="" colorOpacity="1"/>
+  <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
+    <DiagramCategory spacing="5" minScaleDenominator="0" scaleDependency="Area" width="15" scaleBasedVisibility="0" barWidth="5" opacity="1" backgroundColor="#ffffff" penWidth="0" penAlpha="255" spacingUnit="MM" rotationOffset="270" showAxis="1" lineSizeScale="3x:0,0,0,0,0,0" minimumSize="0" height="15" enabled="0" backgroundAlpha="255" spacingUnitScale="3x:0,0,0,0,0,0" sizeScale="3x:0,0,0,0,0,0" direction="0" lineSizeType="MM" penColor="#000000" labelPlacementMethod="XHeight" maxScaleDenominator="0" sizeType="MM" diagramOrientation="Up">
+      <fontProperties strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
+      <attribute label="" colorOpacity="1" field="" color="#000000"/>
       <axisSymbol>
-        <symbol frame_rate="10" clip_to_extent="1" alpha="1" force_rhr="0" is_animated="0" type="line" name="">
+        <symbol alpha="1" clip_to_extent="1" frame_rate="10" type="line" force_rhr="0" name="" is_animated="0">
           <data_defined_properties>
             <Option type="Map">
               <Option value="" type="QString" name="name"/>
@@ -212,7 +212,7 @@
               <Option value="collection" type="QString" name="type"/>
             </Option>
           </data_defined_properties>
-          <layer class="SimpleLine" locked="0" enabled="1" pass="0">
+          <layer enabled="1" pass="0" class="SimpleLine" locked="0">
             <Option type="Map">
               <Option value="0" type="QString" name="align_dash_pattern"/>
               <Option value="square" type="QString" name="capstyle"/>
@@ -254,7 +254,7 @@
       </axisSymbol>
     </DiagramCategory>
   </SingleCategoryDiagramRenderer>
-  <DiagramLayerSettings obstacle="0" dist="0" zIndex="0" placement="0" showAll="1" priority="0" linePlacementFlags="18">
+  <DiagramLayerSettings obstacle="0" showAll="1" zIndex="0" priority="0" linePlacementFlags="18" dist="0" placement="0">
     <properties>
       <Option type="Map">
         <Option value="" type="QString" name="name"/>
@@ -263,11 +263,11 @@
       </Option>
     </properties>
   </DiagramLayerSettings>
-  <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+  <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
     <activeChecks/>
     <checkConfiguration/>
   </geometryOptions>
-  <legend showLabelLegend="0" type="default-vector"/>
+  <legend type="default-vector" showLabelLegend="0"/>
   <referencedLayers/>
   <fieldConfiguration>
     <field configurationFlags="None" name="id">
@@ -299,22 +299,20 @@
       </editWidget>
     </field>
     <field configurationFlags="None" name="seg_side">
-      <editWidget type="ValueRelation">
+      <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="&quot;description&quot;" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="seg_side" type="QString" name="Key"/>
-            <Option value="segside_tbl_061309b2_f5b1_47dc_a45a_394c7d047e86" type="QString" name="Layer"/>
-            <Option value="segside_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tn911' host=gis1 port=5432 user='rjhale' sslmode=disable key='seg_side' checkPrimaryKeyUnicity='1' table=&quot;tn911&quot;.&quot;segside_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="false" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
+            <Option type="List" name="map">
+              <Option type="Map">
+                <Option value="{2839923C-8B7D-419E-B84B-CA2FE9B80EC7}" type="QString" name="&lt;NULL>"/>
+              </Option>
+              <Option type="Map">
+                <Option value="L" type="QString" name="LEFT"/>
+              </Option>
+              <Option type="Map">
+                <Option value="R" type="QString" name="RIGHT"/>
+              </Option>
+            </Option>
           </Option>
         </config>
       </editWidget>
@@ -747,22 +745,29 @@
       </editWidget>
     </field>
     <field configurationFlags="None" name="geosrce">
-      <editWidget type="ValueRelation">
+      <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="true" type="bool" name="AllowNull"/>
-            <Option value="&quot;geosrc&quot;" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="geosrc" type="QString" name="Key"/>
-            <Option value="geosrc_tbl_4b028cf9_e739_41cd_81e7_5bd125996f05" type="QString" name="Layer"/>
-            <Option value="geosrc_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tn911' host=gis1 port=5432 user='rjhale' sslmode=disable key='tid' checkPrimaryKeyUnicity='0' table=&quot;tn911&quot;.&quot;geosrc_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="false" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="geosrc" type="QString" name="Value"/>
+            <Option type="List" name="map">
+              <Option type="Map">
+                <Option value="{2839923C-8B7D-419E-B84B-CA2FE9B80EC7}" type="QString" name="&lt;NULL>"/>
+              </Option>
+              <Option type="Map">
+                <Option value="Aerial Imagery" type="QString" name="Aerial Imagery"/>
+              </Option>
+              <Option type="Map">
+                <Option value="Drone" type="QString" name="Drone"/>
+              </Option>
+              <Option type="Map">
+                <Option value="GPS" type="QString" name="GPS"/>
+              </Option>
+              <Option type="Map">
+                <Option value="Other" type="QString" name="Other"/>
+              </Option>
+              <Option type="Map">
+                <Option value="Survey" type="QString" name="Survey"/>
+              </Option>
+            </Option>
           </Option>
         </config>
       </editWidget>
@@ -796,22 +801,26 @@
       </editWidget>
     </field>
     <field configurationFlags="None" name="status">
-      <editWidget type="ValueRelation">
+      <editWidget type="ValueMap">
         <config>
           <Option type="Map">
-            <Option value="false" type="bool" name="AllowMulti"/>
-            <Option value="false" type="bool" name="AllowNull"/>
-            <Option value="" type="QString" name="Description"/>
-            <Option value="" type="QString" name="FilterExpression"/>
-            <Option value="status" type="QString" name="Key"/>
-            <Option value="lifecyclestatus_tbl_41714f7e_fb77_4d59_9cb6_4f4f4791285d" type="QString" name="Layer"/>
-            <Option value="lifecyclestatus_tbl" type="QString" name="LayerName"/>
-            <Option value="postgres" type="QString" name="LayerProviderName"/>
-            <Option value="dbname='tn911' host=gis1 port=5432 user='rjhale' sslmode=disable key='status' checkPrimaryKeyUnicity='1' table=&quot;tn911&quot;.&quot;lifecyclestatus_tbl&quot;" type="QString" name="LayerSource"/>
-            <Option value="1" type="int" name="NofColumns"/>
-            <Option value="false" type="bool" name="OrderByValue"/>
-            <Option value="false" type="bool" name="UseCompleter"/>
-            <Option value="description" type="QString" name="Value"/>
+            <Option type="List" name="map">
+              <Option type="Map">
+                <Option value="{2839923C-8B7D-419E-B84B-CA2FE9B80EC7}" type="QString" name="&lt;NULL>"/>
+              </Option>
+              <Option type="Map">
+                <Option value="730" type="QString" name="730-ACTIVE"/>
+              </Option>
+              <Option type="Map">
+                <Option value="734" type="QString" name="734-PROPOSED"/>
+              </Option>
+              <Option type="Map">
+                <Option value="736" type="QString" name="736-POTENTIAL"/>
+              </Option>
+              <Option type="Map">
+                <Option value="799" type="QString" name="799-RETIRED"/>
+              </Option>
+            </Option>
           </Option>
         </config>
       </editWidget>
@@ -828,274 +837,274 @@
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias field="id" index="0" name=""/>
-    <alias field="oirid" index="1" name=""/>
-    <alias field="r_segid" index="2" name=""/>
-    <alias field="a_segid" index="3" name=""/>
-    <alias field="seg_side" index="4" name=""/>
-    <alias field="gislink" index="5" name=""/>
-    <alias field="strucdomain" index="6" name=""/>
-    <alias field="structype" index="7" name=""/>
-    <alias field="strucdesc" index="8" name=""/>
-    <alias field="stnum_h" index="9" name=""/>
-    <alias field="stnum_l" index="10" name=""/>
-    <alias field="stnum" index="11" name=""/>
-    <alias field="stnumsuf" index="12" name=""/>
-    <alias field="building" index="13" name=""/>
-    <alias field="floor" index="14" name=""/>
-    <alias field="unit_type" index="15" name=""/>
-    <alias field="unit_num" index="16" name=""/>
-    <alias field="predir" index="17" name=""/>
-    <alias field="pretype" index="18" name=""/>
-    <alias field="name" index="19" name=""/>
-    <alias field="type" index="20" name=""/>
-    <alias field="sufdir" index="21" name=""/>
-    <alias field="postmod" index="22" name=""/>
-    <alias field="address" index="23" name=""/>
-    <alias field="addr_esn" index="24" name=""/>
-    <alias field="label" index="25" name=""/>
-    <alias field="subname" index="26" name=""/>
-    <alias field="vanity" index="27" name=""/>
-    <alias field="zip" index="28" name=""/>
-    <alias field="zip4" index="29" name=""/>
-    <alias field="esn" index="30" name=""/>
-    <alias field="city" index="31" name=""/>
-    <alias field="county" index="32" name=""/>
-    <alias field="state" index="33" name=""/>
-    <alias field="lon" index="34" name=""/>
-    <alias field="lat" index="35" name=""/>
-    <alias field="x_sp" index="36" name=""/>
-    <alias field="y_sp" index="37" name=""/>
-    <alias field="z_val" index="38" name=""/>
-    <alias field="gpsdate" index="39" name=""/>
-    <alias field="addrauth" index="40" name=""/>
-    <alias field="source" index="41" name=""/>
-    <alias field="editor" index="42" name=""/>
-    <alias field="geomod" index="43" name=""/>
-    <alias field="geosrce" index="44" name=""/>
-    <alias field="geodate" index="45" name=""/>
-    <alias field="attmod" index="46" name=""/>
-    <alias field="attsrce" index="47" name=""/>
-    <alias field="attdate" index="48" name=""/>
-    <alias field="status" index="49" name=""/>
-    <alias field="delnotes" index="50" name=""/>
+    <alias index="0" field="id" name=""/>
+    <alias index="1" field="oirid" name=""/>
+    <alias index="2" field="r_segid" name=""/>
+    <alias index="3" field="a_segid" name=""/>
+    <alias index="4" field="seg_side" name=""/>
+    <alias index="5" field="gislink" name=""/>
+    <alias index="6" field="strucdomain" name=""/>
+    <alias index="7" field="structype" name=""/>
+    <alias index="8" field="strucdesc" name=""/>
+    <alias index="9" field="stnum_h" name=""/>
+    <alias index="10" field="stnum_l" name=""/>
+    <alias index="11" field="stnum" name=""/>
+    <alias index="12" field="stnumsuf" name=""/>
+    <alias index="13" field="building" name=""/>
+    <alias index="14" field="floor" name=""/>
+    <alias index="15" field="unit_type" name=""/>
+    <alias index="16" field="unit_num" name=""/>
+    <alias index="17" field="predir" name=""/>
+    <alias index="18" field="pretype" name=""/>
+    <alias index="19" field="name" name=""/>
+    <alias index="20" field="type" name=""/>
+    <alias index="21" field="sufdir" name=""/>
+    <alias index="22" field="postmod" name=""/>
+    <alias index="23" field="address" name=""/>
+    <alias index="24" field="addr_esn" name=""/>
+    <alias index="25" field="label" name=""/>
+    <alias index="26" field="subname" name=""/>
+    <alias index="27" field="vanity" name=""/>
+    <alias index="28" field="zip" name=""/>
+    <alias index="29" field="zip4" name=""/>
+    <alias index="30" field="esn" name=""/>
+    <alias index="31" field="city" name=""/>
+    <alias index="32" field="county" name=""/>
+    <alias index="33" field="state" name=""/>
+    <alias index="34" field="lon" name=""/>
+    <alias index="35" field="lat" name=""/>
+    <alias index="36" field="x_sp" name=""/>
+    <alias index="37" field="y_sp" name=""/>
+    <alias index="38" field="z_val" name=""/>
+    <alias index="39" field="gpsdate" name=""/>
+    <alias index="40" field="addrauth" name=""/>
+    <alias index="41" field="source" name=""/>
+    <alias index="42" field="editor" name=""/>
+    <alias index="43" field="geomod" name=""/>
+    <alias index="44" field="geosrce" name=""/>
+    <alias index="45" field="geodate" name=""/>
+    <alias index="46" field="attmod" name=""/>
+    <alias index="47" field="attsrce" name=""/>
+    <alias index="48" field="attdate" name=""/>
+    <alias index="49" field="status" name=""/>
+    <alias index="50" field="delnotes" name=""/>
   </aliases>
   <defaults>
-    <default applyOnUpdate="0" field="id" expression=""/>
-    <default applyOnUpdate="0" field="oirid" expression=""/>
-    <default applyOnUpdate="0" field="r_segid" expression=""/>
-    <default applyOnUpdate="0" field="a_segid" expression=""/>
-    <default applyOnUpdate="0" field="seg_side" expression=""/>
-    <default applyOnUpdate="0" field="gislink" expression=""/>
-    <default applyOnUpdate="0" field="strucdomain" expression=""/>
-    <default applyOnUpdate="0" field="structype" expression=""/>
-    <default applyOnUpdate="0" field="strucdesc" expression=""/>
-    <default applyOnUpdate="0" field="stnum_h" expression=""/>
-    <default applyOnUpdate="0" field="stnum_l" expression=""/>
-    <default applyOnUpdate="0" field="stnum" expression=""/>
-    <default applyOnUpdate="0" field="stnumsuf" expression=""/>
-    <default applyOnUpdate="0" field="building" expression=""/>
-    <default applyOnUpdate="0" field="floor" expression=""/>
-    <default applyOnUpdate="0" field="unit_type" expression=""/>
-    <default applyOnUpdate="0" field="unit_num" expression=""/>
-    <default applyOnUpdate="0" field="predir" expression=""/>
-    <default applyOnUpdate="0" field="pretype" expression=""/>
-    <default applyOnUpdate="0" field="name" expression=""/>
-    <default applyOnUpdate="0" field="type" expression=""/>
-    <default applyOnUpdate="0" field="sufdir" expression=""/>
-    <default applyOnUpdate="0" field="postmod" expression=""/>
-    <default applyOnUpdate="0" field="address" expression=""/>
-    <default applyOnUpdate="0" field="addr_esn" expression=""/>
-    <default applyOnUpdate="0" field="label" expression=""/>
-    <default applyOnUpdate="0" field="subname" expression=""/>
-    <default applyOnUpdate="0" field="vanity" expression=""/>
-    <default applyOnUpdate="0" field="zip" expression=""/>
-    <default applyOnUpdate="0" field="zip4" expression=""/>
-    <default applyOnUpdate="0" field="esn" expression=""/>
-    <default applyOnUpdate="0" field="city" expression=""/>
-    <default applyOnUpdate="0" field="county" expression=""/>
-    <default applyOnUpdate="0" field="state" expression=""/>
-    <default applyOnUpdate="0" field="lon" expression=""/>
-    <default applyOnUpdate="0" field="lat" expression=""/>
-    <default applyOnUpdate="0" field="x_sp" expression=""/>
-    <default applyOnUpdate="0" field="y_sp" expression=""/>
-    <default applyOnUpdate="0" field="z_val" expression=""/>
-    <default applyOnUpdate="0" field="gpsdate" expression=""/>
-    <default applyOnUpdate="0" field="addrauth" expression=""/>
-    <default applyOnUpdate="0" field="source" expression=""/>
-    <default applyOnUpdate="0" field="editor" expression=""/>
-    <default applyOnUpdate="0" field="geomod" expression=""/>
-    <default applyOnUpdate="0" field="geosrce" expression=""/>
-    <default applyOnUpdate="0" field="geodate" expression=""/>
-    <default applyOnUpdate="0" field="attmod" expression=""/>
-    <default applyOnUpdate="0" field="attsrce" expression=""/>
-    <default applyOnUpdate="0" field="attdate" expression=""/>
-    <default applyOnUpdate="0" field="status" expression=""/>
-    <default applyOnUpdate="0" field="delnotes" expression=""/>
+    <default expression="" field="id" applyOnUpdate="0"/>
+    <default expression="" field="oirid" applyOnUpdate="0"/>
+    <default expression="" field="r_segid" applyOnUpdate="0"/>
+    <default expression="" field="a_segid" applyOnUpdate="0"/>
+    <default expression="" field="seg_side" applyOnUpdate="0"/>
+    <default expression="" field="gislink" applyOnUpdate="0"/>
+    <default expression="" field="strucdomain" applyOnUpdate="0"/>
+    <default expression="" field="structype" applyOnUpdate="0"/>
+    <default expression="" field="strucdesc" applyOnUpdate="0"/>
+    <default expression="" field="stnum_h" applyOnUpdate="0"/>
+    <default expression="" field="stnum_l" applyOnUpdate="0"/>
+    <default expression="" field="stnum" applyOnUpdate="0"/>
+    <default expression="" field="stnumsuf" applyOnUpdate="0"/>
+    <default expression="" field="building" applyOnUpdate="0"/>
+    <default expression="" field="floor" applyOnUpdate="0"/>
+    <default expression="" field="unit_type" applyOnUpdate="0"/>
+    <default expression="" field="unit_num" applyOnUpdate="0"/>
+    <default expression="" field="predir" applyOnUpdate="0"/>
+    <default expression="" field="pretype" applyOnUpdate="0"/>
+    <default expression="" field="name" applyOnUpdate="0"/>
+    <default expression="" field="type" applyOnUpdate="0"/>
+    <default expression="" field="sufdir" applyOnUpdate="0"/>
+    <default expression="" field="postmod" applyOnUpdate="0"/>
+    <default expression="" field="address" applyOnUpdate="0"/>
+    <default expression="" field="addr_esn" applyOnUpdate="0"/>
+    <default expression="" field="label" applyOnUpdate="0"/>
+    <default expression="" field="subname" applyOnUpdate="0"/>
+    <default expression="" field="vanity" applyOnUpdate="0"/>
+    <default expression="" field="zip" applyOnUpdate="0"/>
+    <default expression="" field="zip4" applyOnUpdate="0"/>
+    <default expression="" field="esn" applyOnUpdate="0"/>
+    <default expression="" field="city" applyOnUpdate="0"/>
+    <default expression="" field="county" applyOnUpdate="0"/>
+    <default expression="" field="state" applyOnUpdate="0"/>
+    <default expression="" field="lon" applyOnUpdate="0"/>
+    <default expression="" field="lat" applyOnUpdate="0"/>
+    <default expression="" field="x_sp" applyOnUpdate="0"/>
+    <default expression="" field="y_sp" applyOnUpdate="0"/>
+    <default expression="" field="z_val" applyOnUpdate="0"/>
+    <default expression="" field="gpsdate" applyOnUpdate="0"/>
+    <default expression="" field="addrauth" applyOnUpdate="0"/>
+    <default expression="" field="source" applyOnUpdate="0"/>
+    <default expression="" field="editor" applyOnUpdate="0"/>
+    <default expression="" field="geomod" applyOnUpdate="0"/>
+    <default expression="" field="geosrce" applyOnUpdate="0"/>
+    <default expression="" field="geodate" applyOnUpdate="0"/>
+    <default expression="" field="attmod" applyOnUpdate="0"/>
+    <default expression="" field="attsrce" applyOnUpdate="0"/>
+    <default expression="" field="attdate" applyOnUpdate="0"/>
+    <default expression="" field="status" applyOnUpdate="0"/>
+    <default expression="" field="delnotes" applyOnUpdate="0"/>
   </defaults>
   <constraints>
-    <constraint exp_strength="0" field="id" unique_strength="1" notnull_strength="1" constraints="3"/>
-    <constraint exp_strength="0" field="oirid" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="r_segid" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="a_segid" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="seg_side" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="gislink" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="strucdomain" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="structype" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="strucdesc" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="stnum_h" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="stnum_l" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="stnum" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="stnumsuf" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="building" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="floor" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="unit_type" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="unit_num" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="predir" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="pretype" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="name" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="type" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="sufdir" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="postmod" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="address" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="addr_esn" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="label" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="subname" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="vanity" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="zip" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="zip4" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="esn" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="city" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="county" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="state" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="lon" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="lat" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="x_sp" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="y_sp" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="z_val" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="gpsdate" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="addrauth" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="source" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="editor" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="geomod" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="geosrce" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="geodate" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="attmod" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="attsrce" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="attdate" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="status" unique_strength="0" notnull_strength="0" constraints="0"/>
-    <constraint exp_strength="0" field="delnotes" unique_strength="0" notnull_strength="0" constraints="0"/>
+    <constraint constraints="3" exp_strength="0" field="id" unique_strength="1" notnull_strength="1"/>
+    <constraint constraints="0" exp_strength="0" field="oirid" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="r_segid" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="a_segid" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="seg_side" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="gislink" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="strucdomain" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="structype" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="strucdesc" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="stnum_h" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="stnum_l" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="stnum" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="stnumsuf" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="building" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="floor" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="unit_type" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="unit_num" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="predir" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="pretype" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="name" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="type" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="sufdir" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="postmod" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="address" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="addr_esn" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="label" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="subname" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="vanity" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="zip" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="zip4" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="esn" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="city" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="county" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="state" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="lon" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="lat" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="x_sp" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="y_sp" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="z_val" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="gpsdate" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="addrauth" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="source" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="editor" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="geomod" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="geosrce" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="geodate" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="attmod" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="attsrce" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="attdate" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="status" unique_strength="0" notnull_strength="0"/>
+    <constraint constraints="0" exp_strength="0" field="delnotes" unique_strength="0" notnull_strength="0"/>
   </constraints>
   <constraintExpressions>
-    <constraint exp="" field="id" desc=""/>
-    <constraint exp="" field="oirid" desc=""/>
-    <constraint exp="" field="r_segid" desc=""/>
-    <constraint exp="" field="a_segid" desc=""/>
-    <constraint exp="" field="seg_side" desc=""/>
-    <constraint exp="" field="gislink" desc=""/>
-    <constraint exp="" field="strucdomain" desc=""/>
-    <constraint exp="" field="structype" desc=""/>
-    <constraint exp="" field="strucdesc" desc=""/>
-    <constraint exp="" field="stnum_h" desc=""/>
-    <constraint exp="" field="stnum_l" desc=""/>
-    <constraint exp="" field="stnum" desc=""/>
-    <constraint exp="" field="stnumsuf" desc=""/>
-    <constraint exp="" field="building" desc=""/>
-    <constraint exp="" field="floor" desc=""/>
-    <constraint exp="" field="unit_type" desc=""/>
-    <constraint exp="" field="unit_num" desc=""/>
-    <constraint exp="" field="predir" desc=""/>
-    <constraint exp="" field="pretype" desc=""/>
-    <constraint exp="" field="name" desc=""/>
-    <constraint exp="" field="type" desc=""/>
-    <constraint exp="" field="sufdir" desc=""/>
-    <constraint exp="" field="postmod" desc=""/>
-    <constraint exp="" field="address" desc=""/>
-    <constraint exp="" field="addr_esn" desc=""/>
-    <constraint exp="" field="label" desc=""/>
-    <constraint exp="" field="subname" desc=""/>
-    <constraint exp="" field="vanity" desc=""/>
-    <constraint exp="" field="zip" desc=""/>
-    <constraint exp="" field="zip4" desc=""/>
-    <constraint exp="" field="esn" desc=""/>
-    <constraint exp="" field="city" desc=""/>
-    <constraint exp="" field="county" desc=""/>
-    <constraint exp="" field="state" desc=""/>
-    <constraint exp="" field="lon" desc=""/>
-    <constraint exp="" field="lat" desc=""/>
-    <constraint exp="" field="x_sp" desc=""/>
-    <constraint exp="" field="y_sp" desc=""/>
-    <constraint exp="" field="z_val" desc=""/>
-    <constraint exp="" field="gpsdate" desc=""/>
-    <constraint exp="" field="addrauth" desc=""/>
-    <constraint exp="" field="source" desc=""/>
-    <constraint exp="" field="editor" desc=""/>
-    <constraint exp="" field="geomod" desc=""/>
-    <constraint exp="" field="geosrce" desc=""/>
-    <constraint exp="" field="geodate" desc=""/>
-    <constraint exp="" field="attmod" desc=""/>
-    <constraint exp="" field="attsrce" desc=""/>
-    <constraint exp="" field="attdate" desc=""/>
-    <constraint exp="" field="status" desc=""/>
-    <constraint exp="" field="delnotes" desc=""/>
+    <constraint desc="" exp="" field="id"/>
+    <constraint desc="" exp="" field="oirid"/>
+    <constraint desc="" exp="" field="r_segid"/>
+    <constraint desc="" exp="" field="a_segid"/>
+    <constraint desc="" exp="" field="seg_side"/>
+    <constraint desc="" exp="" field="gislink"/>
+    <constraint desc="" exp="" field="strucdomain"/>
+    <constraint desc="" exp="" field="structype"/>
+    <constraint desc="" exp="" field="strucdesc"/>
+    <constraint desc="" exp="" field="stnum_h"/>
+    <constraint desc="" exp="" field="stnum_l"/>
+    <constraint desc="" exp="" field="stnum"/>
+    <constraint desc="" exp="" field="stnumsuf"/>
+    <constraint desc="" exp="" field="building"/>
+    <constraint desc="" exp="" field="floor"/>
+    <constraint desc="" exp="" field="unit_type"/>
+    <constraint desc="" exp="" field="unit_num"/>
+    <constraint desc="" exp="" field="predir"/>
+    <constraint desc="" exp="" field="pretype"/>
+    <constraint desc="" exp="" field="name"/>
+    <constraint desc="" exp="" field="type"/>
+    <constraint desc="" exp="" field="sufdir"/>
+    <constraint desc="" exp="" field="postmod"/>
+    <constraint desc="" exp="" field="address"/>
+    <constraint desc="" exp="" field="addr_esn"/>
+    <constraint desc="" exp="" field="label"/>
+    <constraint desc="" exp="" field="subname"/>
+    <constraint desc="" exp="" field="vanity"/>
+    <constraint desc="" exp="" field="zip"/>
+    <constraint desc="" exp="" field="zip4"/>
+    <constraint desc="" exp="" field="esn"/>
+    <constraint desc="" exp="" field="city"/>
+    <constraint desc="" exp="" field="county"/>
+    <constraint desc="" exp="" field="state"/>
+    <constraint desc="" exp="" field="lon"/>
+    <constraint desc="" exp="" field="lat"/>
+    <constraint desc="" exp="" field="x_sp"/>
+    <constraint desc="" exp="" field="y_sp"/>
+    <constraint desc="" exp="" field="z_val"/>
+    <constraint desc="" exp="" field="gpsdate"/>
+    <constraint desc="" exp="" field="addrauth"/>
+    <constraint desc="" exp="" field="source"/>
+    <constraint desc="" exp="" field="editor"/>
+    <constraint desc="" exp="" field="geomod"/>
+    <constraint desc="" exp="" field="geosrce"/>
+    <constraint desc="" exp="" field="geodate"/>
+    <constraint desc="" exp="" field="attmod"/>
+    <constraint desc="" exp="" field="attsrce"/>
+    <constraint desc="" exp="" field="attdate"/>
+    <constraint desc="" exp="" field="status"/>
+    <constraint desc="" exp="" field="delnotes"/>
   </constraintExpressions>
   <expressionfields/>
   <attributeactions>
-    <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+    <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
   </attributeactions>
-  <attributetableconfig sortOrder="0" actionWidgetStyle="dropDown" sortExpression="">
+  <attributetableconfig sortExpression="" actionWidgetStyle="dropDown" sortOrder="0">
     <columns>
-      <column hidden="0" type="field" name="id" width="-1"/>
-      <column hidden="0" type="field" name="oirid" width="-1"/>
-      <column hidden="0" type="field" name="r_segid" width="-1"/>
-      <column hidden="0" type="field" name="a_segid" width="-1"/>
-      <column hidden="0" type="field" name="seg_side" width="-1"/>
-      <column hidden="0" type="field" name="gislink" width="-1"/>
-      <column hidden="0" type="field" name="strucdomain" width="-1"/>
-      <column hidden="0" type="field" name="structype" width="-1"/>
-      <column hidden="0" type="field" name="strucdesc" width="-1"/>
-      <column hidden="0" type="field" name="stnum_h" width="-1"/>
-      <column hidden="0" type="field" name="stnum_l" width="-1"/>
-      <column hidden="0" type="field" name="stnum" width="-1"/>
-      <column hidden="0" type="field" name="stnumsuf" width="-1"/>
-      <column hidden="0" type="field" name="building" width="-1"/>
-      <column hidden="0" type="field" name="floor" width="-1"/>
-      <column hidden="0" type="field" name="unit_type" width="-1"/>
-      <column hidden="0" type="field" name="unit_num" width="-1"/>
-      <column hidden="0" type="field" name="predir" width="-1"/>
-      <column hidden="0" type="field" name="pretype" width="-1"/>
-      <column hidden="0" type="field" name="name" width="-1"/>
-      <column hidden="0" type="field" name="type" width="-1"/>
-      <column hidden="0" type="field" name="sufdir" width="-1"/>
-      <column hidden="0" type="field" name="postmod" width="-1"/>
-      <column hidden="0" type="field" name="address" width="-1"/>
-      <column hidden="0" type="field" name="addr_esn" width="-1"/>
-      <column hidden="0" type="field" name="label" width="-1"/>
-      <column hidden="0" type="field" name="subname" width="-1"/>
-      <column hidden="0" type="field" name="vanity" width="-1"/>
-      <column hidden="0" type="field" name="zip" width="-1"/>
-      <column hidden="0" type="field" name="zip4" width="-1"/>
-      <column hidden="0" type="field" name="esn" width="-1"/>
-      <column hidden="0" type="field" name="city" width="-1"/>
-      <column hidden="0" type="field" name="county" width="-1"/>
-      <column hidden="0" type="field" name="state" width="-1"/>
-      <column hidden="0" type="field" name="lon" width="-1"/>
-      <column hidden="0" type="field" name="lat" width="-1"/>
-      <column hidden="0" type="field" name="x_sp" width="-1"/>
-      <column hidden="0" type="field" name="y_sp" width="-1"/>
-      <column hidden="0" type="field" name="z_val" width="-1"/>
-      <column hidden="0" type="field" name="gpsdate" width="-1"/>
-      <column hidden="0" type="field" name="addrauth" width="-1"/>
-      <column hidden="0" type="field" name="source" width="-1"/>
-      <column hidden="0" type="field" name="editor" width="-1"/>
-      <column hidden="0" type="field" name="geomod" width="-1"/>
-      <column hidden="0" type="field" name="geosrce" width="-1"/>
-      <column hidden="0" type="field" name="geodate" width="-1"/>
-      <column hidden="0" type="field" name="attmod" width="-1"/>
-      <column hidden="0" type="field" name="attsrce" width="-1"/>
-      <column hidden="0" type="field" name="attdate" width="-1"/>
-      <column hidden="0" type="field" name="status" width="-1"/>
-      <column hidden="0" type="field" name="delnotes" width="-1"/>
+      <column hidden="0" type="field" width="-1" name="id"/>
+      <column hidden="0" type="field" width="-1" name="oirid"/>
+      <column hidden="0" type="field" width="-1" name="r_segid"/>
+      <column hidden="0" type="field" width="-1" name="a_segid"/>
+      <column hidden="0" type="field" width="-1" name="seg_side"/>
+      <column hidden="0" type="field" width="-1" name="gislink"/>
+      <column hidden="0" type="field" width="-1" name="strucdomain"/>
+      <column hidden="0" type="field" width="-1" name="structype"/>
+      <column hidden="0" type="field" width="-1" name="strucdesc"/>
+      <column hidden="0" type="field" width="-1" name="stnum_h"/>
+      <column hidden="0" type="field" width="-1" name="stnum_l"/>
+      <column hidden="0" type="field" width="-1" name="stnum"/>
+      <column hidden="0" type="field" width="-1" name="stnumsuf"/>
+      <column hidden="0" type="field" width="-1" name="building"/>
+      <column hidden="0" type="field" width="-1" name="floor"/>
+      <column hidden="0" type="field" width="-1" name="unit_type"/>
+      <column hidden="0" type="field" width="-1" name="unit_num"/>
+      <column hidden="0" type="field" width="-1" name="predir"/>
+      <column hidden="0" type="field" width="-1" name="pretype"/>
+      <column hidden="0" type="field" width="-1" name="name"/>
+      <column hidden="0" type="field" width="-1" name="type"/>
+      <column hidden="0" type="field" width="-1" name="sufdir"/>
+      <column hidden="0" type="field" width="-1" name="postmod"/>
+      <column hidden="0" type="field" width="-1" name="address"/>
+      <column hidden="0" type="field" width="-1" name="addr_esn"/>
+      <column hidden="0" type="field" width="-1" name="label"/>
+      <column hidden="0" type="field" width="-1" name="subname"/>
+      <column hidden="0" type="field" width="-1" name="vanity"/>
+      <column hidden="0" type="field" width="-1" name="zip"/>
+      <column hidden="0" type="field" width="-1" name="zip4"/>
+      <column hidden="0" type="field" width="-1" name="esn"/>
+      <column hidden="0" type="field" width="-1" name="city"/>
+      <column hidden="0" type="field" width="-1" name="county"/>
+      <column hidden="0" type="field" width="-1" name="state"/>
+      <column hidden="0" type="field" width="-1" name="lon"/>
+      <column hidden="0" type="field" width="-1" name="lat"/>
+      <column hidden="0" type="field" width="-1" name="x_sp"/>
+      <column hidden="0" type="field" width="-1" name="y_sp"/>
+      <column hidden="0" type="field" width="-1" name="z_val"/>
+      <column hidden="0" type="field" width="-1" name="gpsdate"/>
+      <column hidden="0" type="field" width="-1" name="addrauth"/>
+      <column hidden="0" type="field" width="-1" name="source"/>
+      <column hidden="0" type="field" width="-1" name="editor"/>
+      <column hidden="0" type="field" width="-1" name="geomod"/>
+      <column hidden="0" type="field" width="-1" name="geosrce"/>
+      <column hidden="0" type="field" width="-1" name="geodate"/>
+      <column hidden="0" type="field" width="-1" name="attmod"/>
+      <column hidden="0" type="field" width="-1" name="attsrce"/>
+      <column hidden="0" type="field" width="-1" name="attdate"/>
+      <column hidden="0" type="field" width="-1" name="status"/>
+      <column hidden="0" type="field" width="-1" name="delnotes"/>
       <column hidden="1" type="actions" width="-1"/>
     </columns>
   </attributetableconfig>
@@ -1129,130 +1138,130 @@ def my_form_open(dialog, layer, feature):
   <editorlayout>tablayout</editorlayout>
   <attributeEditorForm>
     <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-      <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+      <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
     </labelStyle>
-    <attributeEditorContainer collapsedExpressionEnabled="0" groupBox="0" columnCount="1" showLabel="1" collapsed="0" visibilityExpression="" collapsedExpression="" visibilityExpressionEnabled="0" name="Point Status">
+    <attributeEditorContainer collapsedExpression="" collapsedExpressionEnabled="0" columnCount="1" showLabel="1" collapsed="0" groupBox="0" visibilityExpression="" name="Point Status" visibilityExpressionEnabled="0">
       <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-        <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+        <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
       </labelStyle>
       <attributeEditorField showLabel="1" index="49" name="status">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="4" name="seg_side">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="43" name="geomod">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="44" name="geosrce">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
-    <attributeEditorContainer collapsedExpressionEnabled="0" groupBox="0" columnCount="1" showLabel="1" collapsed="0" visibilityExpression="" collapsedExpression="" visibilityExpressionEnabled="0" name="Structure">
+    <attributeEditorContainer collapsedExpression="" collapsedExpressionEnabled="0" columnCount="1" showLabel="1" collapsed="0" groupBox="0" visibilityExpression="" name="Structure" visibilityExpressionEnabled="0">
       <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-        <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+        <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
       </labelStyle>
       <attributeEditorField showLabel="1" index="6" name="strucdomain">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="7" name="structype">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="8" name="strucdesc">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
-    <attributeEditorContainer collapsedExpressionEnabled="0" groupBox="0" columnCount="1" showLabel="1" collapsed="0" visibilityExpression="" collapsedExpression="" visibilityExpressionEnabled="0" name="Address">
+    <attributeEditorContainer collapsedExpression="" collapsedExpressionEnabled="0" columnCount="1" showLabel="1" collapsed="0" groupBox="0" visibilityExpression="" name="Address" visibilityExpressionEnabled="0">
       <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-        <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+        <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
       </labelStyle>
       <attributeEditorField showLabel="1" index="17" name="predir">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="18" name="pretype">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="11" name="stnum">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="12" name="stnumsuf">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="19" name="name">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="20" name="type">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="21" name="sufdir">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="22" name="postmod">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="28" name="zip">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="29" name="zip4">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
-    <attributeEditorContainer collapsedExpressionEnabled="0" groupBox="0" columnCount="1" showLabel="1" collapsed="0" visibilityExpression="" collapsedExpression="" visibilityExpressionEnabled="0" name="Structure">
+    <attributeEditorContainer collapsedExpression="" collapsedExpressionEnabled="0" columnCount="1" showLabel="1" collapsed="0" groupBox="0" visibilityExpression="" name="Structure" visibilityExpressionEnabled="0">
       <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-        <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+        <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
       </labelStyle>
       <attributeEditorField showLabel="1" index="13" name="building">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="14" name="floor">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="16" name="unit_num">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
       <attributeEditorField showLabel="1" index="15" name="unit_type">
         <labelStyle labelColor="0,0,0,255" overrideLabelColor="0" overrideLabelFont="0">
-          <labelFont style="" strikethrough="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" bold="0" underline="0" italic="0"/>
+          <labelFont strikethrough="0" bold="0" underline="0" description="Cantarell,11,-1,5,50,0,0,0,0,0" style="" italic="0"/>
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>

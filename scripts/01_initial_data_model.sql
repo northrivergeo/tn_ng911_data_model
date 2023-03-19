@@ -602,11 +602,12 @@ insert into tn911.access_tbl (type, description) values ('access and routing', '
 
 DROP TABLE IF EXISTS tn911.geosrc_tbl; 
 create table tn911.geosrc_tbl ( 
-	geosrc varchar(50)
+	geosrc varchar(50) primary key,
+	description varchar(50)
         ); 
 
-insert into tn911.geosrc_tbl (geosrc) values ('Survey'); 
-insert into tn911.geosrc_tbl (geosrc) values ('GPS'); 
-insert into tn911.geosrc_tbl (geosrc) values ('Aerial Imagery'); 
-insert into tn911.geosrc_tbl (geosrc) values ('Drone'); 
-insert into tn911.geosrc_tbl (geosrc) values ('Other'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('Survey', 'Survey'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('GPS', 'GPS'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('Aerial Imagery', 'Aerial Imagery'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('Drone', 'Drone'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('Other', 'Other'); 
