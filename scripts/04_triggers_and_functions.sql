@@ -249,8 +249,7 @@ $$
 LANGUAGE PLPGSQL;
 
 
-CREATE TRIGGER update_esn_geodate BEFORE insert
-    ON tn911.esn_boundary FOR EACH ROW EXECUTE PROCEDURE
+CREATE TRIGGER update_esn_geodate BEFORE update
+    ON tn911.esn_boundary FOR EACH ROW 
     WHEN (old.geom is distinct from new.geom) 
-    esn_geodate();
-
+    EXECUTE PROCEDURE esn_geodate();
