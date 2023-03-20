@@ -250,3 +250,15 @@ comment on column tn911.esn_boundary.fd is 'Designation for the responding fire 
 comment on column tn911.esn_boundary.ems is 'Designation for the emergency medical response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
 
 
+/*Create an index on the three layers*/
+create index tn911_centerlines_geom_idx 
+on tn911.centerlines 
+using gist (geom); 
+
+create index tn911_address_points_geom_idx 
+on tn911.address_points 
+using gist (geom); 
+
+create index tn911_esn_geom_idx 
+on tn911.esn_boundary 
+using gist (geom); 
