@@ -42,7 +42,7 @@ CREATE TRIGGER update_address_attdate before update
  CREATE OR REPLACE FUNCTION address_esn_func()
  RETURNS TRIGGER AS $$ 
  BEGIN
-    NEW.esn := (select esn from tn911.esn where st_within(new.geom, geom)); 
+    NEW.esn := (select esn from tn911.esn_boundary where st_within(new.geom, geom)); 
     RETURN NEW;
  END;
  $$
@@ -74,7 +74,7 @@ CREATE TRIGGER update_address_geodate before update
 CREATE OR REPLACE FUNCTION address_label_func()
 RETURNS TRIGGER AS $$ 
 BEGIN
-   NEW.esn := (select esn from tn911.esn where st_within(new.geom, geom));
+   NEW.esn := (select esn from tn911.esn_boundary where st_within(new.geom, geom));
    NEW.address := concat_ws(' ', new.stnum, new.predir,  new.pretype,  new.name, new.type, new.sufdir,  new.postmod); 
    NEW.addr_esn := concat_ws(' ', new.address,  new.esn); 
    NEW.label := initcap(new.address); 
