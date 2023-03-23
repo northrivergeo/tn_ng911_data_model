@@ -3109,7 +3109,7 @@ def my_form_open(dialog, layer, feature):
         </labelStyle>
       </attributeEditorField>
     </attributeEditorContainer>
-    <attributeEditorContainer groupBox="0" visibilityExpression="" columnCount="2" collapsedExpressionEnabled="0" collapsed="0" name="Address" showLabel="1" collapsedExpression="" visibilityExpressionEnabled="0">
+    <attributeEditorContainer groupBox="0" visibilityExpression="" columnCount="1" collapsedExpressionEnabled="0" collapsed="0" name="Address" showLabel="1" collapsedExpression="" visibilityExpressionEnabled="0">
       <labelStyle overrideLabelFont="0" overrideLabelColor="0" labelColor="0,0,0,255">
         <labelFont style="" description="Cantarell,11,-1,5,50,0,0,0,0,0" underline="0" bold="0" italic="0" strikethrough="0"/>
       </labelStyle>
