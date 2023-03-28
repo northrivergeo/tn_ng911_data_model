@@ -2,10 +2,6 @@
 /*rjhale                            */ 
 /*20200924                          */
 
-create schema dem; 
-SET search_path TO dem,public;
-SET search_path TO tn911,public;
-
 DROP TABLE IF EXISTS tn911.address_points; 
 CREATE TABLE tn911.address_points ( 
 	id serial primary key, 
@@ -142,8 +138,8 @@ CREATE TABLE tn911.centerlines (
 	cfcc varchar(3) references tn911.cfcc_tbl(cfcc), 
 	esn_l varchar(3), 
 	esn_r varchar(3), 
-	zip_l varchar(5) references tn911.zipcode(zipcode),
-	zip_r varchar(5) references tn911.zipcode(zipcode),
+	zip_l varchar(5),
+	zip_r varchar(5),
         city_l varchar(30), 
 	city_r varchar(30), 
 	county_l varchar(30), 
@@ -249,16 +245,3 @@ comment on column tn911.esn_boundary.le is 'Designation for the law enforcement 
 comment on column tn911.esn_boundary.fd is 'Designation for the responding fire department associated with this ESN.  This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
 comment on column tn911.esn_boundary.ems is 'Designation for the emergency medical response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
 
-
-/*Create an index on the three layers*/
-create index tn911_centerlines_geom_idx 
-on tn911.centerlines 
-using gist (geom); 
-
-create index tn911_address_points_geom_idx 
-on tn911.address_points 
-using gist (geom); 
-
-create index tn911_esn_geom_idx 
-on tn911.esn_boundary 
-using gist (geom); 
