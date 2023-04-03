@@ -494,6 +494,7 @@ insert into tn911.nametype_tbl (nametype, description) values (5, '5-Postal Name
 insert into tn911.nametype_tbl (nametype, description) values (6, '6-MSAG Name'); 
 insert into tn911.nametype_tbl (nametype, description) values (7, '7-Inventory Name'); 
 
+
 /* CFCC Table */
 DROP TABLE IF EXISTS tn911.cfcc_tbl; 
 create table tn911.cfcc_tbl ( 
