@@ -245,3 +245,54 @@ comment on column tn911.esn_boundary.le is 'Designation for the law enforcement 
 comment on column tn911.esn_boundary.fd is 'Designation for the responding fire department associated with this ESN.  This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
 comment on column tn911.esn_boundary.ems is 'Designation for the emergency medical response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
 
+DROP TABLE IF EXISTS tn911.esb_ems; 
+CREATE TABLE tn911.esb_ems ( 
+        id serial primary key,
+	dscagid varchar(100), 
+	dateupdate timestamp, 
+	effective timestamp, 
+	expire timestamp, 
+	nguid varchar(254),  
+	country varchar(2), 
+        state varchar(2), 
+	agency_id varchar(100), 
+	serviceuri varchar(254), 
+	serviceurn varchar(50), 
+	servicenum varchar(15)
+	agencyvcarduri varchar(254), 
+	displayname varchar(60)); 
+	                    
+DROP TABLE IF EXISTS tn911.esb_fire; 
+CREATE TABLE tn911.esb_fire ( 
+        id serial primary key,
+	dscagid varchar(100), 
+	dateupdate timestamp, 
+	effective timestamp, 
+	expire timestamp, 
+	nguid varchar(254),  
+	country varchar(2), 
+        state varchar(2), 
+	agency_id varchar(100), 
+	serviceuri varchar(254), 
+	serviceurn varchar(50), 
+	servicenum varchar(15)
+	agencyvcarduri varchar(254), 
+	displayname varchar(60)); 
+	                    
+DROP TABLE IF EXISTS tn911.esb_law; 
+CREATE TABLE tn911.esb_law ( 
+        id serial primary key,
+	dscagid varchar(100), 
+	dateupdate timestamp, 
+	effective timestamp, 
+	expire timestamp, 
+	nguid varchar(254),  
+	country varchar(2), 
+        state varchar(2), 
+	agency_id varchar(100), 
+	serviceuri varchar(254), 
+	serviceurn varchar(50), 
+	servicenum varchar(15)
+	agencyvcarduri varchar(254), 
+	displayname varchar(60)); 
+	                    
