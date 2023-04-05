@@ -81,7 +81,8 @@ insert into tn911.structype_tbl (structype, strucfk, description) values (14, 10
 insert into tn911.structype_tbl (structype, strucfk, description) values (15, 100, '15-Senior Citizen Center'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (16, 100, '16-Bus'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (17, 100, '17-Quadplex'); 
-insert into tn911.structype_tbl (structype, strucfk, description) values (18, 100, 'Communal Area');
+insert into tn911.structype_tbl (structype, strucfk, description) values (18, 100, '18-Communal Area');
+insert into tn911.structype_tbl (structype, strucfk, description) values (19, 100, '19-Residential Garage');
 insert into tn911.structype_tbl (structype, strucfk, description) values (200, 200, '200-Religious'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (201, 200, '201-Place of Worship'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (300, 300, '300-Education'); 
@@ -134,6 +135,7 @@ insert into tn911.structype_tbl (structype, strucfk, description) values (804, 8
 insert into tn911.structype_tbl (structype, strucfk, description) values (805, 800, '805-Landfill'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (806, 800, '806-Mine'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (807, 800, '807-Rock Quarry'); 
+insert into tn911.structype_tbl (structype, strucfk, description) values (808, 800, '808-Saw Mill'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (900, 900, '900-Public Safety'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (901, 900, '901-Prison'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (902, 900, '902-Detention Center'); 
@@ -146,6 +148,7 @@ insert into tn911.structype_tbl (structype, strucfk, description) values (908, 9
 insert into tn911.structype_tbl (structype, strucfk, description) values (909, 900, '909-Fire Hydrant'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (910, 900, '910-PELA/LZ/Helicopter Pad'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (911, 900, '911-PSAP'); 
+insert into tn911.structype_tbl (structype, strucfk, description) values (912, 900, '912-Guard Shack'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1000, 1000, '1000-Transportation'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1001, 1000, '1001-Airport'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1002, 1000, '1002-Airport Hanger'); 
@@ -162,10 +165,12 @@ insert into tn911.structype_tbl (structype, strucfk, description) values (1012, 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1013, 1000, '1013-Railroad Mile Marker'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1014, 1000, '1014-River Marker'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1015, 1000, '1015-Mile Marker'); 
+insert into tn911.structype_tbl (structype, strucfk, description) values (1016, 1000, '1016-Ferry Terminal'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1200, 1200, '1200-Asset'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1201, 1200, '1201-Gate'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1202, 1200, '1202-Call Box/Phone Cabinet'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1203, 1200, '1203-Billboard'); 
+insert into tn911.structype_tbl (structype, strucfk, description) values (1203, 1200, '1204-Traffic Control Box'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1300, 1300, '1300-Commercial'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1301, 1300, '1301-Shopping Area'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1302, 1300, '1302-Store'); 
@@ -186,6 +191,8 @@ insert into tn911.structype_tbl (structype, strucfk, description) values (1406, 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1407, 1400, '1407-Stadium'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1408, 1400, '1408-Arena'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1409, 1400, '1409-Sports Complex'); 
+insert into tn911.structype_tbl (structype, strucfk, description) values (1410, 1400, '1410-Food Truck'); 
+insert into tn911.structype_tbl (structype, strucfk, description) values (1411, 1400, '1411-Zoo'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1500, 1500, '1500-Recreational'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1501, 1500, '1501-Park'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1502, 1500, '1502-Campground'); 
@@ -193,6 +200,7 @@ insert into tn911.structype_tbl (structype, strucfk, description) values (1503, 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1504, 1500, '1504-Golf Course'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1505, 1500, '1505-Boat Dock'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1506, 1500, '1506-Watercraft'); 
+insert into tn911.structype_tbl (structype, strucfk, description) values (1507, 1500, '1507-Swimming Pool'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1600, 1600, '1600-Historical'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1601, 1600, '1601-Museum'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1602, 1600, '1602-Cemetery'); 
