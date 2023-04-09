@@ -248,7 +248,8 @@ comment on column tn911.esn_boundary.ems is 'Designation for the emergency medic
 DROP TABLE IF EXISTS tn911.esb_ems; 
 CREATE TABLE tn911.esb_ems ( 
         id serial primary key,
-	dscagid varchar(100), 
+        geom geometry (polygon, 2274),
+	discrpagid varchar(100), 
 	dateupdate timestamp, 
 	effective timestamp, 
 	expire timestamp, 
@@ -258,14 +259,25 @@ CREATE TABLE tn911.esb_ems (
 	agency_id varchar(100), 
 	serviceuri varchar(254), 
 	serviceurn varchar(50), 
-	servicenum varchar(15)
+	servicenum varchar(15),
 	agencyvcarduri varchar(254), 
 	displayname varchar(60)); 
+
+comment on column tn911.esb_ems.discrpagid is 'A DNS registry lookup of the agency responsible for receipt of the discrepancy reporting.';
+comment on column tn911.esb_ems.dateupdate is 'The datetime stamp of when the record was last updated.';
+comment on column tn911.esb_ems.effective is 'The datetime stamp of when the record is to go into effect.';
+comment on column tn911.esb_ems.expire is 'The datetime stamp of when the record is set to expire.';
+comment on column tn911.esb_ems.nguid is 'Globally unique ID within the GIS database (locally and statewide). Every UID will be a concatenation of ‘urn:emergency:uid:gis’ + [Layer Indicator] + [Local Unique Identifier] + [Agency Identifier]. The [Layer Indicator] placeholder can be one of three currently required values: ‘Pol’, ‘Fire’, ‘Ems”. The [Local Unique Identifier] placeholder can contain any combination of numbers and letters that create a unique ID. The [Agency Identifier] is a DNS registry, and is assigned by the NGCS provider.';  
+comment on column tn911.esb_ems.agency_id is 'A Domain Name System (DNS) identifier that uniquely represents the agency associated with the polygon of record. This will be the same domain found in the NGUID.';
+comment on column tn911.esb_ems.serviceuri is 'Uniform Resource Identifier which describes the resource unique location for call routing. It is usually a Session Initiation Protocol (SIP) that defines the route to reach the service.';
+comment on column tn911.esb_ems.serviceurn is 'Uniform Resource Name which is a type of URI. The URN is used to select the service for the desired route. In the service boundaries described here, there are three options.';
+comment on column tn911.esb_ems.servicenum is 'The number (without hyphens) that would be dialed to reach the service.';
 	                    
 DROP TABLE IF EXISTS tn911.esb_fire; 
 CREATE TABLE tn911.esb_fire ( 
         id serial primary key,
-	dscagid varchar(100), 
+        geom geometry (polygon, 2274),
+	discrpagid varchar(100), 
 	dateupdate timestamp, 
 	effective timestamp, 
 	expire timestamp, 
@@ -275,14 +287,26 @@ CREATE TABLE tn911.esb_fire (
 	agency_id varchar(100), 
 	serviceuri varchar(254), 
 	serviceurn varchar(50), 
-	servicenum varchar(15)
+	servicenum varchar(15),
 	agencyvcarduri varchar(254), 
 	displayname varchar(60)); 
+
+comment on column tn911.esb_fire.discrpagid is 'A DNS registry lookup of the agency responsible for receipt of the discrepancy reporting.';
+comment on column tn911.esb_fire.dateupdate is 'The datetime stamp of when the record was last updated.';
+comment on column tn911.esb_fire.effective is 'The datetime stamp of when the record is to go into effect.';
+comment on column tn911.esb_fire.expire is 'The datetime stamp of when the record is set to expire.';
+comment on column tn911.esb_fire.nguid is 'Globally unique ID within the GIS database (locally and statewide). Every UID will be a concatenation of ‘urn:emergency:uid:gis’ + [Layer Indicator] + [Local Unique Identifier] + [Agency Identifier]. The [Layer Indicator] placeholder can be one of three currently required values: ‘Pol’, ‘Fire’, ‘Ems”. The [Local Unique Identifier] placeholder can contain any combination of numbers and letters that create a unique ID. The [Agency Identifier] is a DNS registry, and is assigned by the NGCS provider.';  
+comment on column tn911.esb_fire.agency_id is 'A Domain Name System (DNS) identifier that uniquely represents the agency associated with the polygon of record. This will be the same domain found in the NGUID.';
+comment on column tn911.esb_fire.serviceuri is 'Uniform Resource Identifier which describes the resource unique location for call routing. It is usually a Session Initiation Protocol (SIP) that defines the route to reach the service.';
+comment on column tn911.esb_fire.serviceurn is 'Uniform Resource Name which is a type of URI. The URN is used to select the service for the desired route. In the service boundaries described here, there are three options.';
+comment on column tn911.esb_fire.servicenum is 'The number (without hyphens) that would be dialed to reach the service.';
+	                    
 	                    
 DROP TABLE IF EXISTS tn911.esb_law; 
 CREATE TABLE tn911.esb_law ( 
         id serial primary key,
-	dscagid varchar(100), 
+        geom geometry (polygon, 2274),
+	discrpagid varchar(100), 
 	dateupdate timestamp, 
 	effective timestamp, 
 	expire timestamp, 
@@ -292,7 +316,17 @@ CREATE TABLE tn911.esb_law (
 	agency_id varchar(100), 
 	serviceuri varchar(254), 
 	serviceurn varchar(50), 
-	servicenum varchar(15)
+	servicenum varchar(15),
 	agencyvcarduri varchar(254), 
 	displayname varchar(60)); 
+	                    
+comment on column tn911.esb_law.discrpagid is 'A DNS registry lookup of the agency responsible for receipt of the discrepancy reporting.';
+comment on column tn911.esb_law.dateupdate is 'The datetime stamp of when the record was last updated.';
+comment on column tn911.esb_law.effective is 'The datetime stamp of when the record is to go into effect.';
+comment on column tn911.esb_law.expire is 'The datetime stamp of when the record is set to expire.';
+comment on column tn911.esb_law.nguid is 'Globally unique ID within the GIS database (locally and statewide). Every UID will be a concatenation of ‘urn:emergency:uid:gis’ + [Layer Indicator] + [Local Unique Identifier] + [Agency Identifier]. The [Layer Indicator] placeholder can be one of three currently required values: ‘Pol’, ‘Fire’, ‘Ems”. The [Local Unique Identifier] placeholder can contain any combination of numbers and letters that create a unique ID. The [Agency Identifier] is a DNS registry, and is assigned by the NGCS provider.';  
+comment on column tn911.esb_law.agency_id is 'A Domain Name System (DNS) identifier that uniquely represents the agency associated with the polygon of record. This will be the same domain found in the NGUID.';
+comment on column tn911.esb_law.serviceuri is 'Uniform Resource Identifier which describes the resource unique location for call routing. It is usually a Session Initiation Protocol (SIP) that defines the route to reach the service.';
+comment on column tn911.esb_law.serviceurn is 'Uniform Resource Name which is a type of URI. The URN is used to select the service for the desired route. In the service boundaries described here, there are three options.';
+comment on column tn911.esb_law.servicenum is 'The number (without hyphens) that would be dialed to reach the service.';
 	                    

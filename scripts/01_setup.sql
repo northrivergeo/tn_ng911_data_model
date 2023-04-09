@@ -170,7 +170,7 @@ insert into tn911.structype_tbl (structype, strucfk, description) values (1200, 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1201, 1200, '1201-Gate'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1202, 1200, '1202-Call Box/Phone Cabinet'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1203, 1200, '1203-Billboard'); 
-insert into tn911.structype_tbl (structype, strucfk, description) values (1203, 1200, '1204-Traffic Control Box'); 
+insert into tn911.structype_tbl (structype, strucfk, description) values (1204, 1200, '1204-Traffic Control Box'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1300, 1300, '1300-Commercial'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1301, 1300, '1301-Shopping Area'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (1302, 1300, '1302-Store'); 
