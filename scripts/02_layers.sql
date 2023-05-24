@@ -214,8 +214,8 @@ comment on column tn911.centerlines.status is 'Defines the current lifecycle sta
 
 /**********************************************************************************/
 
-DROP TABLE IF EXISTS tn911.esn_boundary; 
-CREATE TABLE tn911.esn_boundary ( 
+DROP TABLE IF EXISTS tn911.esn;
+CREATE TABLE tn911.esn ( 
         id serial primary key,
         geom geometry (polygon, 2274),
         oirid varchar(20),
@@ -230,20 +230,20 @@ CREATE TABLE tn911.esn_boundary (
 	ems varchar(75));  
 
 /* Spatial Index */
-CREATE INDEX esn_idx ON tn911.esn_boundary USING gist(geom);                  
+CREATE INDEX esn_idx ON tn911.esn USING gist(geom);                  
 
 /* Comments */
 
-comment on column tn911.esn_boundary.oirid is 'Currently, this value is an alphanumeric patterned after the format: ‘%ECD name%_%numeric sequence%’ The ECD name is a one-word moniker for the District and MUST be in uppercase. For each individual record, this value MUST be unique among all ESN polygon records and persist for the lifetime of that record. The numeric sequence should increment by one (1) with each successive edit, but there is no requirement for consecutive numbering as long as the values are unique and persistent for each record. At this time, these unique identifiers cannot be reused once a ESN polygon record is deleted.'; 
-comment on column tn911.esn_boundary.esn is 'The Emergency Service Number is actually a 5-digit string, of which this schema is only capturing the last 3. The 3-digit code is prefixed with leading zeros. The ESN is a legacy element used for 10-digt routing.';
-comment on column tn911.esn_boundary.wesn is '3-digit code representative of the wireless ESN. Populate this field only if the WESN and overlapping ESN are congruent or if there is a single WESN for the entire jurisdiction.'; 
-comment on column tn911.esn_boundary.vesn is '3-digit code representative of the Voice over IP ESN. Populate this field only if the VESN and overlapping ESN are congruent or if there is a single VESN for the entire jurisdiction.'; 
-comment on column tn911.esn_boundary.srte is 'The selective router associated with this ESN if known.'; 
-comment on column tn911.esn_boundary.psapid is 'The FCC maintains a registry of PSAPs within the US and its territories, and assigns a unique 4-digit key to each. This field value should be the primary PSAP identifier from the FCC Master PSAP Registry assigned to the PSAP that this ESN would default route to.  You may download the FCC Master PSAP Registry from here: https://www.fcc.gov/general/9-1-1-master-psap-registry If you do not find your PSAP or if a change has taken place, please advise the FCC using the contact information in the link provided and register.'; 
-comment on column tn911.esn_boundary.geodate is 'Datetime stamp the polygonal geometry was last modified. It should be noted that datetime values are not permissible in Shapefiles. Date fields in Shapefiles can hold a date or a time, but not both.'; 
-comment on column tn911.esn_boundary.le is 'Designation for the law enforcement response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
-comment on column tn911.esn_boundary.fd is 'Designation for the responding fire department associated with this ESN.  This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
-comment on column tn911.esn_boundary.ems is 'Designation for the emergency medical response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
+comment on column tn911.esn.oirid is 'Currently, this value is an alphanumeric patterned after the format: ‘%ECD name%_%numeric sequence%’ The ECD name is a one-word moniker for the District and MUST be in uppercase. For each individual record, this value MUST be unique among all ESN polygon records and persist for the lifetime of that record. The numeric sequence should increment by one (1) with each successive edit, but there is no requirement for consecutive numbering as long as the values are unique and persistent for each record. At this time, these unique identifiers cannot be reused once a ESN polygon record is deleted.'; 
+comment on column tn911.esn.esn is 'The Emergency Service Number is actually a 5-digit string, of which this schema is only capturing the last 3. The 3-digit code is prefixed with leading zeros. The ESN is a legacy element used for 10-digt routing.';
+comment on column tn911.esn.wesn is '3-digit code representative of the wireless ESN. Populate this field only if the WESN and overlapping ESN are congruent or if there is a single WESN for the entire jurisdiction.'; 
+comment on column tn911.esn.vesn is '3-digit code representative of the Voice over IP ESN. Populate this field only if the VESN and overlapping ESN are congruent or if there is a single VESN for the entire jurisdiction.'; 
+comment on column tn911.esn.srte is 'The selective router associated with this ESN if known.'; 
+comment on column tn911.esn.psapid is 'The FCC maintains a registry of PSAPs within the US and its territories, and assigns a unique 4-digit key to each. This field value should be the primary PSAP identifier from the FCC Master PSAP Registry assigned to the PSAP that this ESN would default route to.  You may download the FCC Master PSAP Registry from here: https://www.fcc.gov/general/9-1-1-master-psap-registry If you do not find your PSAP or if a change has taken place, please advise the FCC using the contact information in the link provided and register.'; 
+comment on column tn911.esn.geodate is 'Datetime stamp the polygonal geometry was last modified. It should be noted that datetime values are not permissible in Shapefiles. Date fields in Shapefiles can hold a date or a time, but not both.'; 
+comment on column tn911.esn.le is 'Designation for the law enforcement response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
+comment on column tn911.esn.fd is 'Designation for the responding fire department associated with this ESN.  This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
+comment on column tn911.esn.ems is 'Designation for the emergency medical response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
 
 DROP TABLE IF EXISTS tn911.esb_ems; 
 CREATE TABLE tn911.esb_ems ( 

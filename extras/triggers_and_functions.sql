@@ -42,7 +42,7 @@ CREATE TRIGGER update_address_attdate before update
  CREATE OR REPLACE FUNCTION address_esn_func()
  RETURNS TRIGGER AS $$ 
  BEGIN
-    NEW.esn := (select esn from tn911.esn_boundary where st_within(new.geom, geom)); 
+    NEW.esn := (select esn from tn911.esn where st_within(new.geom, geom)); 
     RETURN NEW;
  END;
  $$
@@ -74,7 +74,7 @@ CREATE TRIGGER update_address_geodate before update
 CREATE OR REPLACE FUNCTION address_label_func()
 RETURNS TRIGGER AS $$ 
 BEGIN
-   NEW.esn := (select esn from tn911.esn_boundary where st_within(new.geom, geom));
+   NEW.esn := (select esn from tn911.esn where st_within(new.geom, geom));
    NEW.address := concat_ws(' ', new.stnum, new.predir,  new.pretype,  new.name, new.type, new.sufdir,  new.postmod); 
    NEW.addr_esn := concat_ws(' ', new.address,  new.esn); 
    NEW.label := initcap(new.address); 
@@ -236,7 +236,7 @@ $$
 LANGUAGE PLPGSQL;
 
 CREATE TRIGGER update_esn_oirid BEFORE insert
-    ON tn911.esn_boundary FOR EACH ROW EXECUTE PROCEDURE
+    ON tn911.esn FOR EACH ROW EXECUTE PROCEDURE
     esn_oirid_func();
 
 CREATE OR REPLACE FUNCTION esn_geodate()
@@ -250,6 +250,6 @@ LANGUAGE PLPGSQL;
 
 
 CREATE TRIGGER update_esn_geodate BEFORE update
-    ON tn911.esn_boundary FOR EACH ROW 
+    ON tn911.esn FOR EACH ROW 
     WHEN (old.geom is distinct from new.geom) 
     EXECUTE PROCEDURE esn_geodate();
