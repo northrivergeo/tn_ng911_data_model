@@ -11,5 +11,5 @@ inner join (select oirid,
       from tn911.centerlines) right2
  on right1.label = right2.label
  and right1.oirid < right2.oirid
-where right1.r_f_add::int between right1.r_f_add::int and right1.r_t_add::int
- or right2.r_t_add::int between right2.r_f_add::int and right2.r_t_add::int;
+where right2.r_f_add::int between right1.r_f_add::int and right1.r_t_add::int
+ or right1.r_t_add::int between right2.r_f_add::int and right2.r_t_add::int;
