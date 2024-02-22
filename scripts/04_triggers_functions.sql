@@ -117,7 +117,7 @@ CREATE TRIGGER update_address_location BEFORE insert or update
 
 /*address oirid*/ 
 
-CREATE OR REPLACE FUNCTION tn911.oirid_address_func()
+CREATE OR REPLACE FUNCTION tn911.address_func_oirid()
 RETURNS TRIGGER AS $$ 
 BEGIN
    NEW.oirid = 'COUNTY'||'_'||new.id;
@@ -130,13 +130,13 @@ LANGUAGE PLPGSQL;
 
 CREATE TRIGGER update_address_oirid BEFORE insert
     ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
-    tn911.oirid_address_func();
+    tn911.address_func_oirid();
 
 /* next up is Centerlines */ 
 
 --Updates attdate in centerline table
 
-CREATE OR REPLACE FUNCTION tn911.centerline_attdate()
+CREATE OR REPLACE FUNCTION tn911.centerlines_attdate()
 RETURNS TRIGGER AS $$ 
 BEGIN 
    new.attdate = current_timestamp; 
@@ -145,9 +145,9 @@ END;
 $$
 LANGUAGE PLPGSQL; 
 
-CREATE TRIGGER create_centerline_attdate after insert 
+CREATE TRIGGER create_centerlines_attdate after insert 
    on tn911.centerlines FOR EACH ROW 
-   EXECUTE PROCEDURE tn911.centerline_attdate();  
+   EXECUTE PROCEDURE tn911.centerlines_attdate();  
 
 CREATE TRIGGER update_centerlines before update 
    on tn911.centerlines FOR EACH ROW 
