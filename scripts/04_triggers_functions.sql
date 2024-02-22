@@ -1,3 +1,37 @@
+--OIRIDs that need to  the county changed
+
+/*address oirid*/ 
+CREATE OR REPLACE FUNCTION tn911.address_func_oirid()
+RETURNS TRIGGER AS $$ 
+BEGIN
+   NEW.oirid = 'COUNTY'||'_'||new.id;
+   NEW.editor = current_user; 
+   NEW.gpsdate = current_timestamp;
+   RETURN NEW;
+END;
+$$
+LANGUAGE PLPGSQL;
+
+CREATE TRIGGER update_address_oirid BEFORE insert
+    ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
+    tn911.address_func_oirid();
+
+
+CREATE OR REPLACE FUNCTION tn911.centerlines_func_oirid()
+RETURNS TRIGGER AS $$ 
+BEGIN 
+   NEW.oirid = 'COUNTY'||'_'||new.id;
+   NEW.editor = current_user; 
+   NEW.geodate = current_timestamp; 
+   RETURN NEW;
+END; 
+$$
+LANGUAGE PLPGSQL; 
+
+CREATE TRIGGER update_centerlines_oirid before insert or update 
+   on tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE 
+   tn911.centerlines_func_oirid();  
+
 --Updates attdate column in address_points
 
 
@@ -115,28 +149,11 @@ CREATE TRIGGER update_address_location BEFORE insert or update
     tn911.address_location_func();
 
 
-/*address oirid*/ 
-
-CREATE OR REPLACE FUNCTION tn911.address_func_oirid()
-RETURNS TRIGGER AS $$ 
-BEGIN
-   NEW.oirid = 'COUNTY'||'_'||new.id;
-   NEW.editor = current_user; 
-   NEW.gpsdate = current_timestamp;
-   RETURN NEW;
-END;
-$$
-LANGUAGE PLPGSQL;
-
-CREATE TRIGGER update_address_oirid BEFORE insert
-    ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
-    tn911.address_func_oirid();
-
 /* next up is Centerlines */ 
 
 --Updates attdate in centerline table
 
-CREATE OR REPLACE FUNCTION tn911.centerlines_attdate()
+CREATE OR REPLACE FUNCTION tn911.centerlines_func_attdate()
 RETURNS TRIGGER AS $$ 
 BEGIN 
    new.attdate = current_timestamp; 
@@ -147,7 +164,7 @@ LANGUAGE PLPGSQL;
 
 CREATE TRIGGER create_centerlines_attdate after insert 
    on tn911.centerlines FOR EACH ROW 
-   EXECUTE PROCEDURE tn911.centerlines_attdate();  
+   EXECUTE PROCEDURE tn911.centerlines_func_attdate();  
 
 CREATE TRIGGER update_centerlines before update 
    on tn911.centerlines FOR EACH ROW 
@@ -188,24 +205,7 @@ CREATE TRIGGER update_centerlines before update
 	 old.tfcost is distinct from new.tfcost OR 
 	 old.tfcost is distinct from new.tfcost)
    EXECUTE PROCEDURE 
-   tn911.centerline_attdate();  
-
--- Updates geodate in centerlines table 
-
-CREATE OR REPLACE FUNCTION tn911.centerlines_geodate()
-RETURNS TRIGGER AS $$ 
-BEGIN 
-   NEW.oirid = 'COUNTY'||'_'||new.id;
-   NEW.editor = current_user; 
-   NEW.geodate = current_timestamp; 
-   RETURN NEW;
-END; 
-$$
-LANGUAGE PLPGSQL; 
-
-CREATE TRIGGER update_centerlines_geodate before insert or update 
-   on tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE 
-   tn911.centerlines_geodate();  
+   tn911.centerline_func_attdate();  
 
 /*centerlines segid*/ 
 
