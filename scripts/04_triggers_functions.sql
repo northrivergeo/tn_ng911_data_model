@@ -36,7 +36,7 @@ CREATE TRIGGER update_centerlines_oirid before insert or update
 --Updates attdate column in address_points
 
 
-CREATE OR REPLACE FUNCTION tn911.address_attdate()
+CREATE OR REPLACE FUNCTION tn911.address_func_attdate()
 RETURNS TRIGGER AS $$ 
 BEGIN 
    new.attdate = current_timestamp; 
@@ -45,10 +45,10 @@ END;
 $$
 LANGUAGE PLPGSQL; 
 
-CREATE TRIGGER create_address_attdate after insert 
+CREATE TRIGGER create_address_attdate before insert 
    on tn911.address_points FOR EACH ROW 
    EXECUTE PROCEDURE 
-   tn911.address_attdate();  
+   tn911.address_func_attdate();  
 
 CREATE TRIGGER update_address_attdate before update 
    on tn911.address_points FOR EACH ROW 
@@ -77,11 +77,11 @@ CREATE TRIGGER update_address_attdate before update
 	 old.zip4 is distinct from new.zip4 OR 
 	 old.city is distinct from new.city)
    EXECUTE PROCEDURE 
-   tn911.address_attdate();  
+   tn911.address_func_attdate();  
 
 --Updates ESN in address_points table
 
- CREATE OR REPLACE FUNCTION tn911.address_esn_func()
+ CREATE OR REPLACE FUNCTION tn911.address_func_esn()
  RETURNS TRIGGER AS $$ 
  BEGIN
     NEW.esn := (select esn from tn911.esn where st_within(new.geom, geom)); 
@@ -94,11 +94,11 @@ LANGUAGE PLPGSQL;
  BEFORE insert or update
      ON tn911.address_points FOR EACH ROW 
      EXECUTE PROCEDURE 
-     tn911.address_esn_func();
+     tn911.address_func_esn();
 
 --Updates geodate in address_points table
 
-CREATE OR REPLACE FUNCTION tn911.address_geodate()
+CREATE OR REPLACE FUNCTION tn911.address_func_geodate()
 RETURNS TRIGGER AS $$ 
 BEGIN 
    new.geodate = current_timestamp; 
@@ -111,11 +111,11 @@ CREATE TRIGGER update_address_geodate before update
    on tn911.address_points FOR EACH ROW 
    WHEN (old.geom is distinct from new.geom) 
    EXECUTE PROCEDURE 
-   tn911.address_geodate();  
+   tn911.address_func_geodate();  
 
 /*address street label*/ 
 
-CREATE OR REPLACE FUNCTION tn911.address_label_func()
+CREATE OR REPLACE FUNCTION tn911.address_func_label()
 RETURNS TRIGGER AS $$ 
 BEGIN
    NEW.esn := (select esn from tn911.esn where st_within(new.geom, geom));
@@ -129,11 +129,11 @@ LANGUAGE PLPGSQL;
 
 CREATE TRIGGER update_address_label BEFORE insert or update
     ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
-    tn911.address_label_func();
+    tn911.address_func_label();
 
 /*address location*/ 
 
-CREATE OR REPLACE FUNCTION tn911.address_location_func()
+CREATE OR REPLACE FUNCTION tn911.address_func_location()
 RETURNS TRIGGER AS $$ 
 BEGIN
    NEW.x_sp := st_x(NEW.geom); 
@@ -147,7 +147,7 @@ LANGUAGE PLPGSQL;
 
 CREATE TRIGGER update_address_location BEFORE insert or update
     ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
-    tn911.address_location_func();
+    tn911.address_func_location();
 
 
 /* next up is Centerlines */ 
@@ -163,7 +163,7 @@ END;
 $$
 LANGUAGE PLPGSQL; 
 
-CREATE TRIGGER create_centerlines_attdate after insert 
+CREATE TRIGGER create_centerlines_attdate before insert 
    on tn911.centerlines FOR EACH ROW 
    EXECUTE PROCEDURE tn911.centerlines_func_attdate();  
 
@@ -210,7 +210,7 @@ CREATE TRIGGER update_centerlines before update
 
 /*centerlines segid*/ 
 
-CREATE OR REPLACE FUNCTION tn911.centerlines_segid()
+CREATE OR REPLACE FUNCTION tn911.centerlines_func_segid()
 RETURNS TRIGGER AS $$ 
 BEGIN 
    NEW.segid := new.id;
@@ -221,10 +221,10 @@ LANGUAGE PLPGSQL;
 
 CREATE TRIGGER update_centerlines_segid before insert  
    on tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE 
-   tn911.centerlines_segid();  
+   tn911.centerlines_func_segid();  
 
 /*centerlines street*/ 
-CREATE OR REPLACE FUNCTION tn911.centerlines_street_func()
+CREATE OR REPLACE FUNCTION tn911.centerlines_func_street()
 RETURNS TRIGGER AS $$
 BEGIN
   NEW.label := concat_ws(' ', new.predir, new.pretype, new.name, new.type, new.sufdir);
@@ -235,26 +235,11 @@ LANGUAGE PLPGSQL;
 
 CREATE TRIGGER update_centerlines_street BEFORE insert or update
     ON tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE
-    tn911.centerlines_street_func();
+    tn911.centerlines_func_street();
     
 /*esn updates*/ 
 
-/*update esn*/ 
-CREATE OR REPLACE FUNCTION tn911.esn_oirid_func()
-RETURNS TRIGGER AS $$ 
-BEGIN
-   NEW.oirid = 'COUNTY'||'_'||new.id;
-   NEW.editor = current_user; 
-   RETURN NEW;
-END;
-$$
-LANGUAGE PLPGSQL;
-
-CREATE TRIGGER update_esn_oirid BEFORE insert
-    ON tn911.esn FOR EACH ROW EXECUTE PROCEDURE
-    tn911.esn_oirid_func();
-
-CREATE OR REPLACE FUNCTION tn911.esn_geodate()
+CREATE OR REPLACE FUNCTION tn911.esn_func_geodate()
 RETURNS TRIGGER AS $$
 BEGIN
    new.geodate = current_timestamp;
@@ -268,7 +253,7 @@ CREATE TRIGGER update_esn_geodate BEFORE update
     ON tn911.esn FOR EACH ROW 
     WHEN (old.geom is distinct from new.geom) 
     EXECUTE PROCEDURE 
-    tn911.esn_geodate();
+    tn911.esn_func_geodate();
 
 --Set up notify for QGIS 
 
