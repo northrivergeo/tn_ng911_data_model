@@ -1,4 +1,5 @@
---OIRIDs that need to  the county changed
+--OIRIDs that need to the county changed
+--as an example you would need 'HAMILTON_12345' and not 'COUNTY_12345'
 
 /*address oirid*/ 
 CREATE OR REPLACE FUNCTION tn911.address_func_oirid()
@@ -205,7 +206,7 @@ CREATE TRIGGER update_centerlines before update
 	 old.tfcost is distinct from new.tfcost OR 
 	 old.tfcost is distinct from new.tfcost)
    EXECUTE PROCEDURE 
-   tn911.centerline_func_attdate();  
+   tn911.centerlines_func_attdate();  
 
 /*centerlines segid*/ 
 
@@ -268,3 +269,25 @@ CREATE TRIGGER update_esn_geodate BEFORE update
     WHEN (old.geom is distinct from new.geom) 
     EXECUTE PROCEDURE 
     tn911.esn_geodate();
+
+--Set up notify for QGIS 
+
+CREATE FUNCTION public.notify_qgis() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+        BEGIN NOTIFY qgis;
+        RETURN NULL;
+        END;
+    $$;
+
+CREATE TRIGGER notify_qgis_address_edit
+  AFTER INSERT OR UPDATE OR DELETE ON tn911.address_points
+    FOR EACH STATEMENT EXECUTE PROCEDURE public.notify_qgis();
+
+CREATE TRIGGER notify_qgis_centerlines_edit
+  AFTER INSERT OR UPDATE OR DELETE ON tn911.centerlines
+    FOR EACH STATEMENT EXECUTE PROCEDURE public.notify_qgis();
+
+CREATE TRIGGER notify_qgis_esn_edit
+  AFTER INSERT OR UPDATE OR DELETE ON tn911.esn
+    FOR EACH STATEMENT EXECUTE PROCEDURE public.notify_qgis();
