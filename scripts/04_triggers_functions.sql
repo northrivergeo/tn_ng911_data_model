@@ -2,11 +2,12 @@
 --as an example you would need 'HAMILTON_12345' and not 'COUNTY_12345'
 
 /*address oirid*/ 
+
 CREATE OR REPLACE FUNCTION tn911.address_func_oirid()
-RETURNS TRIGGER AS $$ 
+RETURNS TRIGGER AS $$
 BEGIN
    NEW.oirid = 'COUNTY'||'_'||new.id;
-   NEW.editor = current_user; 
+   NEW.editor = current_user;
    NEW.gpsdate = current_timestamp;
    RETURN NEW;
 END;
@@ -17,67 +18,20 @@ CREATE TRIGGER update_address_oirid BEFORE insert
     ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
     tn911.address_func_oirid();
 
-
 CREATE OR REPLACE FUNCTION tn911.centerlines_func_oirid()
-RETURNS TRIGGER AS $$ 
-BEGIN 
+RETURNS TRIGGER AS $$
+BEGIN
    NEW.oirid = 'COUNTY'||'_'||new.id;
-   NEW.editor = current_user; 
-   NEW.geodate = current_timestamp; 
+   NEW.editor = current_user;
+   NEW.geodate = current_timestamp;
    RETURN NEW;
-END; 
+END;
 $$
-LANGUAGE PLPGSQL; 
+LANGUAGE PLPGSQL;
 
-CREATE TRIGGER update_centerlines_oirid before insert or update 
-   on tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE 
-   tn911.centerlines_func_oirid();  
-
---Updates attdate column in address_points
-
-
-CREATE OR REPLACE FUNCTION tn911.address_func_attdate()
-RETURNS TRIGGER AS $$ 
-BEGIN 
-   new.attdate = current_timestamp; 
-   RETURN NEW; 
-END; 
-$$
-LANGUAGE PLPGSQL; 
-
-CREATE TRIGGER create_address_attdate before insert 
-   on tn911.address_points FOR EACH ROW 
-   EXECUTE PROCEDURE 
-   tn911.address_func_attdate();  
-
-CREATE TRIGGER update_address_attdate before update 
-   on tn911.address_points FOR EACH ROW 
-   WHEN (old.r_segid is distinct from new.a_segid OR
-	 old.a_segid is distinct from new.a_segid OR
-	 old.seg_side is distinct from new.seg_side OR 
-	 old.gislink is distinct from new.gislink OR 
-	 old.structype is distinct from new.structype OR 
-	 old.stnum_h is distinct from new.stnum_h OR 
-	 old.stnum_l is distinct from new.stnum_l OR 
-	 old.stnum is distinct from new.stnum OR 
-	 old.stnumsuf is distinct from new.stnumsuf OR 
-	 old.building is distinct from new.building OR 
-	 old.floor is distinct from new.floor OR 
-	 old.unit_type is distinct from new.unit_type OR 
-	 old.unit_num is distinct from new.unit_num OR 
-	 old.predir is distinct from new.predir OR 
-	 old.pretype is distinct from new.pretype OR 
-	 old.name is distinct from new.name OR 
-	 old.type is distinct from new.type OR 
-	 old.sufdir is distinct from new.sufdir OR 
-	 old.postmod is distinct from new.postmod OR 
-	 old.subname is distinct from new.subname OR 
-	 old.vanity is distinct from new.vanity OR 
-	 old.zip is distinct from new.zip OR 
-	 old.zip4 is distinct from new.zip4 OR 
-	 old.city is distinct from new.city)
-   EXECUTE PROCEDURE 
-   tn911.address_func_attdate();  
+CREATE TRIGGER update_centerlines_oirid before insert or update
+   on tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE
+   tn911.centerlines_func_oirid();
 
 --Updates ESN in address_points table
 
