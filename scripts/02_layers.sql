@@ -12,7 +12,7 @@ CREATE TABLE tn911.address_points (
 	seg_side varchar(1) references tn911.segside_tbl, 
 	gislink varchar(15), 
 	strucdomain varchar(30) references tn911.strucdomain_tbl(strucdomain), 
-	structype smallint references tn911.structype_tbl(structype), 
+	structype integer references tn911.structype_tbl(structype), 
 	strucdesc varchar(30), 
 	stnum_h varchar(10), 
 	stnum_l varchar(10), 
@@ -20,7 +20,7 @@ CREATE TABLE tn911.address_points (
 	stnumsuf varchar(10), 
 	building varchar(35), 
 	floor varchar(10), 
-	unit_type varchar(10) references tn911.unit_type_tbl(unit_type), 
+	unit_type varchar(4) references tn911.unit_type_tbl(unit_type), 
 	unit_num varchar(10), 
 	predir varchar(2) references tn911.predir_tbl(predir), 
 	pretype varchar(5) references tn911.type_tbl(type), 
@@ -35,7 +35,7 @@ CREATE TABLE tn911.address_points (
 	vanity varchar(50), 
 	zip varchar(5), 
 	zip4 varchar(4), 
-	esn varchar(4), 
+	esn varchar(3), 
 	city varchar(30), 
 	county varchar(30), 
 	state varchar(2), 
@@ -46,7 +46,7 @@ CREATE TABLE tn911.address_points (
 	z_val integer, 
 	gpsdate timestamp, 
 	addrauth varchar(50), 
-	source smallint references tn911.source_tbl(source), 
+	source integer references tn911.source_tbl(source), 
 	editor varchar(10), 
 	geomod varchar(75), 
 	geosrce varchar(45), 
@@ -54,7 +54,7 @@ CREATE TABLE tn911.address_points (
 	attmod varchar(75), 
 	attsrce varchar(45), 
 	attdate timestamp, 
-	status smallint references tn911.lifecyclestatus_tbl(status), 
+	status integer references tn911.lifecyclestatus_tbl(status), 
 	delnotes varchar(75)
     ); 
 
@@ -134,7 +134,7 @@ CREATE TABLE tn911.centerlines (
 	label varchar(100), 
 	vanity varchar(75), 
 	subname varchar(50), 
-	nametype smallint references tn911.nametype_tbl(nametype), 
+	nametype integer references tn911.nametype_tbl(nametype), 
 	cfcc varchar(3) references tn911.cfcc_tbl(cfcc), 
 	esn_l varchar(3), 
 	esn_r varchar(3), 
@@ -148,9 +148,9 @@ CREATE TABLE tn911.centerlines (
 	state_r varchar(2), 
 	spdlimit double precision,  
 	oneway varchar(2), 
-	lanes smallint references tn911.lanes_tbl(lanes), 
-	t_elev smallint, 
-	f_elev smallint, 
+	lanes integer references tn911.lanes_tbl(lanes), 
+	t_elev integer, 
+	f_elev integer, 
 	tfcost double precision, 
 	ftcost double precision, 
 	editor varchar(10), 
@@ -160,7 +160,7 @@ CREATE TABLE tn911.centerlines (
 	attmod varchar(75), 
 	attsrc varchar(45), 
 	attdate timestamp,
-	status smallint); 
+	status integer); 
 
 /* Spatial Index */
 CREATE INDEX centerlines_idx ON tn911.centerlines using gist(geom);                  
