@@ -76,8 +76,8 @@ insert into tn911.structype_tbl (structype, strucfk, description) values (9, 100
 insert into tn911.structype_tbl (structype, strucfk, description) values (10, 100, '10-Trailer Park'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (11, 100, '11-RV/Camper'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (12, 100, '12-Cabin'); 
-insert into tn911.structype_tbl (structype, strucfk, description) values (13, 100, '13-Day Care'); 
-insert into tn911.structype_tbl (structype, strucfk, description) values (14, 100, '14-Day Care'); 
+insert into tn911.structype_tbl (structype, strucfk, description) values (13, 100, '13-Day Care (Child)'); 
+insert into tn911.structype_tbl (structype, strucfk, description) values (14, 100, '14-Day Care (Adult)'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (15, 100, '15-Senior Citizen Center'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (16, 100, '16-Bus'); 
 insert into tn911.structype_tbl (structype, strucfk, description) values (17, 100, '17-Quadplex'); 
