@@ -44,7 +44,7 @@ CREATE TRIGGER update_centerlines_oirid before insert or update
  $$
 LANGUAGE PLPGSQL;
  
- CREATE TRIGGER address_esn 
+ CREATE TRIGGER update_address_esn 
  BEFORE insert or update
      ON tn911.address_points FOR EACH ROW 
      EXECUTE PROCEDURE 
@@ -155,11 +155,7 @@ END;
 $$
 LANGUAGE PLPGSQL; 
 
-CREATE TRIGGER create_centerlines_attdate before insert 
-   on tn911.centerlines FOR EACH ROW 
-   EXECUTE PROCEDURE tn911.centerlines_func_attdate();  
-
-CREATE TRIGGER update_centerlines before update 
+CREATE TRIGGER update_centerlines_attdate before update 
    on tn911.centerlines FOR EACH ROW 
    WHEN (old.l_f_add is distinct from new.l_f_add OR
 	 old.l_t_add is distinct from new.l_t_add OR
@@ -249,7 +245,7 @@ CREATE TRIGGER update_esn_geodate BEFORE update
 
 --Set up notify for QGIS 
 
-CREATE FUNCTION public.notify_qgis() RETURNS trigger
+CREATE OR REPLACE FUNCTION public.notify_qgis() RETURNS trigger
     LANGUAGE plpgsql
     AS $$
         BEGIN NOTIFY qgis;
