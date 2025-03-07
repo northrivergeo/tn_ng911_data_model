@@ -212,7 +212,7 @@ insert into tn911.structype_tbl (structype, strucfk, description) values (9002, 
 DROP TABLE IF EXISTS tn911.type_tbl;
 create table tn911.type_tbl ( 
         description varchar(24),
-	type varchar(5) primary key  
+	type varchar(24) primary key  
         ); 
 
 insert into tn911.type_tbl (description, type) values ('ALY', 'ALLEY'); 
@@ -422,7 +422,7 @@ insert into tn911.type_tbl (description, type) values ('WLS', 'WELLS');
 DROP TABLE IF EXISTS tn911.unit_type_tbl; 
 create table tn911.unit_type_tbl ( 
         description varchar(24),
-	unit_type varchar(4) primary key 
+	unit_type varchar(24) primary key 
         ); 
 
 insert into tn911.unit_type_tbl (description, unit_type) values ('APARTMENT', 'APT'); 

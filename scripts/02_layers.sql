@@ -10,7 +10,7 @@ CREATE TABLE tn911.address_points (
 	segid varchar(25), 
 	r_segid varchar(25), 
 	a_segid varchar(25), 
-	seg_side varchar(1) references tn911.segside_tbl(segside), 
+	seg_side varchar(1) references tn911.segside_tbl(seg_side), 
 	gislink varchar(15), 
 	strucdomain varchar(30) references tn911.strucdomain_tbl(strucdomain), 
 	structype integer references tn911.structype_tbl(structype), 
