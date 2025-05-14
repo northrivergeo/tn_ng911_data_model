@@ -255,7 +255,7 @@ insert into tn911.type_tbl (type, description) values ('CV', 'COVE');
 insert into tn911.type_tbl (type, description) values ('CVS', 'COVES'); 
 insert into tn911.type_tbl (type, description) values ('CRK', 'CREEK'); 
 insert into tn911.type_tbl (type, description) values ('CRES', 'CRESCENT'); 
-insert into tn911.type_tbl (type, description),, type) values ('CRST', 'CREST'); 
+insert into tn911.type_tbl (type, description) values ('CRST', 'CREST'); 
 insert into tn911.type_tbl (type, description) values ('XING', 'CROSSING'); 
 insert into tn911.type_tbl (type, description) values ('XRD', 'CROSSROAD'); 
 insert into tn911.type_tbl (type, description) values ('XRDS', 'CROSSROADS'); 

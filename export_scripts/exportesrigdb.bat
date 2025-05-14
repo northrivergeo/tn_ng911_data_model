@@ -4,4 +4,3 @@ ogr2ogr -f OpenFileGDB  TCStransport.gdb -nlt point  PG:"host=host user=user dbn
 ogr2ogr -f OpenFileGDB  TCStransport.gdb -append -nlt linestring  PG:"host=host user=user dbname=dbname password=pass" "tn911.centerlines" -nln centerlines 
 ogr2ogr -f OpenFileGDB  TCStransport.gdb -append -nlt polygon  PG:"host=host user=user dbname=dbname password=pass" "tn911.esn_boundary" -nln esn_boundary
 
-
