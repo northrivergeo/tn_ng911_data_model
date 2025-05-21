@@ -63,7 +63,7 @@ LANGUAGE PLPGSQL;
 
 CREATE TRIGGER update_address_geodate before update 
    on tn911.address_points FOR EACH ROW 
-   WHEN (old.geom is distinct from new.geom) 
+   WHEN (old.geom::text is distinct from new.geom::text) 
    EXECUTE PROCEDURE 
    tn911.address_func_geodate();  
 
