@@ -1,8 +1,0 @@
-# stop the test live load from being uploaded 
-scripts/load_live.sh 
-ng911.qgz
-ng911_data
-ng911.qgs.qgz
-nena/*.sql 
-mergin/*
-experimental/*
