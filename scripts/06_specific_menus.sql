@@ -7,7 +7,7 @@ create table tn911.county_type_tbl as
       tn911.address_points 
    group by 
       type 
-   order by type asc
+   order by type asc; 
 
 --create a table for existing zipcodes--
 create table tn911.county_zipcodes_tbl as 
@@ -18,7 +18,7 @@ create table tn911.county_zipcodes_tbl as
       tn911.address_points 
    group by 
       zip 
-   order by zip asc
+   order by zip asc; 
 
 --create a table for existing cities-- 
 create table tn911.county_city_tbl as
@@ -29,7 +29,7 @@ create table tn911.county_city_tbl as
       tn911.address_points 
    group by 
       city    
-   order by city asc
+   order by city asc; 
 
 --create a table for existing addrauth-- 
 create table tn911.county_addrauth_tbl as
@@ -40,6 +40,6 @@ create table tn911.county_addrauth_tbl as
       tn911.address_points
    group by
       addrauth
-   order by addrauth asc
+   order by addrauth asc; 
 
 
