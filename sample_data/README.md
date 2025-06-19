@@ -1,0 +1,1 @@
+**The best way to load this data for now is to Build the database and Copy and Paste it into the postgresql tables (simple copy and paste).**
