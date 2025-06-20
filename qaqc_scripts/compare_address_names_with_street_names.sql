@@ -4,6 +4,6 @@ select
    ap.name, 
    rc.name
 from 
-   ok911.address_points ap 
-left join 
-   ok911.centerlines rc on ap.name = rc.name group by ap.name, rc.name order by ap.name asc
+   tn911.address_points ap 
+full join  
+   tn911.centerlines rc on ap.name = rc.name group by ap.name, rc.name order by ap.name asc

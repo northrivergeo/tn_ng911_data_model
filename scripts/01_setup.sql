@@ -1,6 +1,7 @@
 /* qgis schema */ 
 
 create schema tn911; 
+create schema qaqc; 
 
 
 /* qgis form for predir and reference*/ 
