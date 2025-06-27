@@ -2,7 +2,7 @@
 /*rjhale                            */ 
 /*20200924                          */
 
-DROP TABLE IF EXISTS tn911.address_points; 
+DROP TABLE IF EXISTS tn911.address_points CASCADE; 
 CREATE TABLE tn911.address_points ( 
 	id serial primary key, 
 	geom geometry (point, 2274), 
@@ -115,7 +115,7 @@ comment on column tn911.address_points.delnotes is 'A notation field explaining 
 
 /**********************************************************************************/
 
-DROP TABLE IF EXISTS tn911.centerlines; 
+DROP TABLE IF EXISTS tn911.centerlines CASCADE; 
 CREATE TABLE tn911.centerlines ( 
 	id serial primary key, 
         geom geometry (linestring, 2274),	
@@ -215,7 +215,7 @@ comment on column tn911.centerlines.status is 'Defines the current lifecycle sta
 
 /**********************************************************************************/
 
-DROP TABLE IF EXISTS tn911.esn;
+DROP TABLE IF EXISTS tn911.esn CASCADE;
 CREATE TABLE tn911.esn ( 
         id serial primary key,
         geom geometry (polygon, 2274),
@@ -246,7 +246,7 @@ comment on column tn911.esn.le is 'Designation for the law enforcement response 
 comment on column tn911.esn.fd is 'Designation for the responding fire department associated with this ESN.  This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
 comment on column tn911.esn.ems is 'Designation for the emergency medical response agency associated with this ESN. This field can identify more than one response agency. Although this is a freeform field, consistency in the values should still be employed.'; 
 
-DROP TABLE IF EXISTS tn911.esb_ems; 
+DROP TABLE IF EXISTS tn911.esb_ems CASCADE; 
 CREATE TABLE tn911.esb_ems ( 
         id serial primary key,
         geom geometry (polygon, 2274),
@@ -274,7 +274,7 @@ comment on column tn911.esb_ems.serviceuri is 'Uniform Resource Identifier which
 comment on column tn911.esb_ems.serviceurn is 'Uniform Resource Name which is a type of URI. The URN is used to select the service for the desired route. In the service boundaries described here, there are three options.';
 comment on column tn911.esb_ems.servicenum is 'The number (without hyphens) that would be dialed to reach the service.';
 	                    
-DROP TABLE IF EXISTS tn911.esb_fire; 
+DROP TABLE IF EXISTS tn911.esb_fire CASCADE; 
 CREATE TABLE tn911.esb_fire ( 
         id serial primary key,
         geom geometry (polygon, 2274),
@@ -303,7 +303,7 @@ comment on column tn911.esb_fire.serviceurn is 'Uniform Resource Name which is a
 comment on column tn911.esb_fire.servicenum is 'The number (without hyphens) that would be dialed to reach the service.';
 	                    
 	                    
-DROP TABLE IF EXISTS tn911.esb_law; 
+DROP TABLE IF EXISTS tn911.esb_law CASCADE; 
 CREATE TABLE tn911.esb_law ( 
         id serial primary key,
         geom geometry (polygon, 2274),
