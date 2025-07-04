@@ -1,4 +1,5 @@
 --create a table for existing road type--
+DROP TABLE IF EXISTS tn911.county_type_tbl CASCADE; 
 create table tn911.county_type_tbl as 
    select 
       type as type, 

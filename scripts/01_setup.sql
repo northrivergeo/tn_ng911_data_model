@@ -621,3 +621,12 @@ insert into tn911.geosrc_tbl (geosrc, description) values ('GPS', 'GPS');
 insert into tn911.geosrc_tbl (geosrc, description) values ('Aerial Imagery', 'Aerial Imagery'); 
 insert into tn911.geosrc_tbl (geosrc, description) values ('Drone', 'Drone'); 
 insert into tn911.geosrc_tbl (geosrc, description) values ('Other', 'Other'); 
+
+DROP TABLE IF EXISTS tn911.geosrc_tbl;
+create table tn911.yesno_tbl (
+        type varchar(8) primary key,
+        description varchar(8)
+        );
+
+insert into tn911.yesno_tbl (type, description) values ('Yes', 'Yes'); 
+insert into tn911.yesno_tbl (type, description) values ('No', 'No'); 
