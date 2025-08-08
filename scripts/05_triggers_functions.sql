@@ -8,7 +8,6 @@ RETURNS TRIGGER AS $$
 BEGIN
    NEW.oirid = 'COUNTY'||'_'||new.id;
    NEW.editor = current_user;
-   NEW.gpsdate = current_timestamp;
    RETURN NEW;
 END;
 $$
@@ -18,20 +17,21 @@ CREATE TRIGGER update_address_oirid BEFORE insert
     ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
     tn911.address_func_oirid();
 
-CREATE OR REPLACE FUNCTION tn911.centerlines_func_oirid()
+--updating gpsdate for addresses
+
+
+CREATE OR REPLACE FUNCTION tn911.address_func_gpsdate()
 RETURNS TRIGGER AS $$
 BEGIN
-   NEW.oirid = 'COUNTY'||'_'||new.id;
-   NEW.editor = current_user;
-   NEW.geodate = current_timestamp;
-   RETURN NEW;
+   NEW.gpsdate = current_timestamp;
 END;
 $$
 LANGUAGE PLPGSQL;
 
-CREATE TRIGGER update_centerlines_oirid before insert or update
-   on tn911.centerlines FOR EACH ROW EXECUTE PROCEDURE
-   tn911.centerlines_func_oirid();
+CREATE TRIGGER update_address_gpsdate BEFORE insert
+    ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
+    tn911.address_func_gpsdate();
+
 
 --Updates ESN in address_points table
 
@@ -143,6 +143,37 @@ CREATE TRIGGER update_address_attdate before update
 
 
 /* next up is Centerlines */ 
+
+
+--update the centerline geodate
+
+CREATE TRIGGER update_address_oirid BEFORE insert
+    ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
+    tn911.address_func_oirid();
+
+CREATE OR REPLACE FUNCTION tn911.centerlines_func_oirid()
+RETURNS TRIGGER AS $$
+BEGIN
+   NEW.oirid = 'COUNTY'||'_'||new.id;
+   NEW.editor = current_user;
+   RETURN NEW;
+END;
+$$
+LANGUAGE PLPGSQL;
+
+--update centerline geodate
+CREATE OR REPLACE FUNCTION tn911.centerline_func_geodate()
+RETURNS TRIGGER AS $$
+BEGIN
+   NEW.geodate = current_timestamp;
+END;
+$$
+LANGUAGE PLPGSQL;
+
+CREATE TRIGGER update_centerline_geodate BEFORE insert
+    ON tn911.address_points FOR EACH ROW EXECUTE PROCEDURE
+    tn911.centerline_func_geodate();
+
 
 --Updates attdate in centerline table
 
