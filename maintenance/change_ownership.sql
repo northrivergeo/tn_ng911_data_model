@@ -1,5 +1,4 @@
-DO $$
-DECLARE 
+DO $$DECLARE 
   r record;
   i int;
   v_schema text[] := '{public,schema1,schema2,schema3}';

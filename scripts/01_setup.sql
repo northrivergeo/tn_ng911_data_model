@@ -2,6 +2,7 @@
 
 create schema tn911; 
 create schema qaqc; 
+create schema garage; 
 
 
 /* qgis form for predir and reference*/ 
@@ -606,9 +607,9 @@ create table tn911.access_tbl (
 	description varchar(50)
         ); 
 
-insert into tn911.access_tbl (type, description) values ('access', 'Access Point'); 
-insert into tn911.access_tbl (type, description) values ('routing', 'Routing Point'); 
-insert into tn911.access_tbl (type, description) values ('access and routing', 'Structure is accessed and routed from this point'); 
+insert into tn911.access_tbl (type, description) values ('ACCESS', 'Access Point'); 
+insert into tn911.access_tbl (type, description) values ('ROUTING', 'Routing Point'); 
+insert into tn911.access_tbl (type, description) values ('ACCESS AND ROUTING', 'Structure is accessed and routed from this point'); 
 
 DROP TABLE IF EXISTS tn911.geosrc_tbl; 
 create table tn911.geosrc_tbl ( 
@@ -616,11 +617,11 @@ create table tn911.geosrc_tbl (
 	description varchar(50)
         ); 
 
-insert into tn911.geosrc_tbl (geosrc, description) values ('Survey', 'Survey'); 
-insert into tn911.geosrc_tbl (geosrc, description) values ('GPS', 'GPS'); 
-insert into tn911.geosrc_tbl (geosrc, description) values ('Aerial Imagery', 'Aerial Imagery'); 
-insert into tn911.geosrc_tbl (geosrc, description) values ('Drone', 'Drone'); 
-insert into tn911.geosrc_tbl (geosrc, description) values ('Other', 'Other'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('SURVEY', 'Survey'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('SITE VISIT', 'Site Visit'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('AERIAL IMAGERY', 'Aerial Imagery'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('DRONE', 'Drone'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('OTHER', 'Other'); 
 
 DROP TABLE IF EXISTS tn911.geosrc_tbl;
 create table tn911.yesno_tbl (
@@ -628,5 +629,5 @@ create table tn911.yesno_tbl (
         description varchar(8)
         );
 
-insert into tn911.yesno_tbl (type, description) values ('Yes', 'Yes'); 
-insert into tn911.yesno_tbl (type, description) values ('No', 'No'); 
+insert into tn911.yesno_tbl (type, description) values ('YES', 'Yes'); 
+insert into tn911.yesno_tbl (type, description) values ('NO', 'No'); 
