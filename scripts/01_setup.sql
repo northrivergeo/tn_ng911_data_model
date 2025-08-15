@@ -1,7 +1,5 @@
 /* qgis schema */ 
-
 create schema tn911; 
-create schema qaqc; 
 create schema garage; 
 
 
@@ -617,13 +615,14 @@ create table tn911.geosrc_tbl (
 	description varchar(50)
         ); 
 
-insert into tn911.geosrc_tbl (geosrc, description) values ('SURVEY', 'Survey'); 
-insert into tn911.geosrc_tbl (geosrc, description) values ('SITE VISIT', 'Site Visit'); 
 insert into tn911.geosrc_tbl (geosrc, description) values ('AERIAL IMAGERY', 'Aerial Imagery'); 
 insert into tn911.geosrc_tbl (geosrc, description) values ('DRONE', 'Drone'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('GPS', 'GPS'); 
 insert into tn911.geosrc_tbl (geosrc, description) values ('OTHER', 'Other'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('SURVEY', 'Survey'); 
+insert into tn911.geosrc_tbl (geosrc, description) values ('SITE VISIT', 'Site Visit'); 
 
-DROP TABLE IF EXISTS tn911.geosrc_tbl;
+DROP TABLE IF EXISTS tn911.yesno_tbl;
 create table tn911.yesno_tbl (
         type varchar(8) primary key,
         description varchar(8)
@@ -631,3 +630,37 @@ create table tn911.yesno_tbl (
 
 insert into tn911.yesno_tbl (type, description) values ('YES', 'Yes'); 
 insert into tn911.yesno_tbl (type, description) values ('NO', 'No'); 
+
+DROP TABLE IF EXISTS tn911.geomod_tbl; 
+create table tn911.geomod_tbl ( 
+	geomod varchar(50) primary key,
+	description varchar(50)
+        ); 
+
+insert into tn911.geomod_tbl (geomod, description) values ('ADJUSTED FOR ACCURACY', 'ADJUSTED FOR ACCURACY'); 
+insert into tn911.geomod_tbl (geomod, description) values ('MOVED TO ROOFTOP', 'MOVED TO ROOFTOP'); 
+insert into tn911.geomod_tbl (geomod, description) values ('MOVED TO FRONT DOOR', 'MOVED TO FRONT DOOR'); 
+insert into tn911.geomod_tbl (geomod, description) values ('STRUCTURE MOVED', 'STRUCTURE MOVED'); 
+
+DROP TABLE IF EXISTS tn911.attmod_tbl; 
+create table tn911.attmod_tbl ( 
+	attmod varchar(50) primary key,
+	description varchar(50)
+        ); 
+
+insert into tn911.attmod_tbl (attmod, description) values ('CORRECTED ADDRESS', 'CORRECTED ADDRESS'); 
+insert into tn911.attmod_tbl (attmod, description) values ('CORRECTED ESN', 'CORRECTED ESN'); 
+insert into tn911.attmod_tbl (attmod, description) values ('SPELLING CORRECTION', 'SPELLING CORRECTION'); 
+
+DROP TABLE IF EXISTS tn911.attsrc_tbl; 
+create table tn911.attsrc_tbl ( 
+	attsrc varchar(50) primary key,
+	description varchar(50)
+        ); 
+
+insert into tn911.attsrc_tbl (attsrc, description) values ('CHECKED WITH EXISTING DATA', 'CHECKED WITH EXISTING DATA'); 
+insert into tn911.attsrc_tbl (attsrc, description) values ('FIELD VERIFICATION', 'FIELD VERIFICATION'); 
+insert into tn911.attsrc_tbl (attsrc, description) values ('IMAGERY VERIFICATION', 'IMAGERY VERIFICATION'); 
+insert into tn911.attsrc_tbl (attsrc, description) values ('SPELLING CORRECTION', 'SPELLING CORRECTION'); 
+
+
